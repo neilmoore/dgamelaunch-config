@@ -9,14 +9,38 @@ DGL_LOCKS=()
 
 PROMPTS_DISABLED=
 
-announce() {
+say() {
     echo "** $@ **"
+}
+
+announce() {
+    echo
+    echo "---------------------------------------------------------------------"
+    echo "$@"
+    echo "$@" >>$ANNOUNCEMENTS_FILE
+}
+
+abort-saying() {
+    echo -e "$@"
+    echo -e "Aborting..."
+    exit 1
 }
 
 # Call with any argument to disable prompts
 disable-prompts() {
     if (( $# > 0 )); then
         PROMPTS_DISABLED=1
+    fi
+}
+
+prompts-enabled() {
+    [[ -z "$PROMPTS_DISABLED" && -t 0 ]]
+}
+
+prompt() {
+    if prompts-enabled; then
+        echo "-- Press RETURN to $@ --"
+        read
     fi
 }
 
@@ -31,20 +55,26 @@ unlock-on-error() {
     exit 1
 }
 
-trap unlock-on-error INT TERM
-trap unlock-dgl-locks EXIT
+trap-lock-hook-cleanup() {
+    if [[ -z "$DGL_TRAP_LOCK_CLEANUP_HOOKED" ]]; then
+        trap unlock-on-error INT TERM
+        trap unlock-dgl-locks EXIT
+        DGL_TRAP_LOCK_CLEANUP_HOOKED=1
+    fi
+}
 
 lock-or-die() {
     local lock_name=$1
     mkdir -p "$DGL_CONF_LOCK_DIR"
     local lock_file="$DGL_CONF_LOCK_DIR/${lock_name}.lock"
     shift || true
-    if [[ -f "$lock_file" ]]; then
+    if ( set -o noclobber; echo "$$" > "$lock_file" ) 2>/dev/null; then
+        DGL_LOCKS=(${DGL_LOCKS[@]} "$lock_file")
+        trap-lock-hook-cleanup
+    else
         echo "Could not lock $lock_file: $@"
         exit 1
     fi
-
-    touch "$lock_file"
 }
 
 dgl-today() {

@@ -5,6 +5,16 @@
 
 SELF=$0
 
+canonical-name() {
+    local name=$1
+    if [[ -d "$name" ]]; then
+        printf "%s\n" "$(cd $name && echo $PWD)"
+    else
+        local dir=$(cd $(dirname $name) && echo $PWD)
+        printf "%s\n" "$dir/$(basename $name)"
+    fi
+}
+
 test-set-dgl-home() {
     if [[ -n "$DGL_CONF_HOME" ]]; then
         return 0
@@ -12,7 +22,7 @@ test-set-dgl-home() {
     local dir=$1
     if [[ -d "$dir" && -d "$dir/bin" && -f "$dir/dgamelaunch.conf" \
            && -d "$dir/chroot" ]]; then
-        export DGL_CONF_HOME="$dir"
+        export DGL_CONF_HOME="$(canonical-name $dir)"
         export DGL_CONF_LOGS="$dir/logs"
         mkdir -p "$DGL_CONF_LOGS"
     fi
@@ -60,4 +70,5 @@ if [[ ! -f "$ACTION_SCRIPT" ]]; then
 fi
 
 cd "$DGL_CONF_HOME"
-exec bash "$ACTION_SCRIPT" "$@"
+source sh-utils
+source "$ACTION_SCRIPT"

@@ -8,10 +8,8 @@ lock-or-die crawl-update "someone is already updating the trunk build"
 . crawl-git.conf
 check-versions-db-exists
 
-export GAME="crawl-svn"
-export DESTDIR=$DGL_CHROOT
-
-ANNOUNCEMENTS_FILE="$DGL_CONF_LOGS/announcements.log"
+export GAME="crawl-git"
+export DESTDIR=$DGL_CHROOT/$CHROOT_CRAWL_BASEDIR
 
 TODAY="$(dgl-today)"
 
@@ -21,48 +19,47 @@ export REVISION="$(git rev-parse $BRANCH)"
 REVISION_FULL="$(git describe --long $BRANCH)"
 REVISION_OLD="$(echo "select hash from versions order by time desc limit 1;" | sqlite3 ${VERSIONS_DB})"
 
-if test "${REVISION}" = "${REVISION_OLD}"
-then
-	echo "Nothing new to install at the moment."
-	echo "Aborting..."
-	echo
-	exit 1
-fi
+[[ "$REVISION" == "$REVISION_OLD" ]] && \
+    abort-saying "Nothing new to install at the moment."
 
-echo "-- Press RETURN to start installation --"
-test ${WAIT_KEY} -eq 1 && read || echo
+prompt "start install"
 
-cd crawl-ref
+cd $CRAWL_REPOSITORY_DIR/crawl-ref
 
 echo "Copying CREDITS to docs/crawl_credits.txt..."
 cp CREDITS.txt docs/crawl_credits.txt
 
-echo "Creating changelog in docs/crawl_changelog.txt..."
-git log --pretty=tformat:"--------------------------------------------------------------------------------%n%h | %an | %ci%n%n%s%n%b" ${PRIMARY_BRANCH_REMOTE} | grep -v "git-svn-id" | awk 1 RS= ORS="\n\n" | fold -s > docs/crawl_changelog.txt
+dgl-git-log() {
+    git log --pretty=tformat:"--------------------------------------------------------------------------------%n%h | %an | %ci%n%n%s%n%b" "$@" | grep -v "git-svn-id" | awk 1 RS= ORS="\n\n" | fold -s
+}
 
-if test ${WAIT_KEY} -eq 1
-then
-	echo "Displaying changes since ${REVISION_OLD}..."
-	git log --pretty=tformat:"--------------------------------------------------------------------------------%n%h | %an | %ci%n%n%s%n%b" ${REVISION_OLD}..${REVISION} | grep -v "git-svn-id" | awk 1 RS= ORS="\n\n" | fold -s | less
+echo "Creating changelog in docs/crawl_changelog.txt..."
+dgl-git-log $BRANCH > docs/crawl_changelog.txt
+
+if prompts-enabled; then
+    echo "Changes to $BRANCH from $REVISION_OLD .. $REVISION"
+    dgl-git-log ${REVISION_OLD}..${REVISION} | less
 fi
 
-echo "-- Press RETURN to compile ${GAME}-${REVISION} --"
-test ${WAIT_KEY} -eq 1 && read || echo
+prompt "compile ${GAME}-${REVISION}"
 
 # REMEMBER to adjust /var/lib/dgamelaunch/sbin/install-trunk.sh as well if make parameters change!
 ##################################################################################################
 
-nice make -j2 -C source GAME=${GAME}-${REVISION} GAME_MAIN=${GAME} MCHMOD=0755 MCHMOD_SAVEDIR=755 INSTALL_UGRP=dgl:crawl BUILD_PCRE=YesPlease USE_DGAMELAUNCH=YesPlease WIZARD=YesPlease STRIP=true DESTDIR=${DESTDIR} prefix= bin_prefix=/bin SAVEDIR=/${GAME}-${REVISION}/saves DATADIR=/${GAME}-${REVISION} USE_MERGE_BASE="${PRIMARY_BRANCH_REMOTE}" EXTERNAL_FLAGS_L="-g"
+nice make -j2 -C source GAME=${GAME}-${REVISION} \
+    GAME_MAIN=${GAME} MCHMOD=0755 MCHMOD_SAVEDIR=755 \
+    INSTALL_UGRP=$CRAWL_UGRP \
+    BUILD_PCRE=YesPlease USE_DGAMELAUNCH=YesPlease WIZARD=YesPlease \
+    STRIP=true DESTDIR=${DESTDIR} prefix= bin_prefix=/bin \
+    SAVEDIR=$CHROOT_CRAWL_BASEDIR/${GAME}-${REVISION}/saves \
+    DATADIR=$CHROOT_CRAWL_BASEDIR/${GAME}-${REVISION}/data \
+    EXTERNAL_FLAGS_L="-g"
 
-echo "-- Press RETURN to install ${GAME}-${REVISION} --"
-test ${WAIT_KEY} -eq 1 && read || echo
+prompt "install ${GAME}-${REVISION}"
 
 if { ps -fC ${GAME}-${REVISION} | awk '{ print $1" "$2"\t "$5" "$7"\t "$8" "$9" "$10 }' | grep ^dgl; }
 then
-	echo "There are already active instances of this version (${REVISION_FULL}) running."
-	echo "Aborting..."
-	echo
-	exit 1
+    abort-saying "There are already active instances of this version (${REVISION_FULL}) running."
 fi
 
 echo "Searching for version tags..."
@@ -70,23 +67,18 @@ export SGV_MAJOR="$(grep "#define TAG_MAJOR_VERSION[[:space:]]*[[:digit:]]*" sou
 export SGV_MINOR="0"
 echo
 
-sudo -H -E -u root /var/lib/dgamelaunch/sbin/install-trunk.sh
+DGL_CONF_HOME=$DGL_CONF_HOME \
+    CRAWL_UGRP=$CRAWL_UGRP \
+    CHROOT_CRAWL_BASEDIR=$CHROOT_CRAWL_BASEDIR \
+    sudo -H -E $DGL_CHROOT/sbin/install-trunk-build.sh
 
-echo "-- Press RETURN to clean source --"
-test ${WAIT_KEY} -eq 1 && read || echo
-
+prompt "clean source"
 make -C source GAME=${GAME}-${REVISION} distclean
-
 rm -vf docs/crawl_changelog.txt
 rm -vf docs/crawl_credits.txt
-rm -vf /var/www/crawl.develz.org/htdocs/trunk/rss/feeds/cdo.xml
+#rm -vf /var/www/crawl.develz.org/htdocs/trunk/rss/feeds/cdo.xml
 
-cd ..
+announce "Unstable branch on CDO updated to: ${REVISION_FULL} (${SGV_MAJOR})"
 
-echo
-echo "---------------------------------------------------------------------"
-echo "Unstable branch on CDO updated to: ${REVISION_FULL} (${SGV_MAJOR})"
-echo "Unstable branch on CDO updated to: ${REVISION_FULL} (${SGV_MAJOR})" >> ${ANNOUNCEMENTS}
 echo "All done."
 echo
-
