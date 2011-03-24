@@ -1,0 +1,23 @@
+Crawl server (North America) hosted and maintained by Rachel Elizabeth Dillon.
+------------------------------------------------------------------------------
+Server information: http://crawl.akrasiac.org
+Crawl information:  http://crawl.develz.org
+------------------------------------------------------------------------------
+** Games on this server are recorded for in-progress viewing and playback! **
+------------------------------------------------------------------------------
+
+Logged in as: $USERNAME (admin)
+
+W) Watch games in progress
+
+1) Dungeon Crawl Stone Soup 0.7.2
+2) Dungeon Crawl Stone Soup 0.6.1
+
+K) Play robotfindskitten
+
+c) Change password
+e) Change email address
+
+Q)uit or P)lay or S)print in Crawl 0.7 now
+
+=> 

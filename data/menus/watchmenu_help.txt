@@ -1,0 +1,22 @@
+Help for watching-menu
+----------------------
+?        show this help.
+> <      next/previous page.
+. ,      change sorting method.
+q Q      return to main menu.
+a-zA-Z   select a game to watch.
+/        select/search by name a game to watch.
+*        start showing a randomly selected game.
+enter    start watching already selected game.
+
+
+While watching a game
+---------------------
+q        return to the watching menu.
+m        send mail to the player (requires login).
+s        toggle charset stripping between Unicode/IBM/none.
+r        resize your terminal to match the player's terminal.
+
+
+
+Press 'q' or space to return.

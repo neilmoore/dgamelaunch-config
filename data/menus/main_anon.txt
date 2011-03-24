@@ -1,0 +1,18 @@
+Crawl server (North America) hosted and maintained by Rachel Elizabeth Dillon.
+------------------------------------------------------------------------------
+Server information: http://crawl.akrasiac.org
+Crawl information:  http://crawl.develz.org
+------------------------------------------------------------------------------
+** Games on this server are recorded for in-progress viewing and playback! **
+------------------------------------------------------------------------------
+
+Not logged in.
+
+W) Watch games in progress
+
+R) Register as new user
+L) Login
+
+Q) Quit
+
+=> 
