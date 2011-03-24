@@ -1,0 +1,64 @@
+#! /bin/bash
+
+source "$DGL_CONF_HOME/sh-config"
+
+DGL_CONF_LOCK_DIR="$DGL_CONF_HOME/locks"
+
+declare -a DGL_LOCKS
+DGL_LOCKS=()
+
+PROMPTS_DISABLED=
+
+announce() {
+    echo "** $@ **"
+}
+
+# Call with any argument to disable prompts
+disable-prompts() {
+    if (( $# > 0 )); then
+        PROMPTS_DISABLED=1
+    fi
+}
+
+unlock-dgl-locks() {
+    if (( "${#DGL_LOCKS[@]}" > 0 )); then
+        rm -f ${DGL_LOCKS[@]}
+    fi
+}
+
+unlock-on-error() {
+    unlock-dgl-locks
+    exit 1
+}
+
+trap unlock-on-error INT TERM
+trap unlock-dgl-locks EXIT
+
+lock-or-die() {
+    local lock_name=$1
+    mkdir -p "$DGL_CONF_LOCK_DIR"
+    local lock_file="$DGL_CONF_LOCK_DIR/${lock_name}.lock"
+    shift || true
+    if [[ -f "$lock_file" ]]; then
+        echo "Could not lock $lock_file: $@"
+        exit 1
+    fi
+
+    touch "$lock_file"
+}
+
+dgl-today() {
+    date +%y%m%d-%H%M
+}
+
+check-chroot-exists() {
+    if [[ ! -d "$DGL_CHROOT" ]]; then
+        cat >&2 <<ERROR
+DGL chroot $DGL_CHROOT doesn't exist.
+Please create it, or edit $DGL_CONF_HOME/sh-config to point at the real chroot.
+ERROR
+        exit 1
+    fi
+}
+ 
+disable-prompts $*

@@ -1,0 +1,63 @@
+#! /bin/bash
+#
+# General launcher script for dgamelaunch actions. The idea is to symlink
+# this (one) script into $HOME/bin and use it to run the others.
+
+SELF=$0
+
+test-set-dgl-home() {
+    if [[ -n "$DGL_CONF_HOME" ]]; then
+        return 0
+    fi
+    local dir=$1
+    if [[ -d "$dir" && -d "$dir/bin" && -f "$dir/dgamelaunch.conf" \
+           && -d "$dir/chroot" ]]; then
+        export DGL_CONF_HOME="$dir"
+        export DGL_CONF_LOGS="$dir/logs"
+        mkdir -p "$DGL_CONF_LOGS"
+    fi
+}
+
+find-dgl-home() {
+    test-set-dgl-home "$HOME/conf-dgamelaunch"
+    test-set-dgl-home "$(dirname $SELF)/.."
+
+    local link_target="$(readlink $0)"
+    if [[ -n "$link_target" ]]; then
+        test-set-dgl-home "$(dirname $(readlink $SELF))/.."
+    fi
+
+    if [[ -z "$DGL_CONF_HOME" ]]; then
+        echo -e "Cannot find dgamelaunch config base directory"
+        return 1
+    fi
+}
+
+find-dgl-home || exit 1
+
+ACTION=$1
+shift
+ACTION_SCRIPT="$DGL_CONF_HOME/bin/$ACTION.sh"
+
+find-all-actions() {
+    local -a actions
+    actions=($DGL_CONF_HOME/bin/*.sh)
+    actions=(${actions[@]%%.sh})
+    actions=(${actions[@]##$DGL_CONF_HOME/bin/})
+    echo "${actions[@]}"
+}
+
+if [[ -z "$ACTION" ]]; then
+    echo -e "Usage: $SELF <action>"
+    echo -e "Where <action> is one of: $(find-all-actions)"
+    exit 1
+fi
+
+if [[ ! -f "$ACTION_SCRIPT" ]]; then
+    echo -e "Can't find dgamelaunch action '$ACTION'"
+    echo -e "Available actions are: $(find-all-actions)"
+    exit 1
+fi
+
+cd "$DGL_CONF_HOME"
+exec bash "$ACTION_SCRIPT" "$@"

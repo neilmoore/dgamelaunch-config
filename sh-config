@@ -1,0 +1,4 @@
+#! /bin/bash
+
+ANNOUNCEMENTS_FILE="$DGL_CONF_LOGS/announcements.log"
+DGL_CHROOT=/var/lib/dgamelaunch

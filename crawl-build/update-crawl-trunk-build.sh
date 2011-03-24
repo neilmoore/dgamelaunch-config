@@ -1,57 +1,24 @@
 #!/bin/bash
 
 set -e
+source $DGL_CONF_HOME/sh-utils
 
-LOCK_FILE="${HOME}/.crawl_cdo_update.lock"
+lock-or-die crawl-update "someone is already updating the trunk build"
 
-if test -f ${LOCK_FILE}
-then
-	echo
-	echo "Someone is currently updating CDO already. Try again later."
-	echo "Aborting..."
-	echo
-	exit 0
-else
-	touch ${LOCK_FILE}
-fi
+. crawl-git.conf
+check-versions-db-exists
 
-force_exit()
-{
-	exit 1
-}
+export GAME="crawl-svn"
+export DESTDIR=$DGL_CHROOT
 
-normal_exit()
-{
-	rm -f ${LOCK_FILE}
-}
+ANNOUNCEMENTS_FILE="$DGL_CONF_LOGS/announcements.log"
 
-trap force_exit INT TERM
-trap normal_exit EXIT
-
-if test "${CONFIG_READ}" != "true"
-then
-	. update.conf
-fi
-
-export GAME="crawl-0.6"
-export PRIMARY_BRANCH_REMOTE="${BRANCH_REMOTE/ */}"
-export DESTDIR=/var/lib/dgamelaunch
-export VERSIONS_DB="${DESTDIR}/versions-0.6.db3"
-
-WAIT_KEY=1
-if test -n "$1"
-then
-	WAIT_KEY=0
-fi
-
-TODAY="$(date +%y%m%d-%H%M)"
+TODAY="$(dgl-today)"
 
 ./update-public-repository.sh
 
-./merge.sh
-
-export REVISION="$(git log --abbrev-commit --pretty=oneline -1 ${PRIMARY_BRANCH_REMOTE} | cut -d' ' -f1)"
-REVISION_FULL="$(git describe --long ${PRIMARY_BRANCH_REMOTE})"
+export REVISION="$(git rev-parse $BRANCH)"
+REVISION_FULL="$(git describe --long $BRANCH)"
 REVISION_OLD="$(echo "select hash from versions order by time desc limit 1;" | sqlite3 ${VERSIONS_DB})"
 
 if test "${REVISION}" = "${REVISION_OLD}"
@@ -82,10 +49,10 @@ fi
 echo "-- Press RETURN to compile ${GAME}-${REVISION} --"
 test ${WAIT_KEY} -eq 1 && read || echo
 
-# REMEMBER to adjust /var/lib/dgamelaunch/sbin/install-0.6.sh as well if make parameters change!
-################################################################################################
+# REMEMBER to adjust /var/lib/dgamelaunch/sbin/install-trunk.sh as well if make parameters change!
+##################################################################################################
 
-nice make -j2 -C source GAME=${GAME}-${REVISION} GAME_MAIN=${GAME} MCHMOD=0755 MCHMOD_SAVEDIR=755 INSTALL_UGRP=dgl:crawl BUILD_PCRE=YesPlease USE_DGAMELAUNCH=YesPlease DESTDIR=${DESTDIR} prefix= bin_prefix=/bin SAVEDIR=/${GAME}-${REVISION}/saves DATADIR=/${GAME}-${REVISION} USE_MERGE_BASE="${PRIMARY_BRANCH_REMOTE}" EXTERNAL_FLAGS_L=-DSAVE_PACKAGE_NONE
+nice make -j2 -C source GAME=${GAME}-${REVISION} GAME_MAIN=${GAME} MCHMOD=0755 MCHMOD_SAVEDIR=755 INSTALL_UGRP=dgl:crawl BUILD_PCRE=YesPlease USE_DGAMELAUNCH=YesPlease WIZARD=YesPlease STRIP=true DESTDIR=${DESTDIR} prefix= bin_prefix=/bin SAVEDIR=/${GAME}-${REVISION}/saves DATADIR=/${GAME}-${REVISION} USE_MERGE_BASE="${PRIMARY_BRANCH_REMOTE}" EXTERNAL_FLAGS_L="-g"
 
 echo "-- Press RETURN to install ${GAME}-${REVISION} --"
 test ${WAIT_KEY} -eq 1 && read || echo
@@ -99,11 +66,11 @@ then
 fi
 
 echo "Searching for version tags..."
-export SGV_MAJOR="$(grep "#define TAG_MAJOR_VERSION[[:space:]]*[[:digit:]]*" source/tags.h | sed 's/.*TAG_MAJOR_VERSION[[:space:]]*\([[:digit:]]*\)/\1/')"
-export SGV_MINOR="$(grep "TAG_MINOR_VERSION[[:space:]]*=" source/tags.h | sed 's/.*=[[:space:]]*\([[:digit:]]*\).*/\1/')"
+export SGV_MAJOR="$(grep "#define TAG_MAJOR_VERSION[[:space:]]*[[:digit:]]*" source/tag-version.h | sed 's/.*TAG_MAJOR_VERSION[[:space:]]*\([[:digit:]]*\)/\1/')"
+export SGV_MINOR="0"
 echo
 
-sudo -H -E -u root /var/lib/dgamelaunch/sbin/install-0.6.sh
+sudo -H -E -u root /var/lib/dgamelaunch/sbin/install-trunk.sh
 
 echo "-- Press RETURN to clean source --"
 test ${WAIT_KEY} -eq 1 && read || echo
@@ -112,12 +79,14 @@ make -C source GAME=${GAME}-${REVISION} distclean
 
 rm -vf docs/crawl_changelog.txt
 rm -vf docs/crawl_credits.txt
+rm -vf /var/www/crawl.develz.org/htdocs/trunk/rss/feeds/cdo.xml
 
 cd ..
 
 echo
 echo "---------------------------------------------------------------------"
-echo "Stable branch on CDO updated to: ${REVISION_FULL} (${SGV_MAJOR}.${SGV_MINOR})"
+echo "Unstable branch on CDO updated to: ${REVISION_FULL} (${SGV_MAJOR})"
+echo "Unstable branch on CDO updated to: ${REVISION_FULL} (${SGV_MAJOR})" >> ${ANNOUNCEMENTS}
 echo "All done."
 echo
 
