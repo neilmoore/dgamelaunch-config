@@ -2,6 +2,7 @@
 
 CHROOT=/var/lib/dgamelaunch
 
+set -e
 echo "Installing dgl config files..."
 
 if [[ "$UID" != "0" ]; then
@@ -13,7 +14,7 @@ if [[ ! -f dgamelaunch.conf ]]; then
     echo -e "Can't find dgamelaunch.conf: must be in the current directory."
 fi
 
-do-copy() {
+do-copy-files() {
     local message=$1
     shift
     local target=$1
@@ -26,6 +27,19 @@ do-copy() {
     cp $* "$target"
 }
 
-do-copy "Installing menu files" $CHROOT/data/menus 'data/menus/*.txt'
+do-copy() {
+    local message=$1
+    shift
+    local target=$1
+    shift
+    echo "$message"
+    if [[ -L "$target" ]]; then
+        echo "Target file ($target) for $@ is a symlink, cannot overwrite."
+        exit 1
+    fi
+    cp $* $target
+}
+
+do-copy-files "Installing menu files" $CHROOT/data/menus data/menus/*.txt
 do-copy "Installing dgamelaunch.conf" /etc ./dgamelaunch.conf
-do-copy "Installing chroot scripts" $CHROOT/bin 'chroot/bin/*'
+do-copy-files "Installing chroot scripts" $CHROOT/bin chroot/bin/*
