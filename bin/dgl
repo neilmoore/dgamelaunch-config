@@ -3,7 +3,12 @@
 # General launcher script for dgamelaunch actions. The idea is to symlink
 # this (one) script into $HOME/bin and use it to run the others.
 
-SELF=$0
+SELF="$0"
+SCRIPT_NAME=$(basename $0)
+
+usage() {
+    echo -e "Usage: $SCRIPT_NAME $@"
+}
 
 canonical-name() {
     local name=$1
@@ -58,7 +63,7 @@ find-all-actions() {
 }
 
 if [[ -z "$ACTION" ]]; then
-    echo -e "Usage: $SELF <action>"
+    usage "<action>"
     echo -e "Where <action> is one of: $(find-all-actions)"
     exit 1
 fi
@@ -71,4 +76,6 @@ fi
 
 cd "$DGL_CONF_HOME"
 source sh-utils
+
+SCRIPT_NAME="$SCRIPT_NAME $ACTION"
 source "$ACTION_SCRIPT"
