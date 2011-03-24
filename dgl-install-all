@@ -1,0 +1,31 @@
+#! /bin/bash
+
+CHROOT=/var/lib/dgamelaunch
+
+echo "Installing dgl config files..."
+
+if [[ "$UID" != "0" ]; then
+    echo -e "This script must be run as root."
+    exit 1
+fi
+
+if [[ ! -f dgamelaunch.conf ]]; then
+    echo -e "Can't find dgamelaunch.conf: must be in the current directory."
+fi
+
+do-copy() {
+    local message=$1
+    shift
+    local target=$1
+    shift
+    echo "$message"
+    if [[ ! -d "$target" ]]; then
+        echo "Creating target directory: $target"
+        mkdir -p "$target"
+    fi
+    cp $* "$target"
+}
+
+do-copy "Installing menu files" $CHROOT/data/menus 'data/menus/*.txt'
+do-copy "Installing dgamelaunch.conf" /etc ./dgamelaunch.conf
+do-copy "Installing chroot scripts" $CHROOT/bin 'chroot/bin/*'
