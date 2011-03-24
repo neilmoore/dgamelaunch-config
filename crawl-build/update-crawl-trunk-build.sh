@@ -70,7 +70,7 @@ echo
 DGL_CONF_HOME=$DGL_CONF_HOME \
     CRAWL_UGRP=$CRAWL_UGRP \
     CHROOT_CRAWL_BASEDIR=$CHROOT_CRAWL_BASEDIR \
-    sudo -H -E $DGL_CHROOT/sbin/install-trunk-build.sh
+    sudo -H -E $DGL_CHROOT/sbin/install-trunk.sh
 
 prompt "clean source"
 make -C source GAME=${GAME}-${REVISION} distclean
