@@ -1,0 +1,41 @@
+dgamelaunch-config
+------------------
+
+This is a collection of scripts to manage a dgamelaunch
+(http://www.advogato.org/proj/dgamelaunch/) install, all run from an
+umbrella `dgl` script.
+
+These are still very incomplete, WIP.
+
+Examples:
+
+1. Update your dgamelaunch config from the repository:
+
+$ sudo dgl publish --confirm
+
+
+2. Change a dgl user's password:
+
+$ sudo dgl passwd johndoe
+
+The goal is to make this a one-stop shop for all your dgamelaunch needs,
+starting from installing dgamelaunch itself
+
+TODO
+----
+
+1. `dgl install-dgl` command to fetch and install the latest dgamelaunch.
+
+2. `dgl create-chroot` command to set up a basic chroot jail with all the
+   fixtures dgamelaunch wants (dgamelaunch already has a skeleton script
+   that can serve as a basis, although this is unfortunately NetHack-biased).
+   
+3. Support for installing different games, including fetching their sources
+   from their respective source repositories, compiling, installing into the
+   chroot, etc.
+       `dgl install crawl master`,
+       `dgl install nethack 3.4.3` etc.)
+
+   Installing a game should also (eventually) add a suitable entry to
+   the various menu files and update the dgamelaunch config
+   appropriately.
