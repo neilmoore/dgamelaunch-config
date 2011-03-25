@@ -27,6 +27,6 @@ read
 
 for char in ${ALL_CHARS}
 do
-    savegame-transfer.sh ${char}
+    dgl savegame-transfer ${char}
 done
 

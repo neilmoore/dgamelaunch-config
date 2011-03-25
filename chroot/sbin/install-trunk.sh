@@ -5,13 +5,14 @@
 # are not owned by root.
 
 set -e
+set -u
 
 # These are not overrideable:
-CHROOT=/var/lib/dgamelaunch
-CHROOT_BINARIES=/usr/games
+CHROOT=%%DGL_CHROOT%%
+CHROOT_BINARIES=%%CHROOT_CRAWL_BINARY_PATH%%
 
 # Safe path:
-PATH=/usr/bin:/bin:/usr/sbin
+PATH=/bin:/sbin:/usr/bin:/usr/sbin
 
 if [[ "$UID" != "0" ]]; then
     echo "$0 must be run as root"

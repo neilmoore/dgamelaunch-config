@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo -H /var/lib/dgamelaunch/sbin/savegame-transfer.sh $*
+sudo -H $DGL_CHROOT/sbin/savegame-transfer.sh $*

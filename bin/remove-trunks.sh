@@ -1,4 +1,4 @@
 #!/bin/bash
 
-sudo -H /var/lib/dgamelaunch/sbin/remove-trunks.sh $*
+sudo -H $DGL_CHROOT/sbin/remove-trunks.sh $*
 
