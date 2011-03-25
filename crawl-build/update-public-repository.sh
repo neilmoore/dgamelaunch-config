@@ -21,6 +21,10 @@ update-crawl-ref() {
     ( cd $REPO_DIR && git checkout -f &&
         git checkout $BRANCH &&
         git pull )
+    if [[ -n "$REVISION" ]]; then
+        say "Checking out requested revision: $REVISION"
+        ( cd $REPO_DIR && git checkout "$REVISION" )
+    fi
 }
 
 update-submodules() {
@@ -29,6 +33,7 @@ update-submodules() {
 }
 
 BRANCH=$1
+REVISION="$2"
 [[ -n "$BRANCH" ]] || abort-saying "$0: Checkout branch not specified!"
 clone-crawl-ref
 update-crawl-ref

@@ -7,7 +7,7 @@ DGL_CONF_LOCK_DIR="$DGL_CONF_HOME/locks"
 declare -a DGL_LOCKS
 DGL_LOCKS=()
 
-PROMPTS_DISABLED=
+PROMPTS_ENABLED=
 
 say() {
     echo ";;;; $@"
@@ -31,10 +31,10 @@ abort-saying() {
 }
 
 # Call with any argument to disable prompts
-disable-prompts() {
+enable-prompts() {
     local opt
-    while getopts q opt; do
-        PROMPTS_DISABLED=1
+    while getopts p opt; do
+        PROMPTS_ENABLED=1
     done
     shift $((OPTIND - 1))
 
@@ -42,8 +42,7 @@ disable-prompts() {
 }
 
 prompts-enabled() {
-    # Prompts are enabled if not explicitly disabled, and if stdin is a tty.
-    [[ -z "$PROMPTS_DISABLED" && -t 0 ]]
+    [[ -n "$PROMPTS_ENABLED" && -t 0 ]]
 }
 
 prompt() {

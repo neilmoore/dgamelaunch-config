@@ -9,14 +9,16 @@ check-versions-db-exists
 export DESTDIR=$CRAWL_BASEDIR
 
 check-crawl-basedir-exists
-disable-prompts $*
+enable-prompts $*
 
 TODAY="$(dgl-today)"
 
-./update-public-repository.sh $BRANCH
+# First argument can be a revision (SHA) to build
+REVISION="$1"
+./update-public-repository.sh $BRANCH "$REVISION"
 
-export REVISION="$(git-do rev-parse $BRANCH | cut -c 1-10)"
-REVISION_FULL="$(git-do describe --long $BRANCH)"
+export REVISION="$(git-do rev-parse HEAD | cut -c 1-10)"
+REVISION_FULL="$(git-do describe --long HEAD)"
 REVISION_OLD="$(echo "select hash from versions order by time desc limit 1;" | sqlite3 ${VERSIONS_DB})"
 
 [[ "$REVISION" == "$REVISION_OLD" ]] && \
