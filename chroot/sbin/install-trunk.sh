@@ -92,8 +92,7 @@ SQL
 
 assert-not-evil() {
     local path=$1
-    if [[ "$path" != "$(echo $path | perl -lpe 's{(?:[.]{2}|[^a-z0-9_/-])}{}ig')" ]]
-    then
+    if [[ "$path" =~ ([.]{2}|[^a-z0-9_/-]) ]]; then
         echo -e "Path $path contains characters I don't like, aborting."
         exit 1
     fi
