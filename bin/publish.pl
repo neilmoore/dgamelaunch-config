@@ -18,7 +18,10 @@ sub overwrite_summary($@) {
   my ($dst, @src) = @_;
 
   my $changed = 0;
+  my @changed;
+
   my $new = 0;
+  my @new;
 
   for my $file (@src) {
     my $target = target_file($dst, $file);
@@ -30,15 +33,19 @@ sub overwrite_summary($@) {
 
     if (-f $target) {
       my $dst_text = file_text($target);
-      ++$changed if $src_text ne $dst_text;
+      if ($src_text ne $dst_text) {
+        ++$changed;
+        push @changed, basename($target);
+      }
     } else {
       ++$new;
+      push @new, basename($file);
     }
   }
 
   my @report;
-  push @report, "$new new" if $new;
-  push @report, "$changed changed" if $changed;
+  push @report, "$new new: @new" if $new;
+  push @report, "$changed changed: @changed" if $changed;
   @report? join(', ', @report) : 'no change'
 }
 
@@ -91,10 +98,15 @@ sub substitute_variables($$) {
   $text
 }
 
+sub basename($) {
+  my $file = shift;
+  my ($basename) = $file =~ m{.*/(.*)};
+  $basename || $file
+}
+
 sub target_file($$) {
   my ($dst, $src) = @_;
-  my ($basename) = $src =~ m{.*/(.*)};
-  $basename ||= $src;
+  my $basename = basename($src);
   "$dst/$basename"
 }
 
