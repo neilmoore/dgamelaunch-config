@@ -68,6 +68,10 @@ sub copy_file($$) {
   $basename ||= $source_file;
   my $target_file = "$dst/$basename";
 
+  if (-l $target_file) {
+    die "Can't copy $source_file -> $target_file: destination is a symlink\n";
+  }
+
   open my $inf, '<', $source_file or die "Can't read $source_file: $!\n";
   binmode $inf;
   my $text = do { local $/; <$inf> };
