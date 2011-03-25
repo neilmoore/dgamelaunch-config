@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source "$(dirname $0)/dgl-config.sh"
+CHROOT="%%DGL_CHROOT%%"
+BASEDIR="$CHROOT%%CHROOT_CRAWL_BASEDIR%%"
 
 list_hashes()
 {

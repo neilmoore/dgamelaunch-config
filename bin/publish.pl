@@ -50,6 +50,43 @@ sub qualify_directory($) {
   }
 }
 
+sub substitute_variable($$) {
+  my ($file, $var) = @_;
+  die "$file refers to unknown variable $var.\n" unless $ENV{$var};
+  $ENV{$var}
+}
+
+sub substitute_variables($$) {
+  my ($filename, $text) = @_;
+  $text =~ s/%%(\w+)%%/ substitute_variable($filename, $1) /ge;
+  $text
+}
+
+sub copy_file($$) {
+  my ($source_file, $dst) = @_;
+  my ($basename) = $source_file =~ m{.*/(.*)};
+  $basename ||= $source_file;
+  my $target_file = "$dst/$basename";
+
+  open my $inf, '<', $source_file or die "Can't read $source_file: $!\n";
+  binmode $inf;
+  my $text = do { local $/; <$inf> };
+  close $inf;
+
+  my $target_tmp = "$target_file.tmp";
+  open my $outf, '>', $target_tmp or die "Can't write $target_tmp: $!\n";
+  print $outf substitute_variables($source_file, $text);
+  close $outf;
+
+  if (-x $source_file) {
+    chmod 0755, $target_tmp or
+      die "Couldn't +x $target_tmp when copying $source_file -> $dst" ;
+  }
+
+  rename $target_tmp, $target_file or
+    die "Couldn't copy $source_file -> $target_file\n";
+}
+
 sub copy_files($$) {
   my ($src, $dst) = @_;
   my @files = glob($src);
@@ -63,9 +100,18 @@ sub copy_files($$) {
 
   my @quoted_files = map("\Q$_", @files);
   print(nth_copy() . "@files -> $dst ");
-  system("cp @quoted_files \Q$dst")
-    and die "Failed to copy @files -> $dst\n";
-  print(" [OK]\n");
+
+  eval {
+    for my $file (@files) {
+      copy_file($file, $dst) or
+        die "Failed to copy $file -> $dst: $!\n";
+    }
+    print(" [OK]\n");
+  };
+  if ($@) {
+    print(" [ERR]\n\n");
+    die $@;
+  }
 }
 
 sub copy_targets(@) {
