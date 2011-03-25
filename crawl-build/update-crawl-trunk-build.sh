@@ -6,7 +6,6 @@ lock-or-die crawl-update "someone is already updating the trunk build"
 source $DGL_CONF_HOME/crawl-git.conf
 check-versions-db-exists
 
-export GAME="crawl-git"
 export DESTDIR=$CRAWL_BASEDIR
 
 check-crawl-basedir-exists
@@ -47,7 +46,8 @@ prompt "compile ${GAME}-${REVISION}"
 # REMEMBER to adjust /var/lib/dgamelaunch/sbin/install-trunk.sh as well if make parameters change!
 ##################################################################################################
 
-say-do crawl-do nice make -j2 -C source GAME=${GAME}-${REVISION} \
+say-do crawl-do nice make -j2 -C source \
+    GAME=${GAME}-${REVISION} \
     GAME_MAIN=${GAME} MCHMOD=0755 MCHMOD_SAVEDIR=755 \
     INSTALL_UGRP=$CRAWL_UGRP \
     BUILD_PCRE=YesPlease USE_DGAMELAUNCH=YesPlease WIZARD=YesPlease \
@@ -58,21 +58,27 @@ say-do crawl-do nice make -j2 -C source GAME=${GAME}-${REVISION} \
 
 prompt "install ${GAME}-${REVISION}"
 
-if { ps -fC ${GAME}-${REVISION} | awk '{ print $1" "$2"\t "$5" "$7"\t "$8" "$9" "$10 }' | grep ^dgl; }
+if [[ "$(uname)" != "Darwin" ]] && {
+        ps -fC ${GAME}-${REVISION} |
+        awk '{ print $1" "$2"\t "$5" "$7"\t "$8" "$9" "$10 }' |
+        grep ^dgl;
+    } 
 then
-    abort-saying "There are already active instances of this version (${REVISION_FULL}) running."
+    abort-saying "There are already active instances of this version (${REVISION_FULL}) running"
 fi
 
 echo "Searching for version tags..."
-
-export SGV_MAJOR=$(crawl-tag-major-version.sh)
+export SGV_MAJOR=$($CRAWL_BUILD_DIR/crawl-tag-major-version.sh)
+[[ -n "$SGV_MAJOR" ]] || abort-saying "Couldn't find save major version"
+echo "Save major version: $SGV_MAJOR"
 export SGV_MINOR="0"
-echo
+
 
 DGL_CONF_HOME=$DGL_CONF_HOME \
     CRAWL_UGRP=$CRAWL_UGRP \
     CHROOT_CRAWL_BASEDIR=$CHROOT_CRAWL_BASEDIR \
-    sudo -H -E $DGL_CHROOT/sbin/install-trunk.sh
+    VERSIONS_DB=$VERSIONS_DB \
+    say-do sudo -H -E $DGL_CHROOT/sbin/install-trunk.sh
 
 prompt "clean source"
 make -C source GAME=${GAME}-${REVISION} distclean

@@ -9,76 +9,41 @@ set -e
 # This is not overrideable:
 CHROOT=/var/lib/dgamelaunch
 
+# Safe path:
+PATH=/usr/bin:/bin:/usr/sbin
+
 if [[ "$UID" != "0" ]]; then
     echo "$0 must be run as root"
     exit 1
 fi
 
-install-game() {
-    rmdir $SAVEDIR/morgue || true
-    rm -f $SAVEDIR/saves/logfile || true
-    rm -f $SAVEDIR/saves/scores || true
-    rmdir $SAVEDIR/saves || true
-    mkdir -p $ABS_COMMON_DIR/morgue
-    chown $CRAWL_UGRP $ABS_COMMON_DIR/morgue || true
-    mkdir -p $ABS_COMMON_DIR/saves
-    test -f $ABS_COMMON_DIR/saves/logfile || \
-	touch $ABS_COMMON_DIR/saves/logfile
-    chown $CRAWL_UGRP $ABS_COMMON_DIR/saves/logfile
-    test -f $ABS_COMMON_DIR/saves/milestones || \
-	touch $ABS_COMMON_DIR/saves/milestones
-    chown $CRAWL_UGRP $ABS_COMMON_DIR/saves/milestones
-    test -f $ABS_COMMON_DIR/saves/scores || \
-	touch $ABS_COMMON_DIR/saves/scores
-    chown $CRAWL_UGRP $ABS_COMMON_DIR/saves/scores
-    test -f $ABS_COMMON_DIR/saves/logfile-sprint || \
-	touch $ABS_COMMON_DIR/saves/logfile-sprint
-    chown $CRAWL_UGRP $ABS_COMMON_DIR/saves/logfile-sprint
-    test -f $ABS_COMMON_DIR/saves/milestones-sprint || \
-	touch $ABS_COMMON_DIR/saves/milestones-sprint
-    chown $CRAWL_UGRP $ABS_COMMON_DIR/saves/milestones-sprint
-    test -f $ABS_COMMON_DIR/saves/scores-sprint || \
-	touch $ABS_COMMON_DIR/saves/scores-sprint
-    chown $CRAWL_UGRP $ABS_COMMON_DIR/saves/scores-sprint
-    test -f $ABS_COMMON_DIR/saves/logfile-zotdef || \
-	touch $ABS_COMMON_DIR/saves/logfile-zotdef
-    chown $CRAWL_UGRP $ABS_COMMON_DIR/saves/logfile-zotdef
-    test -f $ABS_COMMON_DIR/saves/milestones-zotdef || \
-	touch $ABS_COMMON_DIR/saves/milestones-zotdef
-    chown $CRAWL_UGRP $ABS_COMMON_DIR/saves/milestones-zotdef
-    test -f $ABS_COMMON_DIR/saves/scores-zotdef || \
-	touch $ABS_COMMON_DIR/saves/scores-zotdef
-    chown $CRAWL_UGRP $ABS_COMMON_DIR/saves/scores-zotdef
-    cp ../README.txt $ABS_COMMON_DIR/
-    test -h $DATADIR/docs || \
-	rm -f -r $ABS_COMMON_DIR/docs && \
-	mv $DATADIR/docs $ABS_COMMON_DIR/
-    test -h $DATADIR/settings || \
-	rm -f -r $ABS_COMMON_DIR/settings && \
-	mv $DATADIR/settings $ABS_COMMON_DIR/
-    ln -sf $ABS_COMMON_DIR/data/README.txt $DATADIR/
-    ln -sf $ABS_COMMON_DIR/data/docs $DATADIR/
-    ln -sf $ABS_COMMON_DIR/data/morgue $DATADIR/
-    ln -sf $ABS_COMMON_DIR/data/settings $DATADIR/
-    mkdir -p $SAVEDIR
-    chown $CRAWL_UGRP $SAVEDIR || true
-    chmod 755 $SAVEDIR || true
-    mkdir -p $SAVEDIR/sprint
-    chown $CRAWL_UGRP $SAVEDIR/sprint || true
-    chmod 755 $SAVEDIR/sprint || true
-    mkdir -p $SAVEDIR/zotdef
-    chown $CRAWL_UGRP $SAVEDIR/zotdef || true
-    chmod 755 $SAVEDIR/zotdef || true
+copy-game-binary() {
+    say "Installing game binary in $GAMEDIR"
+    cp source/$GAME-$REVISION $GAMEDIR
+}
 
-    ln -sf $COMMON_DIR/saves/logfile $DATADIR/saves/
-    ln -sf $COMMON_DIR/saves/milestones $DATADIR/saves/
-    ln -sf $COMMON_DIR/saves/scores $DATADIR/saves/
-    ln -sf $COMMON_DIR/saves/logfile-sprint $DATADIR/saves/
-    ln -sf $COMMON_DIR/saves/milestones-sprint $DATADIR/saves/
-    ln -sf $COMMON_DIR/saves/scores-sprint $DATADIR/saves/
-    ln -sf $COMMON_DIR/saves/logfile-zotdef $DATADIR/saves/
-    ln -sf $COMMON_DIR/saves/milestones-zotdef $DATADIR/saves/
-    ln -sf $COMMON_DIR/saves/scores-zotdef $DATADIR/saves/
+copy-data-files() {
+    say "Copying game data files to $DATADIR"
+    cp -r source/dat docs settings $DATADIR
+}
+
+link-logfiles() {
+    for file in logfile milestones scores; do
+        ln -sf $COMMON_DIR/saves/$file $DATADIR/saves/
+        ln -sf $COMMON_DIR/saves/$file-sprint $DATADIR/saves/
+        ln -sf $COMMON_DIR/saves/$file-zotdef $DATADIR/saves/
+    done
+}
+
+install-game() {
+    mkdir -p $SAVEDIR
+    mkdir -p $DATADIR
+
+    copy-game-binary
+    copy-data-files
+    link-logfiles
+    
+    chown -R $CRAWL_UGRP $SAVEDIR
 }
 
 register-game-version() {
@@ -92,37 +57,68 @@ SQL
 
 assert-not-evil() {
     local path=$1
-    if [[ "$path" =~ ([.]{2}|[^a-z0-9_/-]) ]]; then
+    if [[ "$path" =~ ([.]{2}|[^.a-zA-Z0-9_/-]) ]]; then
         echo -e "Path $path contains characters I don't like, aborting."
         exit 1
     fi
 }
 
-if test -n "${GAME}" -a -n "${REVISION}" -a -n "${DESTDIR}" -a -n "${PRIMARY_BRANCH_REMOTE}" -a -n "${VERSIONS_DB}" -a -n "$CRAWL_UGRP"; then
-    if [[ -n "${SGV_MAJOR}" && -n "${SGV_MINOR}" ]]; then
-        COMMON_DIR=$CHROOT_CRAWL_BASEDIR/$GAME
-        assert-not-evil "$COMMON_DIR"
-        ABS_COMMON_DIR=$CHROOT$CHROOT_CRAWL_BASEDIR/$GAME
-
-        if [[ ! -d "$CHROOT$COMMON_DIR" ]]; then
-            echo -e "Expected to find common game dir $ABS_COMMON_DIR but did not find it"
-            exit 1
+assert-all-variables-exist() {
+    local -a broken_variables=()
+    for variable_name in "$@"; do
+        eval "value=\"\$$variable_name\""
+        if [[ -z "$value" ]]; then
+            broken_variables=(${broken_variables[@]} $variable_name)
         fi
-        
-        SAVEDIR=$CHROOT/$CHROOT_CRAWL_BASEDIR/${GAME}-${REVISION}/saves
-        DATADIR=$CHROOT/$CHROOT_CRAWL_BASEDIR/${GAME}-${REVISION}/data
-        assert-not-evil "$SAVEDIR"
-        assert-not-evil "$DATADIR"
-        install-game
-        register-game-version
-    else
-	echo "Could not figure out version tags. Installation cancelled."
-	echo "Aborting installation!"
-	echo
-	exit 1
+    done
+    if (( ${#broken_variables[@]} > 0 )); then
+        echo -e "These variables are required, but are unset:" \
+            "${broken_variables[@]}"
+        exit 1
     fi
+}
+
+assert-all-variables-exist GAME REVISION DESTDIR VERSIONS_DB CRAWL_UGRP \
+    CHROOT_CRAWL_BASEDIR
+
+assert-not-evil "$GAME"
+assert-not-evil "$REVISION"
+assert-not-evil "$DESTDIR"
+assert-not-evil "$VERSIONS_DB"
+assert-not-evil "$CHROOT_CRAWL_BASEDIR"
+
+if [[ ! ( "$CRAWL_UGRP" =~ ^[a-z0-9]+:[a-z0-9]+$ ) ]]; then
+    echo -e "Expected CRAWL_UGRP to be user:group, but got $CRAWL_UGRP"
+    exit 1
+fi
+
+if [[ -n "${SGV_MAJOR}" && -n "${SGV_MINOR}" ]]; then
+    # COMMON_DIR is the absolute path *inside* the chroot jail of the
+    # directory holding common data for all game versions, viz: saves.
+    COMMON_DIR=$CHROOT_CRAWL_BASEDIR/$GAME
+    assert-not-evil "$COMMON_DIR"
+
+    # ABS_COMMON_DIR is the absolute path from outside the chroot
+    # corresponding to COMMON_DIR
+    ABS_COMMON_DIR=$CHROOT$CHROOT_CRAWL_BASEDIR/$GAME
+
+    if [[ ! -d "$CHROOT$COMMON_DIR" ]]; then
+        echo -e "Expected to find common game dir $ABS_COMMON_DIR but did not find it"
+        exit 1
+    fi
+
+    GAMEDIR=$CHROOT/$CHROOT_CRAWL_BASEDIR/$GAME-$REVISION
+    # Absolute path to save game directory
+    SAVEDIR=$GAMEDIR/saves
+    DATADIR=$GAMEDIR/data
+    assert-not-evil "$SAVEDIR"
+    assert-not-evil "$DATADIR"
+
+    echo "Installing game"
+    install-game
+    register-game-version
 else
-    echo "Could not figure out proper environment variables. Installation cancelled."
+    echo "Could not figure out version tags. Installation cancelled."
     echo "Aborting installation!"
     echo
     exit 1

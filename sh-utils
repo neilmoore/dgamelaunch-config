@@ -10,11 +10,11 @@ DGL_LOCKS=()
 PROMPTS_DISABLED=
 
 say() {
-    echo "** $@ **"
+    echo ";;;; $@"
 }
 
 say-do() {
-    say "Exec: $@"
+    echo "[EXEC] $@"
     "$@"
 }
 
