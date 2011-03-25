@@ -11,7 +11,8 @@ die "DGL chroot not specified in environment\n" unless $CHROOT;
 
 my @COPY_TARGETS = ([ 'dgamelaunch.conf', '//etc' ],
                     [ 'chroot/data/menus/*.txt', "/dgldir/data/menus" ],
-                    [ 'chroot/bin/*.sh', '/bin']);
+                    [ 'chroot/bin/*.sh', '/bin' ],
+                    [ 'chroot/sbin/*.sh', '/sbin' ]);
 
 sub publishee_summary($) {
   my ($src, $dst) = @{$_[0]};
@@ -59,12 +60,12 @@ sub copy_files($$) {
   if (!-d($dst)) {
     mkpath($dst) or die "Couldn't create $dst\n";
   }
-  for my $file (@files) {
-    print(nth_copy() . "$file -> $dst ");
-    File::Copy::syscopy($file, $dst)
-        or die "Failed to copy $file to $dst: $!\n";
-    print(" [OK]\n");
-  }
+
+  my @quoted_files = map("\Q$_", @files);
+  print(nth_copy() . "@files -> $dst ");
+  system("cp @quoted_files \Q$dst")
+    and die "Failed to copy @files -> $dst\n";
+  print(" [OK]\n");
 }
 
 sub copy_targets(@) {
