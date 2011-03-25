@@ -20,9 +20,9 @@ sub publishee_summary($) {
   my @files = glob($src);
   $dst = qualify_directory($dst);
   if (@files == 1 && $files[0] eq $src) {
-    "$src -> $CHROOT$dst";
+    "$src -> $dst";
   } else {
-    "$src (" . scalar(@files) . " files) -> $CHROOT$dst";
+    "$src (" . scalar(@files) . " files) -> $dst";
   }
 }
 
