@@ -24,6 +24,10 @@ export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
 PREFIX="/crawl-master"
+SAVES="saves"
+
+[[ "$@" =~ -sprint\\b ]] && SAVES="$SAVES/sprint"
+[[ "$@" =~ -zotdef\\b ]] && SAVES="$SAVES/zotdef"
 
 if [[ $# == 0 || -z "$CHAR_NAME" ]]; then
     echo "Parameters missing. Aborting..."
@@ -73,7 +77,7 @@ EOF
 transfer-save() {
     local save=$1
     local game_hash=$2
-    local target="$CRAWL_GIT_DIR/$BINARY_BASE_NAME-$game_hash/saves"
+    local target="$CRAWL_GIT_DIR/$BINARY_BASE_NAME-$game_hash/$SAVES"
     local src_save_dir=$(dirname $save)
     if [[ -d "$target" ]]; then
         mv "$src_save_dir/$CHAR_NAME*" \
@@ -103,7 +107,7 @@ transfer-save() {
     fi
 }
 
-SAVEGLOB=$CRAWL_GIT_DIR/$BINARY_BASE_NAME-*/saves
+SAVEGLOB="$CRAWL_GIT_DIR/$BINARY_BASE_NAME-*/$SAVES"
 
 declare -a SAVE_CANDIDATES
 SAVE_CANDIDATES=($SAVEGLOB/*.cs \

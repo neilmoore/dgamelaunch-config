@@ -1,25 +1,32 @@
 #!/bin/bash
 
-USER_ID="2002"
+set -u
 
-PREFIX="/var/lib/dgamelaunch"
-VERSIONS_DB="${PREFIX}/versions.db3"
+source $DGL_CONF_HOME/crawl-git.conf
 
-BINARY_MAIN_NAME="crawl-svn"
+LATEST_GAME_HASH="$(latest-game-hash)"
+PREFIX="$DGL_CHROOT/$CRAWL_GIT_DIR"
 
-LATEST_GAME_HASH="$(echo "select hash from versions order by time desc limit 1;" | sqlite3 ${VERSIONS_DB})"
-
-ALL_CHARS="$(/bin/ls -1rt ${PREFIX}/${BINARY_MAIN_NAME}-*/saves/*-${USER_ID}.sav ${PREFIX}/${BINARY_MAIN_NAME}-*/saves/*-${USER_ID}.chr ${PREFIX}/${BINARY_MAIN_NAME}-*/saves/*.cs ${PREFIX}/${BINARY_MAIN_NAME}-*/saves/sprint/*-${USER_ID}.chr ${PREFIX}/${BINARY_MAIN_NAME}-*/saves/sprint/*.cs ${PREFIX}/${BINARY_MAIN_NAME}-*/saves/zotdef/*.cs 2>/dev/null | grep -v ${LATEST_GAME_HASH} | sed "s|${PREFIX}/${BINARY_MAIN_NAME}-.*/saves/\(.*\)\..*|\1|;s|-${USER_ID}||" | sort -f)"
+SAVEBASE="${PREFIX}/${BINARY_BASE_NAME}-*/saves"
+ALL_CHARS="$(ls -1rt $SAVEBASE/*-${DGL_UID}.sav \
+                     $SAVEBASE/*-${DGL_UID}.chr \
+                     $SAVEBASE/*.cs \
+                     $SAVEBASE/sprint/*-${DGL_UID}.chr \
+                     $SAVEBASE/sprint/*.cs \
+                     $SAVEBASE/zotdef/*.cs 2>/dev/null | \
+             grep -v $LATEST_GAME_HASH | \
+             sed "s|${PREFIX}/${BINARY_BASE_NAME}-.*/saves/\(.*\)\..*|\1|;s|-${DGL_UID}||" | \
+             sort -f)"
 
 echo "Trying to transfer these chars to a newer version:"
 echo ${ALL_CHARS}
 echo
 
-echo "-- Press RETURN to start installation --"
+echo "-- Press RETURN to start transfer --"
 read
 
 for char in ${ALL_CHARS}
 do
-	savegame-transfer.sh ${char}
+    savegame-transfer.sh ${char}
 done
 
