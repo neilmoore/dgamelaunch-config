@@ -8,8 +8,13 @@ set -e
 set -u
 
 # These are not overrideable:
-CHROOT=%%DGL_CHROOT%%
-CHROOT_BINARIES=%%CHROOT_CRAWL_BINARY_PATH%%
+CHROOT="%%DGL_CHROOT%%"
+CHROOT_BINARIES="%%CHROOT_CRAWL_BINARY_PATH%%"
+GAME="%%GAME%%"
+CHROOT_CRAWL_BASEDIR="%%CHROOT_CRAWL_BASEDIR%%"
+DESTDIR="%%CRAWL_BASEDIR%%"
+VERSIONS_DB="%%VERSIONS_DB%%"
+CRAWL_UGRP="%%CRAWL_UGRP%%"
 
 # Safe path:
 PATH=/bin:/sbin:/usr/bin:/usr/sbin
@@ -81,14 +86,12 @@ assert-all-variables-exist() {
     fi
 }
 
-assert-all-variables-exist GAME REVISION DESTDIR VERSIONS_DB CRAWL_UGRP \
-    CHROOT_CRAWL_BASEDIR
+if [[ -z "$REVISION" ]]; then
+    echo -e "Missing revision argument"
+    exit 1
+fi
 
-assert-not-evil "$GAME"
 assert-not-evil "$REVISION"
-assert-not-evil "$DESTDIR"
-assert-not-evil "$VERSIONS_DB"
-assert-not-evil "$CHROOT_CRAWL_BASEDIR"
 
 if [[ ! ( "$CRAWL_UGRP" =~ ^[a-z0-9]+:[a-z0-9]+$ ) ]]; then
     echo -e "Expected CRAWL_UGRP to be user:group, but got $CRAWL_UGRP"

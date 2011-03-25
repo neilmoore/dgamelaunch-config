@@ -17,7 +17,7 @@ TODAY="$(dgl-today)"
 REVISION="$1"
 ./update-public-repository.sh $BRANCH "$REVISION"
 
-export REVISION="$(git-do rev-parse HEAD | cut -c 1-10)"
+REVISION="$(git-do rev-parse HEAD | cut -c 1-10)"
 REVISION_FULL="$(git-do describe --long HEAD)"
 REVISION_OLD="$(echo "select hash from versions order by time desc limit 1;" | sqlite3 ${VERSIONS_DB})"
 
@@ -75,12 +75,7 @@ export SGV_MAJOR=$($CRAWL_BUILD_DIR/crawl-tag-major-version.sh)
 echo "Save major version: $SGV_MAJOR"
 export SGV_MINOR="0"
 
-
-DGL_CONF_HOME=$DGL_CONF_HOME \
-    CRAWL_UGRP=$CRAWL_UGRP \
-    CHROOT_CRAWL_BASEDIR=$CHROOT_CRAWL_BASEDIR \
-    VERSIONS_DB=$VERSIONS_DB \
-    say-do sudo -H -E $DGL_CHROOT/sbin/install-trunk.sh
+say-do sudo -H $DGL_CHROOT/sbin/install-trunk.sh "$REVISION"
 
 prompt "clean source"
 make -C source GAME=${GAME}-${REVISION} distclean
