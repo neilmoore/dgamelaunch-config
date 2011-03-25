@@ -16,14 +16,14 @@ TODAY="$(dgl-today)"
 
 ./update-public-repository.sh $BRANCH
 
-export REVISION="$(git-do rev-parse $BRANCH)"
+export REVISION="$(git-do rev-parse $BRANCH | cut -c 1-10)"
 REVISION_FULL="$(git-do describe --long $BRANCH)"
 REVISION_OLD="$(echo "select hash from versions order by time desc limit 1;" | sqlite3 ${VERSIONS_DB})"
 
 [[ "$REVISION" == "$REVISION_OLD" ]] && \
     abort-saying "Nothing new to install at the moment."
 
-prompt "start install"
+prompt "start update build"
 
 cd $CRAWL_REPOSITORY_DIR/crawl-ref
 

@@ -29,6 +29,7 @@ update-submodules() {
 }
 
 BRANCH=$1
+[[ -n "$BRANCH" ]] || abort-saying "$0: Checkout branch not specified!"
 clone-crawl-ref
 update-crawl-ref
 update-submodules
