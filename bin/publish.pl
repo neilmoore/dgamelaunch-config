@@ -188,8 +188,19 @@ print "Publishing DGL config files:\n\n";
 summarize_publishees();
 print "\n";
 
+my $want_publish = grep($_ eq '--confirm', @ARGV);
+if (!$want_publish) {
+  warn <<PUBLISH_HOWTO;
+To publish the new dgl config, run this command as root:
+
+  dgl publish --confirm
+
+PUBLISH_HOWTO
+  exit 0;
+}
+
 if ($< != 0) {
-  warn "This script must be run as root\n";
+  print STDERR "** This script must be run as root to publish changes **\n";
   exit 1;
 }
 
