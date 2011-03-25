@@ -1,6 +1,6 @@
 #! /bin/bash
 
-source "$DGL_CONF_HOME/sh-config"
+source "$DGL_CONF_HOME/dgl-manage.conf"
 
 DGL_CONF_LOCK_DIR="$DGL_CONF_HOME/locks"
 
@@ -88,7 +88,9 @@ check-chroot-exists() {
     if [[ ! -d "$DGL_CHROOT" ]]; then
         cat >&2 <<ERROR
 DGL chroot $DGL_CHROOT doesn't exist.
-Please create it, or edit $DGL_CONF_HOME/sh-config to point at the real chroot.
+
+Please create it, or edit $DGL_CONF_HOME/dgl-manage.conf to
+point at the real chroot.
 ERROR
         exit 1
     fi

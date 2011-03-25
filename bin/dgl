@@ -62,15 +62,21 @@ find-all-actions() {
     echo "${actions[@]}"
 }
 
+list-all-actions() {
+    find-all-actions | fold -s
+}
+
 if [[ -z "$ACTION" ]]; then
     usage "<action>"
-    echo -e "Where <action> is one of: $(find-all-actions)"
+    echo -e "Where <action> is one of:"
+    list-all-actions >&2
     exit 1
 fi
 
 if [[ ! -f "$ACTION_SCRIPT" ]]; then
     echo -e "Can't find dgamelaunch action '$ACTION'"
-    echo -e "Available actions are: $(find-all-actions)"
+    echo -e "Available actions are:"
+    list-all-actions >&2
     exit 1
 fi
 
