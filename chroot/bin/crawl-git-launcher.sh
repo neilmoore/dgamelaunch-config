@@ -5,14 +5,13 @@
 #
 set -o nounset
 
-CRAWL_GIT_BASE_DIR="/crawl-master"
-USER_DB=/dgldir/dgamelaunch.db
-CRAWL_BINARY_PATH="/usr/games"
-BINARY_BASE_NAME="crawl-git"
-CRAWL_GIT_DIR=/crawl-master/
-USER_ID="5"
+CRAWL_GIT_DIR="%%CHROOT_CRAWL_BASEDIR%%"
+USER_DB="%%CHROOT_LOGIN_DB%%"
+CRAWL_BINARY_PATH="%%CHROOT_CRAWL_BINARY_PATH%%"
+BINARY_BASE_NAME="%%GAME%%"
+USER_ID="%%DGL_UID%%"
 
-export HOME="/cores"
+export HOME="%%CHROOT_COREDIR%%"
 
 TRANSFER_ENABLED="1"
 CHAR_NAME="$2"
@@ -23,7 +22,6 @@ printf "\e[2J"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
-PREFIX="/crawl-master"
 SAVES="saves"
 
 [[ "$@" =~ -sprint\\b ]] && SAVES="$SAVES/sprint"
