@@ -32,9 +32,9 @@ copy-data-files() {
 
 link-logfiles() {
     for file in logfile milestones scores; do
-        ln -sf $COMMON_DIR/saves/$file $DATADIR/saves/
-        ln -sf $COMMON_DIR/saves/$file-sprint $DATADIR/saves/
-        ln -sf $COMMON_DIR/saves/$file-zotdef $DATADIR/saves/
+        ln -sf $COMMON_DIR/saves/$file $SAVEDIR
+        ln -sf $COMMON_DIR/saves/$file-sprint $SAVEDIR
+        ln -sf $COMMON_DIR/saves/$file-zotdef $SAVEDIR
     done
 }
 
@@ -113,7 +113,7 @@ if [[ -n "${SGV_MAJOR}" && -n "${SGV_MINOR}" ]]; then
     GAME_BINARY=$GAME-$REVISION
     BINARIES_DIR=$CHROOT$CHROOT_BINARIES
     
-    GAMEDIR=$CHROOT/$CHROOT_CRAWL_BASEDIR/$GAME_BINARY
+    GAMEDIR=$CHROOT$CHROOT_CRAWL_BASEDIR/$GAME_BINARY
     # Absolute path to save game directory
     SAVEDIR=$GAMEDIR/saves
     DATADIR=$GAMEDIR/data
