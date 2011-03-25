@@ -34,6 +34,7 @@ disable-prompts() {
 }
 
 prompts-enabled() {
+    # Prompts are enabled if not explicitly disabled, and if stdin is a tty.
     [[ -z "$PROMPTS_DISABLED" && -t 0 ]]
 }
 
@@ -41,6 +42,8 @@ prompt() {
     if prompts-enabled; then
         echo "-- Press RETURN to $@ --"
         read
+    else
+        say "$@"
     fi
 }
 
