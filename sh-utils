@@ -92,14 +92,29 @@ dgl-today() {
     date +%y%m%d-%H%M
 }
 
-check-chroot-exists() {
+cat-error() {
+    cat >&2
+}
+
+assert-chroot-exists() {
     if [[ ! -d "$DGL_CHROOT" ]]; then
-        cat >&2 <<ERROR
+        cat-error <<ERROR
 DGL chroot $DGL_CHROOT doesn't exist.
 
 Please create it, or edit $DGL_CONF_HOME/dgl-manage.conf to
 point at the real chroot.
 ERROR
+        exit 1
+    fi
+}
+
+assert-login-db-exists() {
+    if [[ ! -f "$LOGIN_DB" ]]; then
+        cat-error <<EOF
+DGL login db $LOGIN_DB is missing; please check that the chroot
+is correctly setup, and that $DGL_CONF_HOME/dgl-manage.conf points
+at the correct chroot path.
+EOF
         exit 1
     fi
 }

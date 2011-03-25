@@ -10,6 +10,12 @@ usage() {
     echo -e "Usage: $SCRIPT_NAME $@"
 }
 
+report-usage() {
+    printf "Usage: $SCRIPT_NAME " >&2
+    cat >&2
+    exit 1
+}
+
 canonical-name() {
     local name=$1
     if [[ -d "$name" ]]; then

@@ -7,7 +7,7 @@ GAME_DIR=$CRAWL_GAMEDIR
 echo "Crawl basedir to create: $GAME_DIR"
 
 [[ -d "$GAME_DIR" ]] && abort-saying "Crawl base directory already exists"
-check-chroot-exists
+assert-chroot-exists
 [[ "$UID" != "0" ]] && abort-saying "This script must be run as root"
 
 mkdir -p $DGL_CHROOT/cores
