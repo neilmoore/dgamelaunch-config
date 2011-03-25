@@ -18,7 +18,9 @@ clone-crawl-ref() {
 
 update-crawl-ref() {
     say "Updating git repository $REPO_DIR"
-    ( cd $REPO_DIR && git checkout -f && git checkout $BRANCH && git pull )
+    ( cd $REPO_DIR && git checkout -f &&
+        git clean -dfx && git checkout $BRANCH &&
+        git pull )
 }
 
 update-submodules() {

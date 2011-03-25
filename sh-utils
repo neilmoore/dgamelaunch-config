@@ -32,9 +32,13 @@ abort-saying() {
 
 # Call with any argument to disable prompts
 disable-prompts() {
-    if (( $# > 0 )); then
+    local opt
+    while getopts q opt; do
         PROMPTS_DISABLED=1
-    fi
+    done
+    shift $((OPTIND - 1))
+
+    # Would be nice to be able to modify the caller's arguments...
 }
 
 prompts-enabled() {
@@ -99,5 +103,3 @@ ERROR
         exit 1
     fi
 }
- 
-disable-prompts $*

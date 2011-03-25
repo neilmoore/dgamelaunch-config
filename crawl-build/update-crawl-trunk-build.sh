@@ -10,6 +10,7 @@ export GAME="crawl-git"
 export DESTDIR=$CRAWL_BASEDIR
 
 check-crawl-basedir-exists
+disable-prompts $*
 
 TODAY="$(dgl-today)"
 
