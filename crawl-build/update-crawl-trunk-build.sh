@@ -75,7 +75,8 @@ export SGV_MAJOR=$($CRAWL_BUILD_DIR/crawl-tag-major-version.sh)
 echo "Save major version: $SGV_MAJOR"
 export SGV_MINOR="0"
 
-say-do sudo -H $DGL_CHROOT/sbin/install-trunk.sh "$REVISION"
+say-do sudo -H $DGL_CHROOT/sbin/install-trunk.sh "$REVISION" \
+    "$SGV_MAJOR" "$SGV_MINOR"
 
 prompt "clean source"
 make -C source GAME=${GAME}-${REVISION} distclean

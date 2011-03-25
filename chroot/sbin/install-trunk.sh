@@ -16,6 +16,10 @@ DESTDIR="%%CRAWL_BASEDIR%%"
 VERSIONS_DB="%%VERSIONS_DB%%"
 CRAWL_UGRP="%%CRAWL_UGRP%%"
 
+REVISION="$1"
+SGV_MAJOR="$2"
+SGV_MINOR="$3"
+
 # Safe path:
 PATH=/bin:/sbin:/usr/bin:/usr/sbin
 
