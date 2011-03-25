@@ -78,13 +78,7 @@ export SGV_MINOR="0"
 say-do sudo -H $DGL_CHROOT/sbin/install-trunk.sh "$REVISION" \
     "$SGV_MAJOR" "$SGV_MINOR"
 
-prompt "clean source"
-make -C source GAME=${GAME}-${REVISION} distclean
-rm -vf docs/crawl_changelog.txt
-rm -vf docs/crawl_credits.txt
-#rm -vf /var/www/crawl.develz.org/htdocs/trunk/rss/feeds/cdo.xml
-
-announce "Unstable branch on CDO updated to: ${REVISION_FULL} (${SGV_MAJOR})"
+announce "Unstable branch updated to: ${REVISION_FULL} (${SGV_MAJOR})"
 
 echo "All done."
 echo
