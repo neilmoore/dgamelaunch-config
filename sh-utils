@@ -26,8 +26,7 @@ announce() {
 }
 
 abort-saying() {
-    echo -e "$@"
-    echo -e "Aborting..."
+    echo -e "$@, aborting."
     exit 1
 }
 
