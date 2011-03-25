@@ -20,13 +20,13 @@ if [[ "$UID" != "0" ]]; then
 fi
 
 copy-game-binary() {
-    say "Installing game binary ($GAME_BINARY) in $BINARIES_DIR"
+    echo "Installing game binary ($GAME_BINARY) in $BINARIES_DIR"
     mkdir -p $BINARIES_DIR
     cp source/$GAME_BINARY $BINARIES_DIR
 }
 
 copy-data-files() {
-    say "Copying game data files to $DATADIR"
+    echo "Copying game data files to $DATADIR"
     cp -r source/dat docs settings $DATADIR
 }
 
