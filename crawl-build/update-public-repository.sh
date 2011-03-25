@@ -2,19 +2,23 @@
 
 set -e
 
+source $DGL_CONF_HOME/sh-utils
+source $DGL_CONF_HOME/crawl-git.conf
+
 REPO_DIR=$PWD/$CRAWL_REPOSITORY_DIR
 
 clone-crawl-ref() {
     if [[ -d "$CRAWL_REPOSITORY_DIR" && -d "$CRAWL_REPOSITORY_DIR/.git" ]]; then
         return 0
     fi
-    say "Cloning $CRAWL_GIT_URL into $REPO_DIR"
-    git clone $CRAWL_GIT_URL $CRAWL_REPOSITORY_DIR
+    CMDLINE="git clone $CRAWL_GIT_URL $CRAWL_REPOSITORY_DIR"
+    say "$CMDLINE"
+    $CMDLINE
 }
 
 update-crawl-ref() {
     say "Updating git repository $REPO_DIR"
-    ( cd $REPO_DIR && git pull )
+    ( cd $REPO_DIR && git checkout $BRANCH && git pull )
 }
 
 update-submodules() {
@@ -22,6 +26,7 @@ update-submodules() {
     ( cd $REPO_DIR && git submodule update --init )
 }
 
+BRANCH=$1
 clone-crawl-ref
 update-crawl-ref
 update-submodules

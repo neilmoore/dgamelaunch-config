@@ -1,8 +1,6 @@
 #!/bin/bash
 
 set -e
-source $DGL_CONF_HOME/sh-utils
-
 lock-or-die crawl-update "someone is already updating the trunk build"
 
 source $DGL_CONF_HOME/crawl-git.conf
@@ -13,10 +11,10 @@ export DESTDIR=$DGL_CHROOT/$CHROOT_CRAWL_BASEDIR
 
 TODAY="$(dgl-today)"
 
-./update-public-repository.sh
+./update-public-repository.sh $BRANCH
 
-export REVISION="$(git rev-parse $BRANCH)"
-REVISION_FULL="$(git describe --long $BRANCH)"
+export REVISION="$(git-do rev-parse $BRANCH)"
+REVISION_FULL="$(git-do describe --long $BRANCH)"
 REVISION_OLD="$(echo "select hash from versions order by time desc limit 1;" | sqlite3 ${VERSIONS_DB})"
 
 [[ "$REVISION" == "$REVISION_OLD" ]] && \
@@ -30,7 +28,7 @@ echo "Copying CREDITS to docs/crawl_credits.txt..."
 cp CREDITS.txt docs/crawl_credits.txt
 
 dgl-git-log() {
-    git log --pretty=tformat:"--------------------------------------------------------------------------------%n%h | %an | %ci%n%n%s%n%b" "$@" | grep -v "git-svn-id" | awk 1 RS= ORS="\n\n" | fold -s
+    git-do log --pretty=tformat:"--------------------------------------------------------------------------------%n%h | %an | %ci%n%n%s%n%b" "$@" | grep -v "git-svn-id" | awk 1 RS= ORS="\n\n" | fold -s
 }
 
 echo "Creating changelog in docs/crawl_changelog.txt..."
@@ -46,7 +44,7 @@ prompt "compile ${GAME}-${REVISION}"
 # REMEMBER to adjust /var/lib/dgamelaunch/sbin/install-trunk.sh as well if make parameters change!
 ##################################################################################################
 
-nice make -j2 -C source GAME=${GAME}-${REVISION} \
+say-do crawl-do nice make -j2 -C source GAME=${GAME}-${REVISION} \
     GAME_MAIN=${GAME} MCHMOD=0755 MCHMOD_SAVEDIR=755 \
     INSTALL_UGRP=$CRAWL_UGRP \
     BUILD_PCRE=YesPlease USE_DGAMELAUNCH=YesPlease WIZARD=YesPlease \
@@ -63,7 +61,8 @@ then
 fi
 
 echo "Searching for version tags..."
-export SGV_MAJOR="$(grep "#define TAG_MAJOR_VERSION[[:space:]]*[[:digit:]]*" source/tag-version.h | sed 's/.*TAG_MAJOR_VERSION[[:space:]]*\([[:digit:]]*\)/\1/')"
+
+export SGV_MAJOR=$(crawl-tag-major-version.sh)
 export SGV_MINOR="0"
 echo
 
