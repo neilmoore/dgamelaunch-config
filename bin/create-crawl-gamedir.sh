@@ -10,6 +10,8 @@ echo "Crawl basedir to create: $GAME_DIR"
 check-chroot-exists
 [[ "$UID" != "0" ]] && abort-saying "This script must be run as root"
 
+mkdir -p $DGL_CHROOT/cores
+
 mkdir -p $GAME_DIR/saves/{sprint,zotdef}
 ( cd $GAME_DIR/saves &&
     touch logfile{,-sprint,-zotdef} \

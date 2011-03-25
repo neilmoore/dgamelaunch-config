@@ -6,8 +6,9 @@
 
 set -e
 
-# This is not overrideable:
+# These are not overrideable:
 CHROOT=/var/lib/dgamelaunch
+CHROOT_BINARIES=/usr/games
 
 # Safe path:
 PATH=/usr/bin:/bin:/usr/sbin
@@ -18,8 +19,9 @@ if [[ "$UID" != "0" ]]; then
 fi
 
 copy-game-binary() {
-    say "Installing game binary in $GAMEDIR"
-    cp source/$GAME-$REVISION $GAMEDIR
+    say "Installing game binary ($GAME_BINARY) in $BINARIES_DIR"
+    mkdir -p $BINARIES_DIR
+    cp source/$GAME_BINARY $BINARIES_DIR
 }
 
 copy-data-files() {
@@ -107,7 +109,10 @@ if [[ -n "${SGV_MAJOR}" && -n "${SGV_MINOR}" ]]; then
         exit 1
     fi
 
-    GAMEDIR=$CHROOT/$CHROOT_CRAWL_BASEDIR/$GAME-$REVISION
+    GAME_BINARY=$GAME-$REVISION
+    BINARIES_DIR=$CHROOT$CHROOT_BINARIES
+    
+    GAMEDIR=$CHROOT/$CHROOT_CRAWL_BASEDIR/$GAME_BINARY
     # Absolute path to save game directory
     SAVEDIR=$GAMEDIR/saves
     DATADIR=$GAMEDIR/data
