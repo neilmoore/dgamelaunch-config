@@ -7,7 +7,9 @@ source $DGL_CONF_HOME/crawl-git.conf
 check-versions-db-exists
 
 export GAME="crawl-git"
-export DESTDIR=$DGL_CHROOT/$CHROOT_CRAWL_BASEDIR
+export DESTDIR=$CRAWL_BASEDIR
+
+check-crawl-basedir-exists
 
 TODAY="$(dgl-today)"
 
