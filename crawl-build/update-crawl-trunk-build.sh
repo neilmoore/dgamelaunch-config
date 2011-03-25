@@ -5,7 +5,7 @@ source $DGL_CONF_HOME/sh-utils
 
 lock-or-die crawl-update "someone is already updating the trunk build"
 
-. crawl-git.conf
+source $DGL_CONF_HOME/crawl-git.conf
 check-versions-db-exists
 
 export GAME="crawl-git"
