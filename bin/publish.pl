@@ -14,15 +14,44 @@ my @COPY_TARGETS = ([ 'dgamelaunch.conf', '//etc' ],
                     [ 'chroot/bin/*.sh', '/bin' ],
                     [ 'chroot/sbin/*.sh', '/sbin' ]);
 
+sub overwrite_summary($@) {
+  my ($dst, @src) = @_;
+
+  my $changed = 0;
+  my $new = 0;
+
+  for my $file (@src) {
+    my $target = target_file($dst, $file);
+    if (-l $target) {
+      return "ERR: $target is a symlink";
+    }
+
+    my $src_text = source_file_text($file);
+
+    if (-f $target) {
+      my $dst_text = file_text($target);
+      ++$changed if $src_text ne $dst_text;
+    } else {
+      ++$new;
+    }
+  }
+
+  my @report;
+  push @report, "$new new" if $new;
+  push @report, "$changed changed" if $changed;
+  @report? join(', ', @report) : 'no change'
+}
+
 sub publishee_summary($) {
   my ($src, $dst) = @{$_[0]};
 
   my @files = glob($src);
   $dst = qualify_directory($dst);
   if (@files == 1 && $files[0] eq $src) {
-    "$src -> $dst";
+    "$src -> $dst (" . overwrite_summary($dst, $src) . ")";
   } else {
-    "$src (" . scalar(@files) . " files) -> $dst";
+    "$src (" . scalar(@files) . " files) -> $dst (" .
+      overwrite_summary($dst, @files) . ")";
   }
 }
 
@@ -62,24 +91,42 @@ sub substitute_variables($$) {
   $text
 }
 
-sub copy_file($$) {
-  my ($source_file, $dst) = @_;
-  my ($basename) = $source_file =~ m{.*/(.*)};
-  $basename ||= $source_file;
-  my $target_file = "$dst/$basename";
+sub target_file($$) {
+  my ($dst, $src) = @_;
+  my ($basename) = $src =~ m{.*/(.*)};
+  $basename ||= $src;
+  "$dst/$basename"
+}
 
-  if (-l $target_file) {
-    die "Can't copy $source_file -> $target_file: destination is a symlink\n";
-  }
+sub file_text($) {
+  my $source_file = shift;
 
   open my $inf, '<', $source_file or die "Can't read $source_file: $!\n";
   binmode $inf;
   my $text = do { local $/; <$inf> };
   close $inf;
 
+  $text
+}
+
+sub source_file_text($) {
+  my $source_file = shift;
+  substitute_variables($source_file, file_text($source_file))
+}
+
+sub copy_file($$) {
+  my ($source_file, $dst) = @_;
+  my $target_file = target_file($dst, $source_file);
+
+  if (-l $target_file) {
+    die "Can't copy $source_file -> $target_file: destination is a symlink\n";
+  }
+
+  my $text = source_file_text($source_file);
+
   my $target_tmp = "$target_file.tmp";
   open my $outf, '>', $target_tmp or die "Can't write $target_tmp: $!\n";
-  print $outf substitute_variables($source_file, $text);
+  print $outf $text;
   close $outf;
 
   if (-x $source_file) {
