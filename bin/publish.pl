@@ -6,6 +6,10 @@ use warnings;
 use File::Copy;
 use File::Path;
 use Cwd qw/abs_path/;
+use Term::ANSIColor;
+
+use lib "$ENV{DGL_CONF_HOME}/lib";
+use DGLMan;
 
 my $CHROOT = $ENV{DGL_CHROOT};
 die "DGL chroot not specified in environment\n" unless $CHROOT;
@@ -60,8 +64,8 @@ sub change_summary($) {
   my @changed = @{$$stat{changed}};
   my $new = scalar(@new);
   my $changed = scalar(@changed);
-  push @report, "$new new: @new" if @new;
-  push @report, "$changed changed: @changed" if @changed;
+  push @report, bad_text("$new new: @new") if @new;
+  push @report, bad_text("$changed changed: @changed") if @changed;
   @report? join(', ', @report) : 'no change'
 }
 
@@ -230,10 +234,10 @@ sub copy_files($$) {
       copy_file($file, $dst) or
         die "Failed to copy $file -> $dst: $!\n";
     }
-    print(" [OK]\n");
+    say_good(" [OK]\n");
   };
   if ($@) {
-    print(" [ERR]\n\n");
+    say_bad(" [ERR]\n\n");
     die $@;
   }
 }
@@ -260,7 +264,7 @@ To publish the new dgl config, run this command as root:
 PUBLISH_HOWTO
   }
   else {
-    warn <<INSYNC;
+    say_coloured('bold green', <<INSYNC);
 DGL config is in sync.
 INSYNC
   }
