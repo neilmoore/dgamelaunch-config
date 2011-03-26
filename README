@@ -2,7 +2,7 @@ dgamelaunch-config
 ------------------
 
 This is a collection of scripts to manage a dgamelaunch
-(http://www.advogato.org/proj/dgamelaunch/) install, all run from an
+(http://nethackwiki.com/wiki/Dgamelaunch) install, all run from an
 umbrella `dgl` script.
 
 These are still very incomplete, WIP.
