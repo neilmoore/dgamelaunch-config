@@ -74,27 +74,27 @@ list_hashes()
     cd $CHROOT/$BASE_DIR
     
     if verbose; then
-	echo "Date              Hash       Version  Amount  Players"
-	echo "********************************************************"
+	echo "Date             Version                       Amount  Players"
+	echo "**************************************************************"
         
 	for folder in $(savegame-dirs); do
             local hash=${folder/$GAME_BASE/}
 	    /bin/ls -1tdl ${folder} 2>/dev/null | \
 		sed "s/$GAME_BASE//g;" | \
-		awk '{ printf "%3s %2s  %s    %-9s  %6s %6s    ",
-                    $6, $7, $8, $9,
+		awk '{ printf "%3s %2s  %s    %17s %6s    ",
+                    $6, $7, $8,
                     "'$(hash-version-detail $hash)'",
                     "'$(count-saves-in-dir "$folder")'" }'
             
 	    for char in $(saves-in-dir "$folder" | strip-save-uid-extension)
 	    do
-		echo -n "$(basename ${char}) "
+		echo -n "${char#$folder/saves/} "
 	    done
             
 	    echo
 	done
     else
-	echo "Date              Hash       Version   Players in Games"
+	echo "Date             Version                          Players in Games"
 	echo "*******************************************************************"
         
 	for folder in $(savegame-dirs)
@@ -102,7 +102,7 @@ list_hashes()
             local hash=${folder/$GAME_BASE/}
 	    /bin/ls -1tdl ${folder} 2>/dev/null | \
 		sed "s/$GAME_BASE//g;" | \
-		awk '{ printf "%3s %2s  %s    %-9s  %6s %6s in trunk, %3s in sprint, %3s in zotdef", $6, $7, $8, $9,
+		awk '{ printf "%3s %2s  %s    %17s %6s in trunk, %3s in sprint, %3s in zotdef", $6, $7, $8,
                     "'$(hash-version-detail $hash)'",
                     "'$(count-saves-in-dir "$folder" '')'",
                     "'$(count-saves-in-dir "$folder" 'sprint')'",
