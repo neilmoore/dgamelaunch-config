@@ -20,11 +20,13 @@ PROMPTS_ENABLED=1
 # Toss the leading slash:
 BASE_DIR=${BASE_DIR#/}
 BINPATH=${BINPATH#/}
+FORCE=
 
 while getopts vq opt; do
     case $opt in
         v) VERBOSE=1 ;;
         q) PROMPTS_ENABLED= ;;
+        f) FORCE=1 ;;
     esac
 done
 shift $((OPTIND - 1))
@@ -151,8 +153,14 @@ do
     fi
 
     GAME_VER="$GAME-$version"
-    if test -f $BINPATH/$GAME_VER -a -d $BASE_DIR/$GAME_VER
-	then
+    GAME_SAVEDIR="$BASE_DIR/$GAME_VER"
+    if test -f $BINPATH/$GAME_VER -a -d $GAME_SAVEDIR; then
+        if [[ "$(count-saves-in-dir "$GAME_SAVEDIR")" > 0 && -z "$FORCE" ]]
+        then
+            echo "$GAME_SAVEDIR contains save games, use -f to delete anyway"
+            exit 1
+        fi
+        
 	if prompts-enabled; then
 	    while { ps -fC $GAME_VER | awk '{ print $1" "$2"\t "$5" "$7"\t "$8" "$9" "$10 }' | grep ^"$DGL_USER"; }
 	    do
