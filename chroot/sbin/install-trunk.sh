@@ -15,6 +15,7 @@ CHROOT_CRAWL_BASEDIR="%%CHROOT_CRAWL_BASEDIR%%"
 DESTDIR="%%CRAWL_BASEDIR%%"
 VERSIONS_DB="%%VERSIONS_DB%%"
 CRAWL_UGRP="%%CRAWL_UGRP%%"
+DGL_SETTINGS_DIR="%%DGL_SETTINGS_DIR%%"
 
 REVISION="$1"
 SGV_MAJOR="$2"
@@ -37,6 +38,7 @@ copy-game-binary() {
 copy-data-files() {
     echo "Copying game data files to $DATADIR"
     cp -r source/dat docs settings $DATADIR
+    cp -r settings $DGL_SETTINGS_DIR/$GAME-settings
 }
 
 link-logfiles() {

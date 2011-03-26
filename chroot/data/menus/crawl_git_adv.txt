@@ -13,11 +13,10 @@ Game selected: Dungeon Crawl Stone Soup Trunk
 B)ackup your save-game (for bug reports and debugging)
 D)elete your save-game (PERMANENTLY)
 
-The next two options allow you to reset your options and macros.
-ALL CHANGES YOU'VE MADE TO YOUR OPTIONS AND MACROS WILL BE DELETED.
+The next two options allow you to reset your options.
+ALL CHANGES YOU'VE MADE TO YOUR OPTIONS WILL BE DELETED.
 
 O) Reset options
-M) Reset macros
 
 q) Return to previous menu
 

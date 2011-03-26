@@ -13,7 +13,7 @@ W) Watch games in progress
 1) Dungeon Crawl Stone Soup 0.7.2
 2) Dungeon Crawl Stone Soup 0.6.1
 
-T) Stone Soup Development (Unstable)
+T) Dungeon Crawl Stone Soup Development (Unstable)
 
 K) Play robotfindskitten
 
