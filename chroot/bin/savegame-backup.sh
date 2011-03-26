@@ -1,24 +1,58 @@
 #!/bin/bash
 
+set -u
+
 ARGUMENTS=($@)
 CHAR_NAME="$(echo ${ARGUMENTS[0]} | sed 's/[$*\/();.|+-]//g')"
 BINARY_MAIN_NAME=${ARGUMENTS[1]}
-BINARY_SAVE_NAME="$(echo $BINARY_MAIN_NAME | sed 's/[.-]//g')"
+BINARY_SAVE_NAME=$BINARY_MAIN_NAME
+PREFIX="${ARGUMENTS[2]}"
+
+trap "read -n 1 -s -p '-- Hit a key to exit --'; exit 0" EXIT
 
 clear
 
 TODAY="$(date +%y%m%d-%H%M)"
 
-TARGET_DIR="/dumps"
-HTTP_LINK="http://crawl.akrasiac.org/saves/dumps"
+TARGET_DIR="%%CHROOT_SAVE_DUMPDIR%%"
+HTTP_LINK="%%WEB_SAVEDUMP_URL%%"
 
-USER_ID="5"
-PREFIX="/var/games"
+USER_ID="%%DGL_UID%%"
 
-BINARY_SAVE_DIR="$PREFIX/$BINARY_SAVE_NAME/saves"
+existing-files() {
+    for file in "$@"; do
+        if [[ -f "$file" ]]; then
+            printf "%s " "$file"
+        fi
+    done
+}
+
+first-existing-file() {
+    for file in "$@"; do
+        if [[ -f "$file" ]]; then
+            echo "$file"
+        fi
+    done
+}
+
+savedir-containing() {
+    local char="$1"
+    local -a saves
+    saves=($PREFIX/$BINARY_SAVE_NAME{,-*}/saves/$char{,-$USER_ID}.{cs,chr,sav})
+    local savefile="$(first-existing-file "${saves[@]}")"
+    [[ -n "$savefile" ]] && dirname "$savefile"
+    return 0
+}
+
+SAVES="$(savedir-containing $CHAR_NAME)"
+SPRINT_SAVES="$(savedir-containing sprint/$CHAR_NAME)"
+ZOTDEF_SAVES="$(savedir-containing zotdef/$CHAR_NAME)"
+
+if [[ -z "$SAVES" && -z "$SPRINT_SAVES" && -z "$ZOTDEF_SAVES" ]]; then
+    echo "No saves to backup for $CHAR_NAME"
+fi
 
 SAVE_QUALIFIER=""
-SAVE_SUBDIR=""
 
 CHAR=Character
 
@@ -27,42 +61,32 @@ C_YELLOW="\033[1;33m"
 C_GREEN="\033[1;32m"
 C_RED="\033[1;31m"
 
-HAVE_SPRINT=$([ -d "$BINARY_SAVE_DIR/sprint" ] && echo 1)
-HAVE_ZOTDEF=$([ -d "$BINARY_SAVE_DIR/zotdef" ] && echo 1)
+PROMPT="Backup"
+[[ -n "$SAVES" ]] && PROMPT="$PROMPT [n]ormal save"
+[[ -n "$SPRINT_SAVES" ]] && PROMPT="$PROMPT [s]print"
+[[ -n "$ZOTDEF_SAVES" ]] && PROMPT="$PROMPT [z]otdef"
+PROMPT="$PROMPT character?"
 
-if [[ -n $HAVE_SPRINT || -n $HAVE_ZOTDEF ]]; then
-    PROMPT="Backup [n]ormal"
-    if [ -n "$HAVE_SPRINT" ]; then
-        PROMPT="$PROMPT or [s]print"
-    fi
-    if [ -n "$HAVE_ZOTDEF" ]; then
-        PROMPT="$PROMPT or [z]otdef"
-    fi
-    PROMPT="$PROMPT character?"
+read -n 1 -s -p "$PROMPT" REPLY
+echo
 
-    read -n 1 -s -p "$PROMPT" REPLY
-    echo
+REPLY="$(echo "$REPLY" | sed 's/\([A-Z]\)/\L\1/g')"
 
-    REPLY="$(echo "$REPLY" | sed 's/\([A-Z]\)/\L\1/g')"
-
-    if [[ -n "$HAVE_SPRINT" && ( "$REPLY" = "s" ) ]]; then
-        SAVE_QUALIFIER="-sprint"
-        BINARY_SAVE_DIR="$BINARY_SAVE_DIR/sprint"
-        CHAR="Sprint character"
-    elif [[ -n "$HAVE_ZOTDEF" && ( "$REPLY" = "z" ) ]]; then
-        SAVE_QUALIFIER="-zotdef"
-        BINARY_SAVE_DIR="$BINARY_SAVE_DIR/zotdef"
-        CHAR="Zot Defense character"
-    elif [[ "$REPLY" != "n" ]]; then
-        echo -e "Bad choice, aborting."
-        exit 1
-    fi
+if [[ -n "$SPRINT_SAVES" && ( "$REPLY" = "s" ) ]]; then
+    SAVE_QUALIFIER="-sprint"
+    SAVES="$SPRINT_SAVES"
+    CHAR="Sprint character"
+elif [[ -n "$ZOTDEF_SAVES" && ( "$REPLY" = "z" ) ]]; then
+    SAVE_QUALIFIER="-zotdef"
+    SAVES="$ZOTDEF_SAVES"
+    CHAR="Zot Defense character"
+elif [[ "$REPLY" != "n" ]]; then
+    echo -e "Bad choice, aborting."
+    exit 1
 fi
 
-SAVE_MATCHES=(${BINARY_SAVE_DIR}/${CHAR_NAME}-${USER_ID}.sav*
-    ${BINARY_SAVE_DIR}/${CHAR_NAME}-${USER_ID}.chr*
-    ${BINARY_SAVE_DIR}/${CHAR_NAME}.cs*
-    ${BINARY_SAVE_DIR}/${CHAR_NAME}-$USER_ID.cs*)
+declare -a SAVE_MATCHES
+SAVE_MATCHES=(${SAVES}/${CHAR_NAME}{,-${USER_ID}}.{sav,cs,chr}*)
 
 # Get rid of glob patterns that failed to match anything:
 SAVE_MATCHES=(${SAVE_MATCHES[@]##*\*})
@@ -71,17 +95,20 @@ SAVE_MATCHES=(${SAVE_MATCHES[@]##*\*})
 SAVE_FOUND=${SAVE_MATCHES[0]}
 
 if [[ -n "$SAVE_FOUND" && -f "$SAVE_FOUND" ]]; then
-    OUR_GAME_DIR="$(dirname ${SAVE_FOUND})"
+    GAME_NAME=${SAVES%/zotdef}
+    GAME_NAME=${SAVES%/sprint}
+    GAME_NAME="$(dirname $GAME_NAME)"
+    GAME_NAME="${GAME_NAME##*/}"
 
     echo
-    echo -n "$CHAR \"${CHAR_NAME}\" in ${BINARY_MAIN_NAME}. "
+    echo "$CHAR \"${CHAR_NAME}\" in $GAME_NAME. "
 
     echo -n "Backing up:"
+    cd $SAVES
 
-    cd ${OUR_GAME_DIR}
-
-    TARNAME=${CHAR_NAME}${SAVE_QUALIFIER}-${BINARY_MAIN_NAME}-${TODAY}.tar.bz2
-    tar -cjf ${TARGET_DIR}/$TARNAME ${CHAR_NAME}-${USER_ID}.*
+    TARNAME=${CHAR_NAME}${SAVE_QUALIFIER}-$GAME_NAME-${TODAY}.tar.bz2
+    tar -cjf ${TARGET_DIR}/$TARNAME \
+        $(existing-files ${CHAR_NAME}{,-${USER_ID}}.*)
 
     if test $? -ne 0
     then
@@ -93,10 +120,6 @@ if [[ -n "$SAVE_FOUND" && -f "$SAVE_FOUND" ]]; then
 	echo "Please provide this link in your bug-report or give it to a developer."
     fi
 else
-    echo "Your character ($CHAR_NAME) was not found in $BINARY_SAVE_DIR."
+    echo "Your character ($CHAR_NAME) was not found in $SAVES."
 fi
-
-echo
-read -n 1 -s -p "--- Press any key to continue ---"
-exit 0
 
