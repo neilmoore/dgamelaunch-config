@@ -15,8 +15,7 @@ W) Watch games in progress
 
 K) Play robotfindskitten
 
-c) Change password
-e) Change email address
+c) Change password  e) Change email address
 
 Q)uit or P)lay or S)print in Crawl 0.7 now
 

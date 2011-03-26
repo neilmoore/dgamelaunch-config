@@ -14,11 +14,9 @@ W) Watch games in progress
 2) Dungeon Crawl Stone Soup 0.6.1
 
 T) Dungeon Crawl Stone Soup Development (Unstable)
-
 K) Play robotfindskitten
 
-c) Change password
-e) Change email address
+c) Change password  e) Change email address
 
 Q)uit or P)lay or S)print in Crawl 0.7 now
 
