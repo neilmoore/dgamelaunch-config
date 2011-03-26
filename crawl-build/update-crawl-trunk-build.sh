@@ -78,7 +78,7 @@ export SGV_MINOR="0"
 say-do sudo -H $DGL_CHROOT/sbin/install-trunk.sh "$REVISION" \
     "$REVISION_FULL" "$SGV_MAJOR" "$SGV_MINOR"
 
-announce "Unstable branch updated to: ${REVISION_FULL} (${SGV_MAJOR})"
+announce "Unstable branch on $DGL_SERVER updated to: ${REVISION_FULL} (${SGV_MAJOR})"
 
 echo "All done."
 echo

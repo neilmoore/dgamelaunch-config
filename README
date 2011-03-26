@@ -7,18 +7,25 @@ umbrella `dgl` script.
 
 These are still very incomplete, WIP.
 
-Examples:
+Currently available commands:
 
 1. Update your dgamelaunch config from the repository:
-
-$ sudo dgl publish --confirm
+   $ sudo dgl publish --confirm
 
 2. Change a dgl user's password:
+   $ sudo dgl passwd johndoe
 
-$ sudo dgl passwd johndoe
+3. Update Crawl alpha build from git master:
+   $ dgl update-trunk
 
-The goal is to make this a one-stop shop for all your dgamelaunch needs,
-starting from installing dgamelaunch itself
+4. Remove stale Crawl alpha versions:
+   $ dgl remove-trunks
+
+Note: Some of these commands will probably change names soon.
+
+The ultimate goal for this project is to become a one-stop shop for
+all your dgamelaunch+Crawl needs, starting from installing dgamelaunch
+itself
 
 TODO
 ----
