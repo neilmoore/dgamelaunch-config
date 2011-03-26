@@ -64,8 +64,8 @@ sub change_summary($) {
   my @changed = @{$$stat{changed}};
   my $new = scalar(@new);
   my $changed = scalar(@changed);
-  push @report, bad_text("$new new: @new") if @new;
-  push @report, bad_text("$changed changed: @changed") if @changed;
+  push @report, neutral_text("$new new: @new") if @new;
+  push @report, neutral_text("$changed changed: @changed") if @changed;
   @report? join(', ', @report) : 'no change'
 }
 
@@ -259,7 +259,7 @@ if (!$want_publish) {
     warn <<PUBLISH_HOWTO;
 To publish the new dgl config, run this command as root:
 
-  dgl publish --confirm
+  @{ [ emphasized_text('dgl publish --confirm') ] }
 
 PUBLISH_HOWTO
   }
