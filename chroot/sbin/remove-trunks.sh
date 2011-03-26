@@ -39,10 +39,18 @@ prompts-enabled() {
 
 hash-version-detail() {
     local hash="$1"
-    sqlite3 -separator \. "$VERSIONS_DB" <<EOF
-SELECT description,major,minor
+    sqlite3 "$VERSIONS_DB" <<EOF
+SELECT description || ' (' || major || '.' || minor || ')'
 FROM versions
 WHERE hash='$hash';
+EOF
+}
+
+canonicalise-version() {
+    local version="$1"
+    sqlite3 "$VERSIONS_DB" <<EOF
+SELECT hash FROM versions
+WHERE hash LIKE '$version%' OR description='$version';
 EOF
 }
 
@@ -68,57 +76,62 @@ strip-save-uid-extension() {
 savegame-dirs() {
     /bin/ls -1td $GAME_GLOB
 }
-    
+
 list_hashes()
 {
     cd $CHROOT/$BASE_DIR
-    
+
     if verbose; then
 	echo "Date             Version                       Amount  Players"
 	echo "**************************************************************"
-        
+
 	for folder in $(savegame-dirs); do
             local hash=${folder/$GAME_BASE/}
+            local version_detail="$(hash-version-detail $hash)"
+            local save_count="$(count-saves-in-dir "$folder")"
 	    /bin/ls -1tdl ${folder} 2>/dev/null | \
 		sed "s/$GAME_BASE//g;" | \
 		awk '{ printf "%3s %2s  %s    %17s %6s    ",
                     $6, $7, $8,
-                    "'$(hash-version-detail $hash)'",
-                    "'$(count-saves-in-dir "$folder")'" }'
-            
+                    "'"$version_detail"'",
+                    "'"$save_count"'" }'
+
 	    for char in $(saves-in-dir "$folder" | strip-save-uid-extension)
 	    do
 		echo -n "${char#$folder/saves/} "
 	    done
-            
+
 	    echo
 	done
     else
 	echo "Date             Version                          Players in Games"
 	echo "*******************************************************************"
-        
+
 	for folder in $(savegame-dirs)
 	do
             local hash=${folder/$GAME_BASE/}
+            local version_detail="$(hash-version-detail $hash)"
+            local save_count="$(count-saves-in-dir "$folder" '')"
+            local sprint_save_count="$(count-saves-in-dir "$folder" 'sprint')"
+            local zotdef_save_count="$(count-saves-in-dir "$folder" 'zotdef')"
 	    /bin/ls -1tdl ${folder} 2>/dev/null | \
 		sed "s/$GAME_BASE//g;" | \
 		awk '{ printf "%3s %2s  %s    %17s %6s in trunk, %3s in sprint, %3s in zotdef", $6, $7, $8,
-                    "'$(hash-version-detail $hash)'",
-                    "'$(count-saves-in-dir "$folder" '')'",
-                    "'$(count-saves-in-dir "$folder" 'sprint')'",
-                    "'$(count-saves-in-dir "$folder" 'zotdef')'"
-                     }'
+                    "'"$version_detail"'",
+                    "'"$save_count"'",
+                    "'"$sprint_save_count"'",
+                    "'"$zotdef_save_count"'" }'
 	    echo
 	done
     fi
 }
 
-PARAMS="$(echo "$*" | sed 's/[$*\/();.|+-]//g')"
+PARAMS="$(echo "$*" | sed 's/[$*\/();|+]//g')"
 
 if test $# -eq 0
 then
     if prompts-enabled; then
-	echo "Usage: $(basename $0) [-q] [-v] [hash] [hash] ..." 
+	echo "Usage: $(basename $0) [-q] [-v] [hash] [hash] ..."
 	echo
     fi
     list_hashes
@@ -129,8 +142,14 @@ fi
 cd $CHROOT
 
 
-for version in ${PARAMS}
+for raw_version in ${PARAMS}
 do
+    version="$(canonicalise-version $raw_version)"
+    if [[ -z "$version" ]]; then
+        echo -e "Revision $raw_version unknown\n";
+        exit 1
+    fi
+
     GAME_VER="$GAME-$version"
     if test -f $BINPATH/$GAME_VER -a -d $BASE_DIR/$GAME_VER
 	then
@@ -141,7 +160,7 @@ do
 		echo "-- Press RETURN to try again --"
 		read
 	    done
-            
+
 	    echo "Removing ${version} from repository..."
 	    echo "delete from versions where hash=\"${version}\";"| sqlite3 ${VERSIONS_DB}
 	    rm $BINPATH/$GAME_VER
