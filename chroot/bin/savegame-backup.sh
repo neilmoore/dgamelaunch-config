@@ -96,7 +96,7 @@ SAVE_FOUND=${SAVE_MATCHES[0]}
 
 if [[ -n "$SAVE_FOUND" && -f "$SAVE_FOUND" ]]; then
     GAME_NAME=${SAVES%/zotdef}
-    GAME_NAME=${SAVES%/sprint}
+    GAME_NAME=${GAME_NAME%/sprint}
     GAME_NAME="$(dirname $GAME_NAME)"
     GAME_NAME="${GAME_NAME##*/}"
 
