@@ -15,7 +15,7 @@ my @COPY_TARGETS = ([ 'dgamelaunch.conf', '//etc' ],
                     [ 'chroot/bin/*.sh', '/bin' ],
                     [ 'chroot/sbin/*.sh', '/sbin' ]);
 
-sub overwrite_summary($@) {
+sub change_stat($@) {
   my ($dst, @src) = @_;
 
   my $changed = 0;
@@ -44,9 +44,24 @@ sub overwrite_summary($@) {
     }
   }
 
+  return { new => \@new,
+           changed => \@changed };
+}
+
+sub change_exists($) {
+  my $stat = shift;
+  return @{$$stat{new}} || @{$$stat{changed}};
+}
+
+sub change_summary($) {
+  my $stat = shift;
   my @report;
-  push @report, "$new new: @new" if $new;
-  push @report, "$changed changed: @changed" if $changed;
+  my @new = @{$$stat{new}};
+  my @changed = @{$$stat{changed}};
+  my $new = scalar(@new);
+  my $changed = scalar(@changed);
+  push @report, "$new new: @new" if @new;
+  push @report, "$changed changed: @changed" if @changed;
   @report? join(', ', @report) : 'no change'
 }
 
@@ -55,21 +70,29 @@ sub publishee_summary($) {
 
   my @files = glob($src);
   $dst = qualify_directory($dst);
+
+  my $change_stat = change_stat($dst, @files);
   if (@files == 1 && $files[0] eq $src) {
-    "$src -> $dst (" . overwrite_summary($dst, $src) . ")";
+    ("$src -> $dst (" . change_summary($change_stat) . ")",
+     $change_stat)
   } else {
-    "$src (" . scalar(@files) . " files) -> $dst (" .
-      overwrite_summary($dst, @files) . ")";
+    ("$src (" . scalar(@files) . " files) -> $dst (" .
+      change_summary($change_stat) . ")",
+     $change_stat)
   }
 }
 
 sub summarize_publishees() {
   my $index = 0;
   print "These are the publish copy targets:\n";
+  my $dirty;
   for my $copy_target (@COPY_TARGETS) {
     ++$index;
-    print("$index) " . publishee_summary($copy_target) . "\n");
+    my ($summary, $stat) = publishee_summary($copy_target);
+    print("$index) $summary\n");
+    $dirty = 1 if change_exists($stat);
   }
+  $dirty
 }
 
 my $copy_count = 0;
@@ -223,17 +246,24 @@ sub copy_targets(@) {
 }
 
 print "Publishing DGL config files:\n\n";
-summarize_publishees();
+my $dirty = summarize_publishees();
 print "\n";
 
 my $want_publish = grep($_ eq '--confirm', @ARGV);
 if (!$want_publish) {
-  warn <<PUBLISH_HOWTO;
+  if ($dirty) {
+    warn <<PUBLISH_HOWTO;
 To publish the new dgl config, run this command as root:
 
   dgl publish --confirm
 
 PUBLISH_HOWTO
+  }
+  else {
+    warn <<INSYNC;
+DGL config is in sync.
+INSYNC
+  }
   exit 0;
 }
 
