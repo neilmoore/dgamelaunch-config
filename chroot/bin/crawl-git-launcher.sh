@@ -18,7 +18,7 @@ TRANSFER_ENABLED="1"
 CHAR_NAME="$2"
 
 # Clear screen
-printf "\e[2J"
+printf "\e[2J\e[H"
 
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
@@ -79,7 +79,7 @@ transfer-save() {
     local target="$CRAWL_GIT_DIR/$BINARY_BASE_NAME-$game_hash/$SAVES"
     local src_save_dir=$(dirname $save)
     if [[ -d "$target" ]]; then
-        mv "$src_save_dir/$CHAR_NAME*" \
+        mv "$src_save_dir/$CHAR_NAME"* \
             "$src_save_dir/start-$CHAR_NAME-ns.prf" \
             "$target"
 
@@ -109,11 +109,11 @@ transfer-save() {
 SAVEGLOB="$CRAWL_GIT_DIR/$BINARY_BASE_NAME-*/$SAVES"
 
 declare -a SAVE_CANDIDATES
-SAVE_CANDIDATES=($SAVEGLOB/*.cs \
+SAVE_CANDIDATES=($SAVEGLOB/$CHAR_NAME.cs \
     $SAVEGLOB/$CHAR_NAME-$USER_ID.sav \
     $SAVEGLOB/$CHAR_NAME-$USER_ID.chr)
 
-SAVE="$(first-real-file "$SAVE_CANDIDATES[@]")"
+SAVE="$(first-real-file "${SAVE_CANDIDATES[@]}")"
 LATEST_GAME_HASH="$(latest-game-hash)"
 
 if [[ -n "$SAVE" ]]; then
@@ -121,7 +121,7 @@ if [[ -n "$SAVE" ]]; then
     OUR_GAME_HASH=${OUR_GAME_HASH%%/*}
 
     if [[ "$OUR_GAME_HASH" != "$LATEST_GAME_HASH" ]]; then
-	echo "You are not playing in the latest version (${LATEST_GAME_HASH}) available!"
+        echo "Hi, you have a $OUR_GAME_HASH save, but there's a newer vesion available:"
 	echo
 
 	OUR_SGV_MAJOR="$(major-version-for-game $OUR_GAME_HASH)"
