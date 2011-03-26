@@ -11,10 +11,9 @@ Logged in as: $USERNAME
 Game selected: Dungeon Crawl Stone Soup Trunk
 
 B)ackup your save-game (for bug reports and debugging)
-D)elete your save-game (PERMANENTLY)
 
-The next two options allow you to reset your options.
-ALL CHANGES YOU'VE MADE TO YOUR OPTIONS WILL BE DELETED.
+The next option allows you to reset your options.
+ALL CHANGES YOU'VE MADE TO YOUR OPTIONS WILL BE LOST.
 
 O) Reset options
 
