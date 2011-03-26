@@ -51,6 +51,13 @@ query() {
     sqlite3 "$VERSIONS_DB"
 }
 
+hash-description() {
+    local hash=$1
+    query <<EOF
+SELECT description FROM versions WHERE hash='$hash' LIMIT 1;
+EOF
+}
+
 latest-game-hash() {
     query <<EOF
 SELECT hash FROM versions ORDER BY time DESC LIMIT 1;
@@ -121,7 +128,9 @@ if [[ -n "$SAVE" ]]; then
     OUR_GAME_HASH=${OUR_GAME_HASH%%/*}
 
     if [[ "$OUR_GAME_HASH" != "$LATEST_GAME_HASH" ]]; then
-        echo "Hi, you have a $OUR_GAME_HASH save, but there's a newer vesion available:"
+        current_ver="$(hash-description $OUR_GAME_HASH)"
+        new_ver="$(hash-description $NEW_GAME_HASH)"
+        echo "Hi, you have a $current_ver save, but there's a newer vesion available:"
 	echo
 
 	OUR_SGV_MAJOR="$(major-version-for-game $OUR_GAME_HASH)"
@@ -130,11 +139,11 @@ if [[ -n "$SAVE" ]]; then
         if [[ "$OUR_GAME_HASH" != "$NEW_GAME_HASH" &&
                     "$TRANSFER_ENABLED" == "1" ]]; then
 	    if [[ "${NEW_GAME_HASH}" != "${LATEST_GAME_HASH}" ]]; then
-		echo "There's a newer version ($NEW_GAME_HASH) that can load your save."
+		echo "There's a newer version ($new_ver) that can load your save."
                 read -n 1 -s -p "[T]ransfer your save to this version?" REPLY
 		echo
 	    else
-		read -n 1 -s -p "[T]ransfer your save to the latest version ($LATEST_GAME_HASH)?" REPLY
+		read -n 1 -s -p "[T]ransfer your save to the latest version ($new_ver)?" REPLY
 		echo
 	    fi
 

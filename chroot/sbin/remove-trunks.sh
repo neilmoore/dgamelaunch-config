@@ -9,6 +9,7 @@ GAME="%%GAME%%"
 BINPATH="%%CHROOT_CRAWL_BINARY_PATH%%"
 VERSIONS_DB="%%VERSIONS_DB%%"
 USER_ID="%%DGL_UID%%"
+DGL_USER="%%DGL_USER%%"
 
 GAME_BASE="$GAME-"
 GAME_GLOB="$GAME_BASE*"
@@ -35,6 +36,38 @@ verbose() {
 prompts-enabled() {
     [[ -n "$PROMPTS_ENABLED" ]]
 }
+
+hash-version-detail() {
+    local hash="$1"
+    sqlite3 -separator \. "$VERSIONS_DB" <<EOF
+SELECT description,major,minor
+FROM versions
+WHERE hash='$hash';
+EOF
+}
+
+saves-in-dir() {
+    local folder="$1"
+    local -a globs
+    globs=(${folder}/saves/{,sprint/,zotdef/}*.{sav,chr,cs})
+    if (( $# == 2 )); then
+        local suffix="/$2"
+        globs=($folder/saves$suffix/*.{sav,chr,cs})
+    fi
+    /bin/ls -1 ${globs[@]} 2>/dev/null
+}
+
+count-saves-in-dir() {
+    saves-in-dir "$@" | wc -l
+}
+
+strip-save-uid-extension() {
+    sed 's/-'${USER_ID}'//g;s/\.\(sav\|chr\|cs\)//g;'
+}
+
+savegame-dirs() {
+    /bin/ls -1td $GAME_GLOB
+}
     
 list_hashes()
 {
@@ -44,25 +77,18 @@ list_hashes()
 	echo "Date              Hash       Version  Amount  Players"
 	echo "********************************************************"
         
-	for folder in $(/bin/ls -1td $GAME_GLOB)
-	do
+	for folder in $(savegame-dirs); do
+            local hash=${folder/$GAME_BASE/}
 	    /bin/ls -1tdl ${folder} 2>/dev/null | \
 		sed "s/$GAME_BASE//g;" | \
-		awk '{ printf "%3s %2s  %s    %-9s  %6s %6s    ", $6, $7, $8, $9, "'$(echo select major,minor from versions where hash=\"${folder/$GAME_BASE/}\"\; | sqlite3 -separator \. ${VERSIONS_DB})'", "'$(/bin/ls -1 ${folder}/saves/*.sav ${folder}/saves/*.chr ${folder}/saves/*.cs ${folder}/saves/sprint/*.cs ${folder}/saves/zotdef/*.cs 2>/dev/null | wc -l)'" }'
+		awk '{ printf "%3s %2s  %s    %-9s  %6s %6s    ",
+                    $6, $7, $8, $9,
+                    "'$(hash-version-detail $hash)'",
+                    "'$(count-saves-in-dir "$folder")'" }'
             
-	    for char in $(/bin/ls -1 ${folder}/saves/*.sav ${folder}/saves/*.chr ${folder}/saves/*.cs 2>/dev/null | sed 's/-'${USER_ID}'//g;s/\.\(sav\|chr\|cs\)//g;')
+	    for char in $(saves-in-dir "$folder" | strip-save-uid-extension)
 	    do
 		echo -n "$(basename ${char}) "
-	    done
-            
-	    for char in $(/bin/ls -1 ${folder}/saves/sprint/*.cs 2>/dev/null | sed 's/-'${USER_ID}'//g;s/\.cs$//g;')
-	    do
-		echo -n "sprint/$(basename ${char}) "
-	    done
-            
-	    for char in $(/bin/ls -1 ${folder}/saves/zotdef/*.cs 2>/dev/null | sed 's/-'${USER_ID}'//g;s/\.cs$//g;')
-	    do
-		echo -n "zotdef/$(basename ${char}) "
 	    done
             
 	    echo
@@ -71,12 +97,17 @@ list_hashes()
 	echo "Date              Hash       Version   Players in Games"
 	echo "*******************************************************************"
         
-	for folder in $(/bin/ls -1td $GAME_GLOB)
+	for folder in $(savegame-dirs)
 	do
+            local hash=${folder/$GAME_BASE/}
 	    /bin/ls -1tdl ${folder} 2>/dev/null | \
 		sed "s/$GAME_BASE//g;" | \
-		awk '{ printf "%3s %2s  %s    %-9s  %6s %6s in trunk, %3s in sprint, %3s in zotdef", $6, $7, $8, $9, "'$(echo select major,minor from versions where hash=\"${folder/$GAME_BASE/}\"\; | sqlite3 -separator \. ${VERSIONS_DB})'", "'$(/bin/ls -1 ${folder}/saves/*.sav ${folder}/saves/*.chr ${folder}/saves/*.cs 2>/dev/null | wc -l)'", "'$(/bin/ls -1 ${folder}/saves/sprint/*.cs 2>/dev/null | wc -l)'", "'$(/bin/ls -1 ${folder}/saves/zotdef/*.cs 2>/dev/null | wc -l)'"}'
-            
+		awk '{ printf "%3s %2s  %s    %-9s  %6s %6s in trunk, %3s in sprint, %3s in zotdef", $6, $7, $8, $9,
+                    "'$(hash-version-detail $hash)'",
+                    "'$(count-saves-in-dir "$folder" '')'",
+                    "'$(count-saves-in-dir "$folder" 'sprint')'",
+                    "'$(count-saves-in-dir "$folder" 'zotdef')'"
+                     }'
 	    echo
 	done
     fi
@@ -104,7 +135,7 @@ do
     if test -f $BINPATH/$GAME_VER -a -d $BASE_DIR/$GAME_VER
 	then
 	if prompts-enabled; then
-	    while { ps -fC $GAME_VER | awk '{ print $1" "$2"\t "$5" "$7"\t "$8" "$9" "$10 }' | grep ^dgl; }
+	    while { ps -fC $GAME_VER | awk '{ print $1" "$2"\t "$5" "$7"\t "$8" "$9" "$10 }' | grep ^"$DGL_USER"; }
 	    do
 		echo "There are still active crawl processes running..."
 		echo "-- Press RETURN to try again --"
@@ -116,7 +147,7 @@ do
 	    rm $BINPATH/$GAME_VER
 	    rm -r $BASE_DIR/$GAME_VER
 	else
-	    if { ps -fC $GAME_VER | awk '{ print $1" "$2"\t "$5" "$7"\t "$8" "$9" "$10 }' | grep ^dgl >/dev/null; }
+	    if { ps -fC $GAME_VER | awk '{ print $1" "$2"\t "$5" "$7"\t "$8" "$9" "$10 }' | grep ^"$DGL_USER" >/dev/null; }
 	    then
 		echo "Revision ${version} is being played..."
 	    else

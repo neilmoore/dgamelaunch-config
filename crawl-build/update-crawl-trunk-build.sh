@@ -63,7 +63,7 @@ prompt "install ${GAME}-${REVISION}"
 if [[ "$(uname)" != "Darwin" ]] && {
         ps -fC ${GAME}-${REVISION} |
         awk '{ print $1" "$2"\t "$5" "$7"\t "$8" "$9" "$10 }' |
-        grep ^dgl;
+        grep ^"$DGL_USER";
     } 
 then
     abort-saying "There are already active instances of this version (${REVISION_FULL}) running"
@@ -76,7 +76,7 @@ echo "Save major version: $SGV_MAJOR"
 export SGV_MINOR="0"
 
 say-do sudo -H $DGL_CHROOT/sbin/install-trunk.sh "$REVISION" \
-    "$SGV_MAJOR" "$SGV_MINOR"
+    "$REVISION_FULL" "$SGV_MAJOR" "$SGV_MINOR"
 
 announce "Unstable branch updated to: ${REVISION_FULL} (${SGV_MAJOR})"
 

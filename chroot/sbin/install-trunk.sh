@@ -18,8 +18,9 @@ CRAWL_UGRP="%%CRAWL_UGRP%%"
 DGL_SETTINGS_DIR="%%DGL_SETTINGS_DIR%%"
 
 REVISION="$1"
-SGV_MAJOR="$2"
-SGV_MINOR="$3"
+DESCRIPTION="$2"
+SGV_MAJOR="$3"
+SGV_MINOR="$4"
 
 # Safe path:
 PATH=/bin:/sbin:/usr/bin:/usr/sbin
@@ -64,7 +65,7 @@ register-game-version() {
     echo
     echo "Adding version (${SGV_MAJOR}.${SGV_MINOR}) to database..."
     sqlite3 ${VERSIONS_DB} <<SQL
-INSERT INTO VERSIONS VALUES ('${REVISION}', $(date +%s),
+INSERT INTO VERSIONS VALUES ('${REVISION}', '$DESCRIPTION', $(date +%s),
                              ${SGV_MAJOR}, ${SGV_MINOR}, 1);
 SQL
 }
