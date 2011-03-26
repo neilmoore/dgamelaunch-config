@@ -129,7 +129,7 @@ if [[ -n "$SAVE" ]]; then
 
     if [[ "$OUR_GAME_HASH" != "$LATEST_GAME_HASH" ]]; then
         current_ver="$(hash-description $OUR_GAME_HASH)"
-        echo "Hi, you have a $current_ver save, but there's a newer vesion available:"
+        echo "Hi, you have a $current_ver save game:"
 	echo
 
 	OUR_SGV_MAJOR="$(major-version-for-game $OUR_GAME_HASH)"
