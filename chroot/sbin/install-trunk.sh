@@ -50,7 +50,7 @@ link-logfiles() {
 }
 
 install-game() {
-    mkdir -p $SAVEDIR
+    mkdir -p $SAVEDIR/{,sprint,zotdef}
     mkdir -p $DATADIR
 
     copy-game-binary
