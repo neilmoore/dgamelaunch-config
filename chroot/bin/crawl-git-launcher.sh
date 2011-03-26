@@ -129,12 +129,12 @@ if [[ -n "$SAVE" ]]; then
 
     if [[ "$OUR_GAME_HASH" != "$LATEST_GAME_HASH" ]]; then
         current_ver="$(hash-description $OUR_GAME_HASH)"
-        new_ver="$(hash-description $NEW_GAME_HASH)"
         echo "Hi, you have a $current_ver save, but there's a newer vesion available:"
 	echo
 
 	OUR_SGV_MAJOR="$(major-version-for-game $OUR_GAME_HASH)"
 	NEW_GAME_HASH="$(newest-version-with-major-version $OUR_SGV_MAJOR)"
+        new_ver="$(hash-description $NEW_GAME_HASH)"
 
         if [[ "$OUR_GAME_HASH" != "$NEW_GAME_HASH" &&
                     "$TRANSFER_ENABLED" == "1" ]]; then
