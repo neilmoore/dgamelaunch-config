@@ -21,6 +21,22 @@ Currently available commands:
 4. Remove stale Crawl alpha versions:
    $ dgl remove-trunks
 
+5. Run dgl-whereis inotify daemon:
+   $ sudo dgl crawl-inotify-dglwhere
+
+   This inotify daemon monitors the dgamelaunch in-progress dirs to keep
+   track of active players, and monitors their morgue directories for
+   changes to their .where files. When a .where changes, the daemon reads
+   it and writes a human-readable .dglwhere file in the same directory.
+
+   You may configure dgamelaunch to show this .dglwhere information
+   using the dgamelaunch extra_info_file option.
+
+   You may also run the crawl-inotify-dglwhere script standalone (without
+   the rest of the dgamelaunch-config setup) by starting it as:
+
+      sudo -u dgl perl crawl-inotify-dglwhere.pl <dgldir> <morguedir>
+
 Note: Some of these commands will probably change names soon.
 
 The ultimate goal for this project is to become a one-stop shop for
