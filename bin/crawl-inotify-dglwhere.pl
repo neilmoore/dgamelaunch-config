@@ -171,7 +171,10 @@ sub unmonitor_player($) {
 
 sub monitor_players($@) {
   my ($inotify, @players) = @_;
-  monitor_player($inotify, $_) for @players;
+  for my $player (@players) {
+    write_dglwhere_file($player);
+    monitor_player($inotify, $player);
+  }
 }
 
 sub inprogress_dirs() {
