@@ -84,7 +84,7 @@ sub whereis_human_readable($) {
   my $w = shift;
   # No more than 18 characters, empty string for saved/dead characters:
   return '' if $$w{status} ne 'active';
-  my $weight = $$w{xl} + $$w{lvl} * 2;
+  my $weight = $$w{xl} * 100 + $$w{lvl};
   sprintf("$weight|%-3s $$w{char}, $$w{place}",
           "L$$w{xl}")
 }
