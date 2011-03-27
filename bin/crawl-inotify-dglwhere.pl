@@ -232,9 +232,42 @@ sub daemonify {
   # Done daemonifying.
 }
 
+sub ps_list($) {
+  my $process_name = shift;
+  my @processes = map([split],
+                      qx/ps -ef | grep \Q$process_name\E | grep -v grep/);
+  grep($_->[1] != $$, @processes);
+}
+
+sub ps_pid($) {
+  my $process_name = shift;
+  my @processes = ps_list($process_name);
+  return unless @processes == 1;
+  return $processes[0][1];
+}
+
+sub pid_describe($) {
+  my $pid = shift;
+  my @lines = qx/ps -f -p \Q$pid\E/;
+  join('', @lines)
+}
+
+sub supersede_existing_daemon() {
+  my $name = $0;
+  ($name) = $name =~ m{.*/(.*)} if $name =~ m{/};
+  my $existing_daemon_pid = ps_pid($name);
+  if ($existing_daemon_pid) {
+    print "Killing existing daemon ($existing_daemon_pid):\n",
+      pid_describe($existing_daemon_pid);
+    kill TERM => $existing_daemon_pid;
+    sleep 1;
+  }
+}
+
 sub main() {
   assert_environment_exists();
 
+  supersede_existing_daemon();
   lock_or_exit(1, $LOCKFILE);
   daemonify($LOGFILE) if $DAEMON;
 
