@@ -2,11 +2,15 @@
 
 set -e
 
-DGAMELAUNCH="$(which dgamelaunch 2>/dev/null || true)"
-[[ -n "$DGAMELAUNCH" ]] || DGAMELAUNCH=/usr/local/sbin/dgamelaunch
-if [[ -z "$DGAMELAUNCH" || ! -x "$DGAMELAUNCH" ]]; then
-    abort-saying "Cannot find dgamelaunch binary"
-fi
+DGAMELAUNCH="$1"
+
+valid-dgl() {
+    [[ -n "$DGAMELAUNCH" && -x "$DGAMELAUNCH" ]]
+}
+
+valid-dgl || DGAMELAUNCH="$(which dgamelaunch 2>/dev/null || true)"
+valid-dgl || DGAMELAUNCH=/usr/local/sbin/dgamelaunch
+valid-dgl || abort-saying "Cannot find dgamelaunch binary"
 
 STRACE_OUT=strace.out
 
