@@ -9,6 +9,10 @@ DGL_LOCKS=()
 
 PROMPTS_ENABLED=
 
+dgl-run() {
+    "$0" "$@"
+}
+
 say() {
     echo ";;;; $@"
 }
@@ -16,6 +20,14 @@ say() {
 say-do() {
     echo "[EXEC] $@"
     "$@"
+}
+
+running-as-root() {
+    [[ "$UID" == "0" ]]
+}
+
+not-running-as-root() {
+    [[ "$UID" != "0" ]]
 }
 
 announce() {

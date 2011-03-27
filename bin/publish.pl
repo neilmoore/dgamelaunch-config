@@ -7,9 +7,14 @@ use File::Copy;
 use File::Path;
 use Cwd qw/abs_path/;
 use Term::ANSIColor;
+use Getopt::Long;
 
 use lib "$ENV{DGL_CONF_HOME}/lib";
 use DGLMan;
+
+my %OPT;
+GetOptions(\%OPT, "match=s", "skip=s", "confirm", "target=s")
+  or die "Bad command line: @ARGV\n";
 
 my $CHROOT = $ENV{DGL_CHROOT};
 die "DGL chroot not specified in environment\n" unless $CHROOT;
@@ -19,6 +24,18 @@ my @COPY_TARGETS = ([ 'dgamelaunch.conf', '//etc' ],
                     [ 'chroot/data/*.{rc,macro}', "/dgldir/data" ],
                     [ 'chroot/bin/*.sh', '/bin' ],
                     [ 'chroot/sbin/*.sh', '/sbin' ]);
+
+if ($OPT{match}) {
+  @COPY_TARGETS = grep($$_[0] =~ /\Q$OPT{match}/, @COPY_TARGETS);
+}
+if ($OPT{skip}) {
+  @COPY_TARGETS = grep($$_[0] !~ /\Q$OPT{skip}/, @COPY_TARGETS);
+}
+if ($OPT{target}) {
+  die "--target specified, but more than one file to publish\n"
+    if @COPY_TARGETS > 1;
+  $COPY_TARGETS[0][1] = $OPT{target};
+}
 
 sub change_stat($@) {
   my ($dst, @src) = @_;
@@ -254,7 +271,7 @@ print "Publishing DGL config files:\n\n";
 my $dirty = summarize_publishees();
 print "\n";
 
-my $want_publish = grep($_ eq '--confirm', @ARGV);
+my $want_publish = $OPT{confirm};
 if (!$want_publish) {
   if ($dirty) {
     warn <<PUBLISH_HOWTO;
