@@ -8,6 +8,15 @@ declare -a DGL_LOCKS
 DGL_LOCKS=()
 
 PROMPTS_ENABLED=
+GIVE_HELP=
+
+help() {
+    if [[ -n "$GIVE_HELP" ]]; then
+        cat
+        echo
+        exit 0
+    fi
+}
 
 dgl-run() {
     "$0" "$@"
@@ -26,8 +35,22 @@ running-as-root() {
     [[ "$UID" == "0" ]]
 }
 
+assert-running-as-root() {
+    if ! running-as-root; then
+        abort-saying "$SCRIPT_NAME needs to be run as root"
+    fi
+}
+
 not-running-as-root() {
     [[ "$UID" != "0" ]]
+}
+
+each-do() {
+    local cmd="$1"
+    shift
+    for arg in "$@"; do
+        $cmd "$arg"
+    done
 }
 
 announce() {
@@ -128,4 +151,23 @@ at the correct chroot path.
 EOF
         exit 1
     fi
+}
+
+login-query() {
+    sqlite3 "$LOGIN_DB"
+}
+
+dgl-user-exists() {
+    local user="$1"
+    local found="$(echo "SELECT username FROM dglusers WHERE username='$user';" |
+                   login-query)"
+    [[ -n "$found" ]]
+}
+
+dgl-user-is-admin() {
+    local user="$1"
+    local found="$(echo "SELECT username FROM dglusers
+                         WHERE username='$user' AND (flags & 1) = 1;" |
+                   login-query)"
+    [[ -n "$found" ]]
 }

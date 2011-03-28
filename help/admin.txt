@@ -1,0 +1,7 @@
+
+dgl admin: Manages dgamelaunch admin users.
+
+Usage: dgl admin ls           List admin users
+       dgl admin add <user>   Make <user> an admin
+       dgl admin rm <user>    Make <user> a regular (non-admin) user.
+

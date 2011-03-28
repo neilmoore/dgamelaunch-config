@@ -54,11 +54,26 @@ find-dgl-home() {
     fi
 }
 
+resolve-action() {
+    local action="$1"
+    local script="$DGL_CONF_HOME/bin/$action.sh"
+    if [[ ! -f "$script" ]]; then
+        cat-error <<EOF
+Can't find dgamelaunch action '$action'
+
+Available actions are:
+$(list-all-actions)
+
+EOF
+        exit 1
+    fi
+    echo "$script"
+}
+
 find-dgl-home || exit 1
 
 ACTION=$1
 shift
-ACTION_SCRIPT="$DGL_CONF_HOME/bin/$ACTION.sh"
 
 find-all-actions() {
     local -a actions
@@ -79,12 +94,8 @@ if [[ -z "$ACTION" ]]; then
     exit 1
 fi
 
-if [[ ! -f "$ACTION_SCRIPT" ]]; then
-    echo -e "Can't find dgamelaunch action '$ACTION'"
-    echo -e "Available actions are:"
-    list-all-actions >&2
-    exit 1
-fi
+ACTION_SCRIPT="$(resolve-action $ACTION)"
+[[ -z "$ACTION_SCRIPT" ]] && exit 1
 
 cd "$DGL_CONF_HOME"
 source sh-utils
