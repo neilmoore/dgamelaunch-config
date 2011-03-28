@@ -59,6 +59,9 @@ copy-data-files() {
     echo "Copying game data files to $DATADIR"
     cp -r source/dat docs settings $DATADIR
     cp -r settings $DGL_SETTINGS_DIR/$GAME-settings
+
+    mkdir -p "$ABS_COMMON_DIR/data/docs"
+    cp docs/crawl_changelog.txt "$ABS_COMMON_DIR/data/docs"
 }
 
 link-logfiles() {
