@@ -48,7 +48,7 @@ prompt "compile ${GAME}-${REVISION}"
 # REMEMBER to adjust /var/lib/dgamelaunch/sbin/install-trunk.sh as well if make parameters change!
 ##################################################################################################
 
-say-do crawl-do nice make -j2 -C source \
+say-do crawl-do nice make -C source \
     GAME=${GAME}-${REVISION} \
     GAME_MAIN=${GAME} MCHMOD=0755 MCHMOD_SAVEDIR=755 \
     INSTALL_UGRP=$CRAWL_UGRP \
