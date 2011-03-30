@@ -66,3 +66,25 @@ TODO
    master) using a system similar to CDO's for creating versioned
    directories, migrating saves to newer versions, and deleting old
    versions with no remaining save games.
+
+5. Module system so that management of say, crawl-git is a
+   self-contained module. Each module should be able to contribute dgl
+   commands and provide files that will be installed to the chroot or
+   root filesystem.
+
+6. Each dgl command that affects the machine or chroot should update a
+   manifest. The manifest could be a file or a directory containing
+   multiple manifest files.
+
+   Given a manifest, I should be able to install dgamelaunch-config
+   on a brand new machine and use one dgl command to recreate the manifest.
+
+   For instance, something like:
+   `dgl replicate-manifest <path-to-manifest>`
+
+   The manifest should include information like this:
+   * What dgamelaunch version is installed, and from where (install-dgl module)
+   * chroot configuration: what binaries and libraries have been installed
+     into the chroot, with the exception of game binaries, i.e. the state of
+     the chroot minus games (chroot module)
+   * Game configuration (handled by the various game modules)
