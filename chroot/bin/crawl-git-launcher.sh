@@ -33,20 +33,20 @@ VERSIONS_DB="%%CHROOT_VERSIONS_DB%%"
 
 export HOME="%%CHROOT_COREDIR%%"
 
+JUST_RUN_CRAWL_ALREADY=
 # If set, this script will not event report the existence of newer versions.
-TRANSFER_BYPASSED=
+[[ "$@" =~ --print-charset\\b ]] && JUST_RUN_CRAWL_ALREADY=1
+
 TRANSFER_ENABLED="1"
 CHAR_NAME="$2"
 
 # Clear screen
-printf "\e[2J\e[H"
+[[ -z "$JUST_RUN_CRAWL_ALREADY" ]] && printf "\e[2J\e[H"
 
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
 SAVES="saves"
-
-[[ "$@" =~ --print-charset\\b ]] && TRANSFER_BYPASSED=1
 
 [[ "$@" =~ -sprint\\b ]] && SAVES="$SAVES/sprint"
 [[ "$@" =~ -zotdef\\b ]] && SAVES="$SAVES/zotdef"
@@ -150,7 +150,7 @@ if [[ -n "$SAVE" ]]; then
     OUR_GAME_HASH=${SAVE#$CRAWL_GIT_DIR/$BINARY_BASE_NAME-}
     OUR_GAME_HASH=${OUR_GAME_HASH%%/*}
 
-    if [[ -z "$TRANSFER_BYPASSED" && \
+    if [[ -z "$JUST_RUN_CRAWL_ALREADY" && \
         "$OUR_GAME_HASH" != "$LATEST_GAME_HASH" ]]
     then
         current_ver="$(hash-description $OUR_GAME_HASH)"
