@@ -33,6 +33,8 @@ VERSIONS_DB="%%CHROOT_VERSIONS_DB%%"
 
 export HOME="%%CHROOT_COREDIR%%"
 
+# If set, this script will not event report the existence of newer versions.
+TRANSFER_BYPASSED=
 TRANSFER_ENABLED="1"
 CHAR_NAME="$2"
 
@@ -43,6 +45,8 @@ export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
 SAVES="saves"
+
+[[ "$@" =~ --print-charset\\b ]] && TRANSFER_BYPASSED=1
 
 [[ "$@" =~ -sprint\\b ]] && SAVES="$SAVES/sprint"
 [[ "$@" =~ -zotdef\\b ]] && SAVES="$SAVES/zotdef"
@@ -146,7 +150,9 @@ if [[ -n "$SAVE" ]]; then
     OUR_GAME_HASH=${SAVE#$CRAWL_GIT_DIR/$BINARY_BASE_NAME-}
     OUR_GAME_HASH=${OUR_GAME_HASH%%/*}
 
-    if [[ "$OUR_GAME_HASH" != "$LATEST_GAME_HASH" ]]; then
+    if [[ -z "$TRANSFER_BYPASSED" && \
+        "$OUR_GAME_HASH" != "$LATEST_GAME_HASH" ]]
+    then
         current_ver="$(hash-description $OUR_GAME_HASH)"
         echo "Hi, you have a $current_ver save game:"
 	echo
