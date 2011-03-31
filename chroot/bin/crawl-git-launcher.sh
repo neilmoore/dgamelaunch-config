@@ -209,9 +209,6 @@ GAME_FOLDER="$CRAWL_GIT_DIR/$BINARY_BASE_NAME-$OUR_GAME_HASH"
 if test -x "${BINARY_NAME}" -a -d "${GAME_FOLDER}"
 then
     cd ${HOME}
-
-    echo
-    echo "Starting Dungeon Crawl Stone Soup ${OUR_GAME_HASH}..."
     exec ${BINARY_NAME} "$@"
 fi
 
