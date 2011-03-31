@@ -11,7 +11,6 @@ Logged in as: $USERNAME
 W) Watch games in progress
 
 1) Dungeon Crawl Stone Soup 0.7.2
-2) Dungeon Crawl Stone Soup 0.6.1
 
 T) Dungeon Crawl Stone Soup Development Version (Unstable)
 K) Play robotfindskitten
