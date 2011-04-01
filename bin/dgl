@@ -10,9 +10,13 @@ usage() {
     echo -e "Usage: $SCRIPT_NAME $@"
 }
 
+cat-error() {
+    cat >&2
+}
+
 report-usage() {
     printf "Usage: $SCRIPT_NAME " >&2
-    cat >&2
+    cat-error
     exit 1
 }
 
