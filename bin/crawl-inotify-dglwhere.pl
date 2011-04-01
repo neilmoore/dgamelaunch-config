@@ -18,11 +18,11 @@ use Fcntl qw/:flock/;
 use Getopt::Long;
 
 my $DAEMON = 1;
-GetOptions("daemon" => \$DAEMON)
+GetOptions("daemon!" => \$DAEMON)
   or die "Bad command line: @ARGV\n";
 
-my $DGLDIR = $ARGV[0];
-my $TTYRECDIR = $ARGV[1];
+my $DGLDIR = $ARGV[0] || '';
+my $TTYRECDIR = $ARGV[1] || '';
 
 $ENV{DGLDIR} = $DGLDIR;
 $ENV{TTYRECDIR} = $TTYRECDIR;
@@ -39,7 +39,7 @@ sub say($) {
 
 sub assert_dir_exists($) {
   my $dir = shift;
-  die "$dir not set in environment\n" unless $ENV{$dir};
+  die "$dir not set\n" unless $ENV{$dir};
   die "Can't find $dir ($ENV{$dir})\n" unless -d $ENV{$dir};
 }
 
@@ -48,19 +48,22 @@ sub assert_environment_exists() {
   assert_dir_exists('TTYRECDIR');
 }
 
-sub player_where_dir($) {
-  my $player = shift;
+sub player_where_dir($$) {
+  my ($player, $dir) = @_;
+  for my $candidate ("$TTYRECDIR/$dir/morgue/$player") {
+    return $candidate if -d $candidate;
+  }
   "$TTYRECDIR/$player"
 }
 
-sub player_where_file($) {
-  my $player = shift;
-  player_where_dir($player) . "/$player.where"
+sub player_where_file($$) {
+  my ($player, $where_dir) = @_;
+  player_where_dir($player, $where_dir) . "/$player.where"
 }
 
-sub player_dglwhere_file($) {
-  my $player = shift;
-  player_where_dir($player) . "/$player.dglwhere"
+sub player_dglwhere_file($$) {
+  my ($player, $morgue_dir) = @_;
+  player_where_dir($player, $morgue_dir) . "/$player.dglwhere"
 }
 
 sub whereis_read($) {
@@ -89,13 +92,13 @@ sub whereis_human_readable($) {
           "L$$w{xl}")
 }
 
-sub write_dglwhere_file($) {
-  my $player = shift;
-  my $where_dict = whereis_read(player_where_file($player));
+sub write_dglwhere_file($$) {
+  my ($player, $where_dir) = @_;
+  my $where_dict = whereis_read(player_where_file($player, $where_dir));
 
   if ($where_dict) {
     my $human_readable_where = whereis_human_readable($where_dict);
-    my $dglwhere_file = player_dglwhere_file($player);
+    my $dglwhere_file = player_dglwhere_file($player, $where_dir);
     open my $outf, '>', $dglwhere_file or do {
       say "Could not write $dglwhere_file: $!";
       return;
@@ -113,20 +116,30 @@ sub inprog_player($) {
   $player
 }
 
+sub inprog_morgue_dir($) {
+  my $dir = shift;
+  $dir =~ s{/$}{};
+  ($dir) = $dir =~ m{.*/(.*)};
+  # Strip alt qualifiers:
+  $dir =~ s/\b(?:spr|zd)-//;
+  $dir
+}
+
 ## BEGIN inotify callbacks ##
 
 sub inotify_player_where_file_changed {
-  my ($player, $event) = @_;
+  my ($player, $where_dir, $event) = @_;
   return unless $$event{name} =~ /$player\.where$/;
-  write_dglwhere_file($player);
+  write_dglwhere_file($player, $where_dir);
 }
 
 sub inotify_inprogress_change {
-  my ($event) = @_;
+  my ($inprog_dir, $event) = @_;
   my $file = $$event{name};
   return unless $file;
 
   my $player = inprog_player($file);
+  my $morgue_dir = inprog_morgue_dir($inprog_dir);
   my $gone_away = $$event{mask} & IN_DELETE;
   if ($player) {
     if ($gone_away) {
@@ -135,21 +148,26 @@ sub inotify_inprogress_change {
     }
     else {
       say "$player started game, monitoring";
-      write_dglwhere_file($player);
-      monitor_player($inotify, $player);
+      write_dglwhere_file($player, $morgue_dir);
+      monitor_player($inotify, $player, $morgue_dir);
     }
   }
 }
 
 ## END inotify callbacks ##
 
-sub monitor_player($$) {
-  my ($inotify, $player) = @_;
+sub monitor_player($$$) {
+  my ($inotify, $player, $morgue_dir) = @_;
   return if $MONITORED_PLAYERS{$player};
   say "++ MONITOR: $player";
-  my $watch = $inotify->watch(player_where_dir($player), IN_CLOSE_WRITE,
+
+  my $where_dir = player_where_dir($player, $morgue_dir);
+  my $watch = $inotify->watch($where_dir,
+                              IN_CLOSE_WRITE,
                               sub {
-                                inotify_player_where_file_changed($player, @_)
+                                inotify_player_where_file_changed($player,
+                                                                  $morgue_dir,
+                                                                  @_)
                               });
   die "Failed to watch $player: $!\n" unless $watch;
   $MONITORED_PLAYERS{$player} = $watch;
@@ -169,16 +187,15 @@ sub unmonitor_player($) {
   }
 }
 
-sub monitor_players($@) {
-  my ($inotify, @players) = @_;
-  for my $player (@players) {
-    write_dglwhere_file($player);
-    monitor_player($inotify, $player);
-  }
-}
-
 sub inprogress_dirs() {
-  my @dirs = grep(-d, glob("$DGLDIR/inprogress*"));
+  my $inprog_glob = $DGLDIR;
+  if (-d "$DGLDIR/inprogress") {
+    $inprog_glob = "$DGLDIR/inprogress/*";
+  }
+  else {
+    $inprog_glob = "$DGLDIR/inprogress*";
+  }
+  my @dirs = grep(-d, glob($inprog_glob));
   die "No inprogress dirs under $DGLDIR!\n" unless @dirs;
   @dirs
 }
@@ -191,12 +208,13 @@ sub monitor_active_player_where($) {
   for my $dir (@inprog_dirs) {
     my @ttyrecs = glob("$dir/*.ttyrec");
 
+    my $morgue_dir = inprog_morgue_dir($dir);
     for my $ttyrec (@ttyrecs) {
-      my ($player) = inprog_player($ttyrec);
-      $monitorees{$player} = 1 if $player =~ /^\w+/;
+      my $player = inprog_player($ttyrec);
+      write_dglwhere_file($player, $morgue_dir);
+      monitor_player($inotify, $player, $morgue_dir);
     }
   }
-  monitor_players($inotify, keys %monitorees);
 }
 
 sub monitor_inprogress_dirs($) {
@@ -204,7 +222,10 @@ sub monitor_inprogress_dirs($) {
   my @inprog_dirs = inprogress_dirs();
   for my $inprog (@inprog_dirs) {
     $inotify->watch($inprog, IN_CREATE | IN_DELETE,
-                    \&inotify_inprogress_change);
+                    sub {
+                      my $event = shift;
+                      inotify_inprogress_change($inprog, $event)
+                    });
   }
 }
 
