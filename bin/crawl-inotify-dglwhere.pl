@@ -242,7 +242,6 @@ sub lock_or_exit {
 
 sub daemonify {
   my $log = shift;
-  umask 0;
   defined(my $pid = fork) or die "Unable to fork: $!";
   exit if $pid;
   setsid or die "Unable to start a new session: $!";
