@@ -8,16 +8,13 @@ Crawl information:  http://crawl.develz.org
 
 Logged in as: $USERNAME
 
-W) Watch games in progress
+Game selected: EroCrawl (unstable): Lava Orcs, Octopodes, Square LOS
 
-1) Dungeon Crawl Stone Soup 0.7.2
-T) Dungeon Crawl Stone Soup Development Version (Unstable)
+P) Play Crawl
 
-L) EroCrawl (unstable): Lava Orcs, Octopodes, Square LOS
-K) Play robotfindskitten
+o) Edit options    O) with Virus
+m) Edit macros     M) with Virus
 
-c) Change password  e) Change email address
+q) Return to main menu
 
-Q)uit or P)lay or S)print in Crawl 0.7 now
-
-=> 
+=>
