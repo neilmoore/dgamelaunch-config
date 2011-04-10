@@ -10,6 +10,8 @@ Logged in as: $USERNAME
 
 Game selected: EroCrawl (unstable): Lava Orcs, Octopodes, Square LOS
 
+https://crawl.develz.org/wiki/doku.php?id=dcss:brainstorm:species:lava_orc
+
 P) Play Crawl
 
 o) Edit options    O) with Virus
