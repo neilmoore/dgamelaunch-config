@@ -10,15 +10,13 @@ Logged in as: $USERNAME
 
 Game selected: EroCrawl (unstable): Lava Orcs, Octopodes, Square LOS
 
-https://crawl.develz.org/wiki/doku.php?id=dcss:brainstorm:species:lava_orc
+B) Backup your save-game (for bug reports and debugging)
 
-P) Play Crawl
+The next option allows you to reset your options.
+ALL CHANGES YOU'VE MADE TO YOUR OPTIONS WILL BE LOST.
 
-o) Edit options    O) with Virus
-m) Edit macros     M) with Virus
+O) Reset options
 
-A) Advanced options
-
-q) Return to main menu
+q) Return to previous menu
 
 => 
