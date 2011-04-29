@@ -6,19 +6,18 @@ Crawl information:  http://crawl.develz.org
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
 
-Logged in as: $USERNAME (admin)
+Logged in as: $USERNAME
 
-W) Watch games in progress
+Game selected: Dungeon Crawl Stone Soup 0.8.0
 
-1) Dungeon Crawl Stone Soup 0.8.0
-2) Dungeon Crawl Stone Soup 0.7.2
-T) Dungeon Crawl Stone Soup Development Version (Unstable)
+B)ackup your save-game (for bug reports and debugging)
 
-L) EroCrawl (unstable): Lava Orcs, Octopodes, Square LOS
-K) Play robotfindskitten
+The next two options allow you to reset your options and macros.
+ALL CHANGES YOU'VE MADE TO YOUR OPTIONS AND MACROS WILL BE DELETED.
 
-c) Change password  e) Change email address
+O) Reset options
+M) Reset macros
 
-Q)uit or P)lay or S)print in Crawl 0.7 now
+q) Return to previous menu
 
 => 
