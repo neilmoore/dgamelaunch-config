@@ -10,7 +10,8 @@ Logged in as: $USERNAME
 
 W) Watch games in progress
 
-1) Dungeon Crawl Stone Soup 0.7.2
+1) Dungeon Crawl Stone Soup 0.8.0
+2) Dungeon Crawl Stone Soup 0.7.2
 T) Dungeon Crawl Stone Soup Development Version (Unstable)
 
 L) EroCrawl (unstable): Lava Orcs, Octopodes, Square LOS
