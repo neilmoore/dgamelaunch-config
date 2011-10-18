@@ -1,6 +1,6 @@
 #! /bin/bash
 
-source crawl-git.conf
+source ./crawl-git.conf
 
 if [[ -f "$VERSIONS_DB" ]]; then
     echo -e "Crawl version db $VERSIONS_DB already exists, aborting."

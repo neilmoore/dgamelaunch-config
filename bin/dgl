@@ -102,7 +102,7 @@ ACTION_SCRIPT="$(resolve-action $ACTION)"
 [[ -z "$ACTION_SCRIPT" ]] && exit 1
 
 cd "$DGL_CONF_HOME"
-source sh-utils
+source ./sh-utils
 
 SCRIPT_NAME="$SCRIPT_NAME $ACTION"
 source "$ACTION_SCRIPT"
