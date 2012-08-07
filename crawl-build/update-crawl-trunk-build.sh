@@ -52,7 +52,7 @@ say-do crawl-do nice make -C source \
     GAME=${GAME}-${REVISION} \
     GAME_MAIN=${GAME} MCHMOD=0755 MCHMOD_SAVEDIR=755 \
     INSTALL_UGRP=$CRAWL_UGRP \
-    BUILD_PCRE=YesPlease USE_DGAMELAUNCH=YesPlease WIZARD=YesPlease \
+    WEBTILES=YesPlease USE_DGAMELAUNCH=YesPlease WIZARD=YesPlease \
     STRIP=true DESTDIR=${DESTDIR} prefix= bin_prefix=/bin \
     SAVEDIR=$CHROOT_CRAWL_BASEDIR/${GAME}-${REVISION}/saves \
     DATADIR=$CHROOT_CRAWL_BASEDIR/${GAME}-${REVISION}/data \

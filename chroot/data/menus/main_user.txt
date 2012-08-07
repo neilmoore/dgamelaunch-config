@@ -1,7 +1,8 @@
-Crawl server (North America) hosted and maintained by Rachel Elizabeth Dillon.
+Crawl server (North America) hosted and maintained by Neil Moore (|amethyst).
 ------------------------------------------------------------------------------
-Server information: http://crawl.akrasiac.org
-Crawl information:  http://crawl.develz.org
+Server information: http://dobrazupa.org/
+Crawl information:  http://crawl.develz.org/
+Webtiles:           http://crawl.s-z.org/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
@@ -10,15 +11,11 @@ Logged in as: $USERNAME
 
 W) Watch games in progress
 
-1) Dungeon Crawl Stone Soup 0.8.0
-2) Dungeon Crawl Stone Soup 0.7.2
-T) Dungeon Crawl Stone Soup Development Version (Unstable)
-
-L) EroCrawl (unstable): Lava Orcs, Octopodes, Square LOS
-K) Play robotfindskitten
+T) Dungeon Crawl Stone Soup Trunk
+0) Dungeon Crawl Stone Soup 0.10
 
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print in Crawl 0.8 now
+Q)uit or P)lay or S)print or Z)otDef in Crawl Trunk now
 
 => 

@@ -58,8 +58,8 @@ if [[ $# == 0 || -z "$CHAR_NAME" ]]; then
     exit 1
 fi
 
-ulimit -S -c 153600 2>/dev/null
-ulimit -S -v 102400 2>/dev/null
+ulimit -S -c 1536000 2>/dev/null
+ulimit -S -v 1024000 2>/dev/null
 
 first-real-file() {
     for file in "$@"; do
@@ -101,6 +101,13 @@ SELECT hash FROM versions WHERE major=$major_version
 ORDER BY time DESC
 LIMIT 1;
 EOF
+}
+
+user-is-admin() {
+    local found="$(echo "SELECT username FROM dglusers
+                         WHERE username='$CHAR_NAME' AND (flags & 1) = 1;" |
+                   sqlite3 "$USER_DB")"
+    [[ -n "$found" ]]
 }
 
 transfer-save() {
@@ -205,6 +212,10 @@ fi
 
 BINARY_NAME="$CRAWL_BINARY_PATH/$BINARY_BASE_NAME-$OUR_GAME_HASH"
 GAME_FOLDER="$CRAWL_GIT_DIR/$BINARY_BASE_NAME-$OUR_GAME_HASH"
+
+if user-is-admin; then
+    set -- "$@" -wizard
+fi
 
 if test -x "${BINARY_NAME}" -a -d "${GAME_FOLDER}"
 then

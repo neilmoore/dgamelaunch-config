@@ -1,16 +1,17 @@
-Crawl server (North America) hosted and maintained by Rachel Elizabeth Dillon.
+Crawl server (North America) hosted and maintained by Neil Moore (|amethyst).
 ------------------------------------------------------------------------------
-Server information: http://crawl.akrasiac.org
-Crawl information:  http://crawl.develz.org
+Server information: http://dobrazupa.org/
+Crawl information:  http://crawl.develz.org/
+Webtiles:           http://crawl.s-z.org/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
 
 Logged in as: $USERNAME
 
-Game selected: EroCrawl (unstable): Lava Orcs, Octopodes, Square LOS
+Game selected: Dungeon Crawl Stone Soup 0.10
 
-B) Backup your save-game (for bug reports and debugging)
+B)ackup your save-game (for bug reports and debugging)
 
 The next option allows you to reset your options.
 ALL CHANGES YOU'VE MADE TO YOUR OPTIONS WILL BE LOST.
