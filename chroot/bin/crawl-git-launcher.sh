@@ -37,6 +37,16 @@ JUST_RUN_CRAWL_ALREADY=
 # If set, this script will not event report the existence of newer versions.
 [[ "$@" =~ --print-charset\\b ]] && JUST_RUN_CRAWL_ALREADY=1
 
+WEBTILES=
+[[ "$@" =~ -await-connection\\b ]] && WEBTILES=1
+
+cecho() {
+    [[ -z "$WEBTILES" ]] && echo "$@"
+}
+wecho() {
+    [[ -n "$WEBTILES" ]] && echo "$@"
+}
+
 TRANSFER_ENABLED="1"
 CHAR_NAME="$2"
 
@@ -115,6 +125,9 @@ transfer-save() {
     local game_hash=$2
     local target="$CRAWL_GIT_DIR/$BINARY_BASE_NAME-$game_hash/$SAVES"
     local src_save_dir=$(dirname $save)
+    
+    wecho -n '{"msg":"show_dialog", "html":"'
+    
     if [[ -d "$target" ]]; then
         mv "$src_save_dir/$CHAR_NAME"* \
             "$src_save_dir/start-$CHAR_NAME-ns.prf" \
@@ -122,25 +135,46 @@ transfer-save() {
 
 	if test $? -eq 0
 	then
-	    echo ": successful!"
-	    echo
+            wecho <<EOF
+<p>Transferring successful!</p>
+<input type='button' class='button' data-key=' ' value='Continue' style='float:right;'>
+"}
+EOF
+	    cecho ": successful!"
+	    cecho
 	    OUR_GAME_HASH="${game_hash}"
-	    read -n 1 -t 5 -s -p "--- any key to continue ---"
-	    echo
+            cecho -n "--- any key to continue ---"
+	    read -n 1 -t 5 -s
+	    cecho
 	else
-	    echo ": failed!"
-	    echo
-	    echo "Transferring your save failed! Continuing with former version."
-	    read -n 1 -s -p "--- any key to continue ---"
-	    echo
+            wecho <<EOF
+<p>Transferring failed!</p>
+<p>Transferring your save failed! Continuing with former version.</p>
+<input type='button' class='button' data-key=' ' value='Continue' style='float:right;'>
+"}
+EOF
+	    cecho ": failed!"
+	    cecho
+	    cecho "Transferring your save failed! Continuing with former version."
+            cecho -n "--- any key to continue ---"
+	    read -n 1 -s
+	    cecho
 	fi
     else
-	echo ": failed!"
-	echo
-	echo "Target version is corrupt! Continuing with former version."
-	read -n 1 -s -p "--- any key to continue ---"
-	echo
+        wecho <<EOF
+<p>Transferring failed!</p>
+<p>Target version is corrupt! Continuing with former version.</p>
+<input type='button' class='button' data-key=' ' value='Continue' style='float:right;'>
+"}
+EOF
+	cecho ": failed!"
+	cecho
+	cecho "Target version is corrupt! Continuing with former version."
+        cecho -n "--- any key to continue ---"
+	read -n 1 -s
+	cecho
     fi
+    wecho '{"msg":"hide_dialog"}'
 }
 
 SAVEGLOB="$CRAWL_GIT_DIR/$BINARY_BASE_NAME-*/$SAVES"
@@ -161,8 +195,8 @@ if [[ -n "$SAVE" ]]; then
         "$OUR_GAME_HASH" != "$LATEST_GAME_HASH" ]]
     then
         current_ver="$(hash-description $OUR_GAME_HASH)"
-        echo "Hi, you have a $current_ver save game:"
-	echo
+        cecho "Hi, you have a $current_ver save game:"
+	cecho
 
 	OUR_SGV_MAJOR="$(major-version-for-game $OUR_GAME_HASH)"
 	NEW_GAME_HASH="$(newest-version-with-major-version $OUR_SGV_MAJOR)"
@@ -170,32 +204,52 @@ if [[ -n "$SAVE" ]]; then
 
         if [[ "$OUR_GAME_HASH" != "$NEW_GAME_HASH" &&
                     "$TRANSFER_ENABLED" == "1" ]]; then
+            wecho '{"msg":"layer", "layer":"crt"}'
+            wecho -n '{"msg":"show_dialog", "html":"'
+
 	    if [[ "${NEW_GAME_HASH}" != "${LATEST_GAME_HASH}" ]]; then
-		echo "There's a newer version ($new_ver) that can load your save."
-                read -n 1 -s -p "[T]ransfer your save to this version?" REPLY
-		echo
+		cecho "There's a newer version ($new_ver) that can load your save."
+                cecho -n "[T]ransfer your save to this version?"
+                wecho <<EOF
+<p>There's a newer version ($new_ver) that can load your save.</p>
+<p>[T]ransfer your save to this version?</p>
+<input type='button' class='button' data-key='N' value='No' style='float:right;'>
+<input type='button' class='button' data-key='T' value='Yes' style='float:right;'>
+"}
+EOF
+                read -n 1 -s REPLY
+		cecho
 	    else
-		read -n 1 -s -p "[T]ransfer your save to the latest version ($new_ver)?" REPLY
-		echo
+                cecho -n "[T]ransfer your save to the latest version ($new_ver)?"
+                wecho <<EOF
+<p>[T]ransfer your save to the latest version ($new_ver)?</p>
+<input type='button' class='button' data-key='N' value='No' style='float:right;'>
+<input type='button' class='button' data-key='T' value='Yes' style='float:right;'>
+"}
+EOF
+		read -n 1 -s REPLY
+		cecho
 	    fi
+            wecho '{"msg":"hide_dialog"}'
 
 	    if test "$REPLY" = "t" -o "$REPLY" = "T" -o "$REPLY" = "y"
 	    then
-		echo -n "Transferring..."
+		cecho -n "Transferring..."
                 transfer-save "$SAVE" "$NEW_GAME_HASH"
 	    fi
 	else
 	    if test "${TRANSFER_ENABLED}" != "1"
 	    then
-		echo "Transfering of saves is currently disabled."
-		echo "Finish your game or end your character to play in latest version."
+		cecho "Transfering of saves is currently disabled."
+		cecho "Finish your game or end your character to play in latest version."
 	    else
-		echo "Your save cannot be tranferred though because of incompatibility."
-		echo "Finish your game or end your character to play in latest version."
+		cecho "Your save cannot be tranferred though because of incompatibility."
+		cecho "Finish your game or end your character to play in latest version."
 	    fi
-            
-	    read -n 1 -t 5 -s -p "--- any key to continue ---"
-	    echo
+
+            cecho -n "--- any key to continue ---"
+	    [[ -z "$WEBTILES" ]] && read -n 1 -t 5 -s
+	    cecho
 	fi
     fi
 else
@@ -204,9 +258,10 @@ fi
 
 if test ${#OUR_GAME_HASH} -eq 0
 then
-    echo "Could not figure out the right game version. Aborting..."
-    read -n 1 -s -p "--- any key to continue ---"
-    echo
+    cecho "Could not figure out the right game version. Aborting..."
+    cecho -n "--- any key to continue ---"
+    [[ -z "$WEBTILES" ]] && read -n 1 -s -p
+    cecho
     exit 1
 fi
 
@@ -223,7 +278,7 @@ then
     exec ${BINARY_NAME} "$@"
 fi
 
-echo "Failed starting: ${BINARY_NAME} not found!"
+cecho "Failed starting: ${BINARY_NAME} not found!"
 read -n 1 -s -p "--- any key to continue ---"
-echo
+cecho
 exit 1
