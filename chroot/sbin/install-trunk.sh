@@ -53,6 +53,7 @@ copy-game-binary() {
     echo "Installing game binary ($GAME_BINARY) in $BINARIES_DIR"
     mkdir -p $BINARIES_DIR
     cp source/$GAME_BINARY $BINARIES_DIR
+    ln -sf $GAME_BINARY $BINARIES_DIR/crawl-latest
 }
 
 copy-data-files() {
@@ -82,6 +83,7 @@ install-game() {
     link-logfiles
     
     chown -R $CRAWL_UGRP $SAVEDIR
+    ln -snf $GAME_BINARY $CHROOT$CHROOT_CRAWL_BASEDIR/crawl-latest
 }
 
 register-game-version() {
