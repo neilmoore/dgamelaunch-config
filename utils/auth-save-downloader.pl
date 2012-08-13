@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 #
-# Allows DGL admin users to download saves from CAO's save dump directory.
+# Allows DGL admin users to download saves from CSZO's save dump directory.
 #
 
 use CGI qw/:standard/;
@@ -8,24 +8,25 @@ use MIME::Base64;
 
 use DBI;
 
-my $DB = "/var/lib/dgamelaunch/dgldir/dgamelaunch.db";
-my $CONTENT_DIR = '/var/lib/dgamelaunch/dumps';
+my $DB = "/home/crawl/DGL/dgldir/dgamelaunch.db";
+my $CONTENT_DIR = '/home/crawl/DGL/dgldir/dumps/';
 
-my $AUTH_REALM = 'CAO save dump directory';
+my $AUTH_REALM = 'CSZO save dump directory';
 
 sub request_auth() {
   print(header(-type => 'text/html',
                -status => '401 Authorization Required',
                -WWW_Authenticate => "Basic realm=\"$AUTH_REALM\""),
-        start_html('CAO save dumps'),
+        start_html('CSZO save dumps'),
         p('Must authenticate to access saves'),
         end_html);
   return undef;
 }
 
-sub hash_password($) {
-  my $pw = shift;
-  crypt($pw, substr($pw, 0, 2))
+sub match_password($$) {
+  my ($plain, $crypt) = @_;
+  my $cc = crypt($plain, $crypt);
+  return crypt($plain, $crypt) eq $crypt;
 }
 
 sub valid_user($$) {
@@ -33,13 +34,14 @@ sub valid_user($$) {
   my $db = DBI->connect("dbi:SQLite:dbname=$DB", '', '')
     or die "Can't open auth db: $DB\n";
   my $st = $db->prepare(<<QUERY);
-SELECT username FROM dglusers
-WHERE username=? AND password=? AND (flags & 1) = 1;
+SELECT username, password FROM dglusers
+WHERE username=? AND (flags & 1) = 1;
 QUERY
-  $st->execute($user, hash_password($password));
+  $st->execute($user);
+  my $row = $st->fetchrow_arrayref;
 
   # Should have at least one row.
-  $st->fetchrow_arrayref
+  return defined($row) && match_password($password, $row->[1]);
 }
 
 sub valid_auth($) {
@@ -66,8 +68,7 @@ sub file_bytes($) {
 }
 
 sub serve_file() {
-  my $url = url(-path => 1);
-  my ($file) = $url =~ m{.*/(.*)};
+  my ($file) = param('file');
 
   my $absfile = "$CONTENT_DIR/$file";
   if ($file =~ /[.]{2}/ ||
