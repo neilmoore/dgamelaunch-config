@@ -37,10 +37,10 @@ export HOME="%%CHROOT_COREDIR%%"
 
 JUST_RUN_CRAWL_ALREADY=
 # If set, this script will not event report the existence of newer versions.
-[[ "$@" =~ --print-charset\\b ]] && JUST_RUN_CRAWL_ALREADY=1
+[[ "$@" =~ --print-charset\b ]] && JUST_RUN_CRAWL_ALREADY=1
 
 WEBTILES=
-[[ "$@" =~ -await-connection\\b ]] && WEBTILES=1
+[[ "$@" =~ -await-connection\b ]] && WEBTILES=1
 
 cecho() {
     [[ -z "$WEBTILES" ]] && echo "$@"

@@ -33,12 +33,15 @@ VERSIONS_DB="%%CHROOT_VERSIONS_DB%%"
 
 export HOME="%%CHROOT_COREDIR%%"
 
+# Word boundary regex; bash's =~ is funny about that.
+wb='\b'
+
 JUST_RUN_CRAWL_ALREADY=
 # If set, this script will not event report the existence of newer versions.
-[[ "$@" =~ --print-charset\\b ]] && JUST_RUN_CRAWL_ALREADY=1
+[[ "$@" =~ --print-charset$wb ]] && JUST_RUN_CRAWL_ALREADY=1
 
 WEBTILES=
-[[ "$@" =~ -await-connection\\b ]] && WEBTILES=1
+[[ "$@" =~ -await-connection$wb ]] && WEBTILES=1
 
 cecho() {
     [[ -z "$WEBTILES" ]] && echo "$@"
@@ -46,12 +49,20 @@ cecho() {
 wecho() {
     [[ -n "$WEBTILES" ]] && echo "$@"
 }
+wcat() {
+    if [[ -n "$WEBTILES" ]]; then
+        tr '\n' ' ' | sed -e 's/ $//'
+        echo
+    else
+        cat >/dev/null
+    fi
+}
 
 TRANSFER_ENABLED="1"
 CHAR_NAME="$2"
 
 # Clear screen
-[[ -z "$JUST_RUN_CRAWL_ALREADY" ]] && printf "\e[2J\e[H"
+[[ -z "$JUST_RUN_CRAWL_ALREADY" && -z "$WEBTILES" ]] && printf "\e[2J\e[H"
 
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
@@ -135,7 +146,7 @@ transfer-save() {
 
 	if test $? -eq 0
 	then
-            wecho <<EOF
+            wcat <<EOF
 <p>Transferring successful!</p>
 <input type='button' class='button' data-key=' ' value='Continue' style='float:right;'>
 "}
@@ -147,7 +158,7 @@ EOF
 	    read -n 1 -t 5 -s
 	    cecho
 	else
-            wecho <<EOF
+            wcat <<EOF
 <p>Transferring failed!</p>
 <p>Transferring your save failed! Continuing with former version.</p>
 <input type='button' class='button' data-key=' ' value='Continue' style='float:right;'>
@@ -161,7 +172,7 @@ EOF
 	    cecho
 	fi
     else
-        wecho <<EOF
+        wcat <<EOF
 <p>Transferring failed!</p>
 <p>Target version is corrupt! Continuing with former version.</p>
 <input type='button' class='button' data-key=' ' value='Continue' style='float:right;'>
@@ -210,7 +221,7 @@ if [[ -n "$SAVE" ]]; then
 	    if [[ "${NEW_GAME_HASH}" != "${LATEST_GAME_HASH}" ]]; then
 		cecho "There's a newer version ($new_ver) that can load your save."
                 cecho -n "[T]ransfer your save to this version?"
-                wecho <<EOF
+                wcat <<EOF
 <p>There's a newer version ($new_ver) that can load your save.</p>
 <p>[T]ransfer your save to this version?</p>
 <input type='button' class='button' data-key='N' value='No' style='float:right;'>
@@ -221,7 +232,7 @@ EOF
 		cecho
 	    else
                 cecho -n "[T]ransfer your save to the latest version ($new_ver)?"
-                wecho <<EOF
+                wcat <<EOF
 <p>[T]ransfer your save to the latest version ($new_ver)?</p>
 <input type='button' class='button' data-key='N' value='No' style='float:right;'>
 <input type='button' class='button' data-key='T' value='Yes' style='float:right;'>
