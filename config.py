@@ -38,7 +38,7 @@ watch_socket_dirs = True
 games = OrderedDict([
     ("dcss-web-trunk", dict(
         name = "DCSS trunk",
-        crawl_binary = "/usr/games/crawl-latest",
+        crawl_binary = "/bin/crawl-git-launcher.sh",
         rcfile_path = "/dgldir/rcfiles/crawl-git/",
         macro_path = "/dgldir/rcfiles/crawl-git/",
         morgue_path = "/dgldir/morgue/%n/",
@@ -48,7 +48,7 @@ games = OrderedDict([
         client_path = "/crawl-master/crawl-latest/data/web/")),
     ("sprint-web-trunk", dict(
         name = "Sprint trunk",
-        crawl_binary = "/usr/games/crawl-latest",
+        crawl_binary = "/bin/crawl-git-launcher.sh",
         rcfile_path = "/dgldir/rcfiles/crawl-git/",
         macro_path = "/dgldir/rcfiles/crawl-git/",
         morgue_path = "/dgldir/morgue/%n/",
@@ -59,7 +59,7 @@ games = OrderedDict([
         options = ["-sprint"])),
     ("zd-web-trunk", dict(
         name = "Zot Defence trunk",
-        crawl_binary = "/usr/games/crawl-latest",
+        crawl_binary = "/bin/crawl-git-launcher.sh",
         rcfile_path = "/dgldir/rcfiles/crawl-git/",
         macro_path = "/dgldir/rcfiles/crawl-git/",
         morgue_path = "/dgldir/morgue/%n/",
@@ -70,7 +70,7 @@ games = OrderedDict([
         options = ["-zotdef"])),
     ("tut-web-trunk", dict(
         name = "Tutorial trunk",
-        crawl_binary = "/usr/games/crawl-latest",
+        crawl_binary = "/bin/crawl-git-launcher.sh",
         rcfile_path = "/dgldir/rcfiles/crawl-git/",
         macro_path = "/dgldir/rcfiles/crawl-git/",
         morgue_path = "/dgldir/morgue/%n/",
