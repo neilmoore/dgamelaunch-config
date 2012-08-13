@@ -11,7 +11,7 @@ bind_address = "209.222.93.171"
 bind_port = 80
 
 logging_config = {
-#    "filename": "webtiles.log",
+    "filename": "/crawl-master/webserver/run/webtiles.log",
     "level": logging.INFO,
     "format": "%(asctime)s %(levelname)s: %(message)s"
 }
