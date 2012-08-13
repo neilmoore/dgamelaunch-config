@@ -1,7 +1,7 @@
 #!/bin/bash
 
 set -e
-lock-or-die crawl-update "someone is already updating the trunk build"
+lock-or-die crawl-update "someone is already updating the crawl build"
 
 source $DGL_CONF_HOME/crawl-git.conf
 check-versions-db-exists

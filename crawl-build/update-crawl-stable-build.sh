@@ -11,7 +11,7 @@ if [[ ! $VERSION =~ $VERS_RE ]]; then
 fi
 
 set -e
-lock-or-die crawl-update-$VERSION "someone is already updating the $VERSION build"
+lock-or-die crawl-update "someone is already updating the crawl build"
 
 source $DGL_CONF_HOME/crawl-git.conf
 GAME=crawl-$VERSION
