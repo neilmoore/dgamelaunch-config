@@ -20,6 +20,7 @@ my $CHROOT = $ENV{DGL_CHROOT};
 die "DGL chroot not specified in environment\n" unless $CHROOT;
 
 my @COPY_TARGETS = ([ 'dgamelaunch.conf', '//etc' ],
+                    [ 'config.py', "/crawl-master/webserver" ],
                     [ 'chroot/data/menus/*.txt', "/dgldir/data/menus" ],
                     [ 'chroot/data/*.{rc,macro}', "/dgldir/data" ],
                     [ 'chroot/bin/*.sh', '/bin' ],

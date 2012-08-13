@@ -16,4 +16,4 @@ SUDO=
 if [[ "$USER" != "$DGL_USER" ]]; then
     SUDO="sudo -u $DGL_USER"
 fi
-$SUDO perl $DGL_CONF_HOME/bin/crawl-inotify-dglwhere.pl $DGLDIR $TTYRECDIR "$@"
+$SUDO perl $DGL_CONF_HOME/bin/crawl-inotify-dglwhere.pl $DGLDIR $MORGUEDIR "$@"

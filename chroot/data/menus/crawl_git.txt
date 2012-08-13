@@ -2,7 +2,7 @@ Crawl server (North America) hosted and maintained by Neil Moore (|amethyst).
 ------------------------------------------------------------------------------
 Server information: http://dobrazupa.org/
 Crawl information:  http://crawl.develz.org/
-Webtiles:           http://crawl.s-z.org/
+Webtiles:           https://crawl.s-z.org/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
