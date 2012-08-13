@@ -14,3 +14,4 @@ ifnxcp /dgldir/data/crawl-0.10-settings/init.txt /dgldir/rcfiles/crawl-0.10/"$NA
 ifnxcp /dgldir/data/crawl-git.macro /dgldir/rcfiles/crawl-0.10/"$NAME".macro
 
 mkdir -p /dgldir/morgue/"$NAME"
+mkdir -p /dgldir/ttyrec/"$NAME"
