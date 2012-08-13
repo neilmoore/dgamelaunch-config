@@ -36,7 +36,7 @@ watch_socket_dirs = True
 # Game configs
 # %n in paths is replaced by the current username
 games = OrderedDict([
-    ("dcss-web-trunk", dict(
+    ("dcss-git", dict(
         name = "DCSS trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",
         rcfile_path = "/dgldir/rcfiles/crawl-git/",
@@ -46,7 +46,7 @@ games = OrderedDict([
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
         client_path = "/crawl-master/crawl-latest/data/web/")),
-    ("sprint-web-trunk", dict(
+    ("spr-git", dict(
         name = "Sprint trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",
         rcfile_path = "/dgldir/rcfiles/crawl-git/",
@@ -57,7 +57,7 @@ games = OrderedDict([
         socket_path = "/crawl-master/webserver/sockets",
         client_path = "/crawl-master/crawl-latest/data/web/",
         options = ["-sprint"])),
-    ("zd-web-trunk", dict(
+    ("zd-git", dict(
         name = "Zot Defence trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",
         rcfile_path = "/dgldir/rcfiles/crawl-git/",
@@ -68,7 +68,7 @@ games = OrderedDict([
         socket_path = "/crawl-master/webserver/sockets",
         client_path = "/crawl-master/crawl-latest/data/web/",
         options = ["-zotdef"])),
-    ("tut-web-trunk", dict(
+    ("tut-git", dict(
         name = "Tutorial trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",
         rcfile_path = "/dgldir/rcfiles/crawl-git/",
@@ -80,7 +80,7 @@ games = OrderedDict([
         client_path = "/crawl-master/crawl-latest/data/web/",
         options = ["-tutorial"])),
 
-    ("dcss-web-0.11", dict(
+    ("dcss-0.11", dict(
         name = "DCSS 0.11",
         crawl_binary = "/usr/games/crawl-0.11",
         rcfile_path = "/dgldir/rcfiles/crawl-0.11/",
@@ -90,7 +90,7 @@ games = OrderedDict([
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
         client_path = "/crawl-master/crawl-0.11/data/web/")),
-    ("sprint-web-0.11", dict(
+    ("spr-0.11", dict(
         name = "Sprint 0.11",
         crawl_binary = "/usr/games/crawl-0.11",
         rcfile_path = "/dgldir/rcfiles/crawl-0.11/",
@@ -101,7 +101,7 @@ games = OrderedDict([
         socket_path = "/crawl-master/webserver/sockets",
         client_path = "/crawl-master/crawl-0.11/data/web/",
         options = ["-sprint"])),
-    ("zd-web-0.11", dict(
+    ("zd-0.11", dict(
         name = "Zot Defence 0.11",
         crawl_binary = "/usr/games/crawl-0.11",
         rcfile_path = "/dgldir/rcfiles/crawl-0.11/",
@@ -112,7 +112,7 @@ games = OrderedDict([
         socket_path = "/crawl-master/webserver/sockets",
         client_path = "/crawl-master/crawl-0.11/data/web/",
         options = ["-zotdef"])),
-    ("tut-web-0.11", dict(
+    ("tut-0.11", dict(
         name = "Tutorial 0.11",
         crawl_binary = "/usr/games/crawl-0.11",
         rcfile_path = "/dgldir/rcfiles/crawl-0.11/",
@@ -124,7 +124,7 @@ games = OrderedDict([
         client_path = "/crawl-master/crawl-0.11/data/web/",
         options = ["-tutorial"])),
 
-    ("dcss-web-0.10", dict(
+    ("dcss-0.10", dict(
         name = "DCSS 0.10",
         crawl_binary = "/usr/games/crawl-0.10",
         rcfile_path = "/dgldir/rcfiles/crawl-0.10/",
@@ -134,7 +134,7 @@ games = OrderedDict([
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
         client_path = "/crawl-master/crawl-0.10/data/web/")),
-    ("sprint-web-0.10", dict(
+    ("spr-0.10", dict(
         name = "Sprint 0.10",
         crawl_binary = "/usr/games/crawl-0.10",
         rcfile_path = "/dgldir/rcfiles/crawl-0.10/",
@@ -145,7 +145,7 @@ games = OrderedDict([
         socket_path = "/crawl-master/webserver/sockets",
         client_path = "/crawl-master/crawl-0.10/data/web/",
         options = ["-sprint"])),
-    ("zd-web-0.10", dict(
+    ("zd-0.10", dict(
         name = "Zot Defence 0.10",
         crawl_binary = "/usr/games/crawl-0.10",
         rcfile_path = "/dgldir/rcfiles/crawl-0.10/",
@@ -156,7 +156,7 @@ games = OrderedDict([
         socket_path = "/crawl-master/webserver/sockets",
         client_path = "/crawl-master/crawl-0.10/data/web/",
         options = ["-zotdef"])),
-    ("tut-web-0.10", dict(
+    ("tut-0.10", dict(
         name = "Tutorial 0.10",
         crawl_binary = "/usr/games/crawl-0.10",
         rcfile_path = "/dgldir/rcfiles/crawl-0.10/",
