@@ -44,8 +44,7 @@ games = OrderedDict([
         morgue_path = "/dgldir/morgue/%n/",
         inprogress_path = "/dgldir/inprogress/crawl-git/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
-        socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-latest/data/web/")),
+        socket_path = "/crawl-master/webserver/sockets")),
     ("spr-git", dict(
         name = "Sprint trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",
@@ -55,7 +54,6 @@ games = OrderedDict([
         inprogress_path = "/dgldir/inprogress/crawl-git-sprint/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-latest/data/web/",
         options = ["-sprint"])),
     ("zd-git", dict(
         name = "Zot Defence trunk",
@@ -66,7 +64,6 @@ games = OrderedDict([
         inprogress_path = "/dgldir/inprogress/crawl-git-zotdef/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-latest/data/web/",
         options = ["-zotdef"])),
     ("tut-git", dict(
         name = "Tutorial trunk",
@@ -77,7 +74,6 @@ games = OrderedDict([
         inprogress_path = "/dgldir/inprogress/crawl-git-tut/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-latest/data/web/",
         options = ["-tutorial"])),
 
     ("dcss-0.11", dict(
@@ -88,8 +84,7 @@ games = OrderedDict([
         morgue_path = "/dgldir/morgue/%n/",
         inprogress_path = "/dgldir/inprogress/crawl-11/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
-        socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-0.11/data/web/")),
+        socket_path = "/crawl-master/webserver/sockets")),
     ("spr-0.11", dict(
         name = "Sprint 0.11",
         crawl_binary = "/usr/games/crawl-0.11",
@@ -99,7 +94,6 @@ games = OrderedDict([
         inprogress_path = "/dgldir/inprogress/crawl-11-sprint/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-0.11/data/web/",
         options = ["-sprint"])),
     ("zd-0.11", dict(
         name = "Zot Defence 0.11",
@@ -110,7 +104,6 @@ games = OrderedDict([
         inprogress_path = "/dgldir/inprogress/crawl-11-zotdef/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-0.11/data/web/",
         options = ["-zotdef"])),
     ("tut-0.11", dict(
         name = "Tutorial 0.11",
@@ -121,7 +114,6 @@ games = OrderedDict([
         inprogress_path = "/dgldir/inprogress/crawl-11-tut/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-0.11/data/web/",
         options = ["-tutorial"])),
 
     ("dcss-0.10", dict(
@@ -132,8 +124,7 @@ games = OrderedDict([
         morgue_path = "/dgldir/morgue/%n/",
         inprogress_path = "/dgldir/inprogress/crawl-10/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
-        socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-0.10/data/web/")),
+        socket_path = "/crawl-master/webserver/sockets")),
     ("spr-0.10", dict(
         name = "Sprint 0.10",
         crawl_binary = "/usr/games/crawl-0.10",
@@ -143,7 +134,6 @@ games = OrderedDict([
         inprogress_path = "/dgldir/inprogress/crawl-10-sprint/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-0.10/data/web/",
         options = ["-sprint"])),
     ("zd-0.10", dict(
         name = "Zot Defence 0.10",
@@ -154,7 +144,6 @@ games = OrderedDict([
         inprogress_path = "/dgldir/inprogress/crawl-10-zotdef/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-0.10/data/web/",
         options = ["-zotdef"])),
     ("tut-0.10", dict(
         name = "Tutorial 0.10",
@@ -165,7 +154,6 @@ games = OrderedDict([
         inprogress_path = "/dgldir/inprogress/crawl-10-tut/",
         ttyrec_path = "/dgldir/ttyrec/%n/",
         socket_path = "/crawl-master/webserver/sockets",
-        client_path = "/crawl-master/crawl-0.10/data/web/",
         options = ["-tutorial"])),
 ])
 
