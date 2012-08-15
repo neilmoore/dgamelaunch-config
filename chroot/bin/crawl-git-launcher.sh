@@ -69,8 +69,8 @@ export LC_CTYPE="en_US.UTF-8"
 
 SAVES="saves"
 
-[[ "$@" =~ -sprint\\b ]] && SAVES="$SAVES/sprint"
-[[ "$@" =~ -zotdef\\b ]] && SAVES="$SAVES/zotdef"
+[[ "$@" =~ -sprint$wb ]] && SAVES="$SAVES/sprint"
+[[ "$@" =~ -zotdef$wb ]] && SAVES="$SAVES/zotdef"
 
 if [[ $# == 0 || -z "$CHAR_NAME" ]]; then
     echo "Parameters missing. Aborting..."
