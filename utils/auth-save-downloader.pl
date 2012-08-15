@@ -8,8 +8,8 @@ use MIME::Base64;
 
 use DBI;
 
-my $DB = "/home/crawl/DGL/dgldir/dgamelaunch.db";
-my $CONTENT_DIR = '/home/crawl/DGL/dgldir/dumps/';
+my $DB = "%%LOGIN_DB%%";
+my $CONTENT_DIR = '%%SAVE_DUMPDIR%%/';
 
 my $AUTH_REALM = 'CSZO save dump directory';
 

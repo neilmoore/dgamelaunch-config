@@ -57,6 +57,7 @@ say-do crawl-do nice make -C source \
     SAVEDIR=$CHROOT_CRAWL_BASEDIR/${GAME}-${REVISION}/saves \
     DATADIR=$CHROOT_CRAWL_BASEDIR/${GAME}-${REVISION}/data \
     WEBDIR=$CHROOT_CRAWL_BASEDIR/${GAME}-${REVISION}/data/web \
+    SHAREDDIR=$CHROOT_CRAWL_BASEDIR/${GAME}/saves \
     EXTERNAL_FLAGS_L="-g"
 
 prompt "install ${GAME}-${REVISION}"
