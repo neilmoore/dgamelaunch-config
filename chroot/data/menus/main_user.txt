@@ -1,8 +1,7 @@
 Crawl server (North America) hosted and maintained by Neil Moore (|amethyst).
 ------------------------------------------------------------------------------
-Server information: http://dobrazupa.org/
-Crawl information:  http://crawl.develz.org/
 Webtiles:           https://crawl.s-z.org/
+Crawl information:  http://crawl.develz.org/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
@@ -14,6 +13,8 @@ W) Watch games in progress
 T) Dungeon Crawl Stone Soup Trunk
 1) Dungeon Crawl Stone Soup 0.11
 0) Dungeon Crawl Stone Soup 0.10
+
+R) robotfindskitten  A) Air Traffic Control
 
 c) Change password  e) Change email address
 
