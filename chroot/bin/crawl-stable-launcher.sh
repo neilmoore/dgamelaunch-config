@@ -58,11 +58,6 @@ CHAR_NAME="$2"
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
-SAVES="saves"
-
-[[ "$@" =~ -sprint\\b ]] && SAVES="$SAVES/sprint"
-[[ "$@" =~ -zotdef\\b ]] && SAVES="$SAVES/zotdef"
-
 if [[ $# == 0 || -z "$CHAR_NAME" ]]; then
     echo "Parameters missing. Aborting..."
     read -n 1 -s -p "--- any key to continue ---"
