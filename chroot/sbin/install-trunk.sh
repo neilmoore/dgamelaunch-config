@@ -60,8 +60,8 @@ copy-game-binary() {
 copy-data-files() {
     echo "Copying game data files to $DATADIR"
     cp -r source/dat docs settings $DATADIR
-    cp -r settings $DGL_SETTINGS_DIR/$GAME-settings
-    cp -r source/webserver/game_data $DATADIR/web
+    cp -r settings/. $DGL_SETTINGS_DIR/$GAME-settings
+    cp -r source/webserver/game_data/. $DATADIR/web
     cp -r source/webserver/!(config.py|game_data) $WEBDIR
 
     mkdir -p "$ABS_COMMON_DIR/data/docs"
