@@ -22,6 +22,9 @@
 # ===========================================================================
 #
 
+# The webtiles binary requires a UTF-8 locale.
+export LC_ALL=en_US.UTF-8
+
 set -o nounset
 
 VERSION=$1
