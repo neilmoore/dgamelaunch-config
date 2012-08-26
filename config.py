@@ -28,7 +28,7 @@ server_socket_path = None # Uses global temp dir
 server_id = "cszo"
 
 # Disable caching of game data files
-game_data_no_cache = True
+game_data_no_cache = False
 
 # Watch socket dirs for games not started by the server
 watch_socket_dirs = True
