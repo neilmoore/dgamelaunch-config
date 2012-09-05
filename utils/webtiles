@@ -30,6 +30,7 @@ stop_webtiles() {
 
 start_webtiles() {
 	log_daemon_msg "Starting webtiles server" "webtiles"
+	ulimit -n 4096
 
 	python ./server.py
 	local result=$?
