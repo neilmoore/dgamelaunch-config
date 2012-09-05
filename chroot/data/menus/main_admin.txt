@@ -2,6 +2,7 @@ Crawl server (North America) hosted and maintained by Neil Moore (|amethyst).
 ------------------------------------------------------------------------------
 Webtiles:           https://crawl.s-z.org/
 Crawl information:  http://crawl.develz.org/
+Rebuild:            http://dobrazupa.org/rebuild/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
@@ -19,5 +20,4 @@ R) robotfindskitten  A) Air Traffic Control
 c) Change password  e) Change email address
 
 Q)uit or P)lay or S)print or Z)otDef in Crawl Trunk now
-
 => 

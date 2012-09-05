@@ -11,7 +11,7 @@ use DBI;
 my $DB = "%%LOGIN_DB%%";
 my $CONTENT_DIR = '%%SAVE_DUMPDIR%%/';
 
-my $AUTH_REALM = 'CSZO save dump directory';
+my $AUTH_REALM = 'CSZO developer account';
 
 sub request_auth() {
   print(header(-type => 'text/html',
