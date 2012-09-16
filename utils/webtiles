@@ -32,7 +32,7 @@ start_webtiles() {
 	log_daemon_msg "Starting webtiles server" "webtiles"
 	ulimit -n 4096
 
-	python ./server.py
+	PYTHONPATH=/home/crawl-dev/tornado/ python ./server.py
 	local result=$?
 	log_end_msg $result
 	return $result
