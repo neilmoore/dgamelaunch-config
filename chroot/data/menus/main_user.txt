@@ -1,7 +1,8 @@
-Crawl server (North America) hosted and maintained by Neil Moore (|amethyst).
+Crawl server (North America) hosted and maintained by Rachel Elizabeth Dillon.
 ------------------------------------------------------------------------------
-Webtiles:           https://crawl.s-z.org/
-Crawl information:  http://crawl.develz.org/
+Server information: http://crawl.akrasiac.org
+Webtiles:           http://webtiles.akrasiac.org/
+Crawl information:  http://crawl.develz.org
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
@@ -12,12 +13,11 @@ W) Watch games in progress
 
 T) Dungeon Crawl Stone Soup Trunk
 1) Dungeon Crawl Stone Soup 0.11
-0) Dungeon Crawl Stone Soup 0.10
+2) Dungeon Crawl Stone Soup 0.10
 
-R) robotfindskitten  A) Air Traffic Control
-
+k) robotfindskitten
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print or Z)otDef in Crawl Trunk now
+Q)uit or P)lay or S)print or Z)otDef in Crawl 0.11 now
 
 => 

@@ -7,8 +7,8 @@ except ImportError:
 dgl_mode = True
 
 bind_nonsecure = True # Set to false to only use SSL
-bind_address = "209.222.93.171"
-bind_port = 80
+bind_address = ""
+bind_port = 8080
 
 logging_config = {
     "filename": "%%CHROOT_WEBDIR%%/run/webtiles.log",
@@ -25,7 +25,7 @@ template_path = "%%CHROOT_WEBDIR%%/templates/"
 server_socket_path = None # Uses global temp dir
 
 # Server name, so far only used in the ttyrec metadata
-server_id = "cszo"
+server_id = "cao"
 
 # Disable caching of game data files
 game_data_no_cache = False
@@ -42,7 +42,7 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl-git/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
     ("spr-git", dict(
@@ -51,7 +51,7 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git-sprint/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl-git-sprint/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-sprint"])),
@@ -61,20 +61,10 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git-zotdef/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl-git-zotdef/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-zotdef"])),
-    ("tut-git", dict(
-        name = "Tutorial trunk",
-        crawl_binary = "/bin/crawl-git-launcher.sh",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git-tut/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets",
-        options = ["-tutorial"])),
 
     ("dcss-0.11", dict(
         name = "DCSS 0.11",
@@ -82,7 +72,7 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-11/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl11/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
     ("spr-0.11", dict(
@@ -91,7 +81,7 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-11-sprint/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl11-sprint/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-sprint"])),
@@ -101,20 +91,10 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-11-zotdef/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl11-zotdef/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-zotdef"])),
-    ("tut-0.11", dict(
-        name = "Tutorial 0.11",
-        crawl_binary = "/usr/games/crawl-0.11",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-11-tut/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets",
-        options = ["-tutorial"])),
 
     ("dcss-0.10", dict(
         name = "DCSS 0.10",
@@ -122,7 +102,7 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-10/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl10/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
     ("spr-0.10", dict(
@@ -131,7 +111,7 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-10-sprint/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl10-sprint/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-sprint"])),
@@ -141,20 +121,10 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-10-zotdef/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl10-zotdef/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-zotdef"])),
-    ("tut-0.10", dict(
-        name = "Tutorial 0.10",
-        crawl_binary = "/usr/games/crawl-0.10",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-10-tut/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets",
-        options = ["-tutorial"])),
 ])
 
 dgl_status_file = "%%CHROOT_WEBDIR%%/run/status"
@@ -173,14 +143,14 @@ max_connections = 200
 # at the moment.
 init_player_program = "/bin/init-webtiles.sh"
 
-#ssl_options = None # No SSL
-ssl_options = {
-    "certfile": "/etc/ssl/private/s-z.org.crt",
-    "keyfile": "/etc/ssl/private/s-z.org.key",
-    "ca_certs": "/etc/ssl/private/sub.class1.server.ca.pem"
-}
-ssl_address = "209.222.93.171"
-ssl_port = 443
+ssl_options = None # No SSL
+# ssl_options = {
+#     "certfile": "/etc/ssl/private/s-z.org.crt",
+#     "keyfile": "/etc/ssl/private/s-z.org.key",
+#     "ca_certs": "/etc/ssl/private/sub.class1.server.ca.pem"
+# }
+# ssl_address = ""
+# ssl_port = 8443
 
 connection_timeout = 600
 max_idle_time = 5 * 60 * 60
@@ -204,8 +174,8 @@ crypt_salt_length = 16
 
 login_token_lifetime = 7 # Days
 
-uid = 1002  # If this is not None, the server will setuid to that (numeric) id
-gid = 1002  # after binding its sockets.
+uid = 5  # If this is not None, the server will setuid to that (numeric) id
+gid = 60  # after binding its sockets.
 
 umask = None # e.g. 0077
 

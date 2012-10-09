@@ -289,6 +289,33 @@ fi
 if test -x "${BINARY_NAME}" -a -d "${GAME_FOLDER}"
 then
     cd ${HOME}
+    if [[ $(${BINARY_NAME} -version) != *USE_TILE_WEB* ]]; then
+        # This binary does not support webtiles.
+
+        if [[ $WEBTILES ]]; then
+            wecho '{"msg":"layer", "layer":"crt"}'
+            wcat <<EOF
+{"msg":"show_dialog", "html":"<p>Sorry, version $OUR_GAME_HASH does not support webtiles. Please finish
+your game <a href='ssh://joshua@crawl.akrasiac.org/'>via ssh</a>.</p>
+<input type='button' class='button' data-key='Q' value='Back to lobby' style='float:right;'>"}
+EOF
+            read -n 1 -s REPLY
+            wecho '{"msg":"hide_dialog"}'
+            exit 1
+        fi
+
+        # Copy all but -webtiles-socket and its argument into a new array.
+        args=()
+        while (( $# > 0 )); do
+            if [[ $1 = -webtiles-socket ]]; then
+                shift
+            else
+                args+=("$1")
+            fi
+            shift
+        done
+        set -- "${args[@]}"
+    fi
     exec ${BINARY_NAME} "$@"
 fi
 

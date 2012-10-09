@@ -1,7 +1,8 @@
-Crawl server (North America) hosted and maintained by Neil Moore (|amethyst).
+Crawl server (North America) hosted and maintained by Rachel Elizabeth Dillon.
 ------------------------------------------------------------------------------
-Webtiles:           https://crawl.s-z.org/
-Crawl information:  http://crawl.develz.org/
+Server information: http://crawl.akrasiac.org
+Webtiles:           http://webtiles.akrasiac.org/
+Crawl information:  http://crawl.develz.org
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------

@@ -50,12 +50,14 @@ fi
 copy-game-binary() {
     echo "Installing game binary ($GAME_BINARY) in $BINARIES_DIR"
     mkdir -p $BINARIES_DIR
-    mv $BINARIES_DIR/$GAME_BINARY $BINARIES_DIR/$GAME_BINARY.old
+    if [[ -f $BINARIES_DIR/$GAME_BINARY ]]; then
+        mv $BINARIES_DIR/$GAME_BINARY $BINARIES_DIR/$GAME_BINARY.old
+    fi
     if cp source/$GAME_BINARY $BINARIES_DIR; then
-        rm $BINARIES_DIR/$GAME_BINARY.old
+        rm $BINARIES_DIR/$GAME_BINARY.old || true
     else
         local ERR=$?
-        mv $BINARIES_DIR/$GAME_BINARY.old $BINARIES_DIR/$GAME_BINARY
+        mv $BINARIES_DIR/$GAME_BINARY.old $BINARIES_DIR/$GAME_BINARY || true
         return $ERR
     fi
 }
