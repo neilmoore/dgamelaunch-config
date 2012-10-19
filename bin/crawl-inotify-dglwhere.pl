@@ -161,14 +161,21 @@ sub monitor_player($$$) {
   return if $MONITORED_PLAYERS{$player};
   say "++ MONITOR: $player";
 
-  my $where_dir = player_where_dir($player, $morgue_dir);
-  my $watch = $inotify->watch($where_dir,
-                              IN_CLOSE_WRITE,
-                              sub {
-                                inotify_player_where_file_changed($player,
-                                                                  $morgue_dir,
-                                                                  @_)
-                              });
+  my $watch;
+  for my $i (1..3) {
+    my $where_dir = player_where_dir($player, $morgue_dir);
+    $watch = $inotify->watch($where_dir,
+                             IN_CLOSE_WRITE,
+                             sub {
+                               inotify_player_where_file_changed($player,
+                                                                 $morgue_dir,
+                                                                 @_)
+                             });
+    last if $watch;
+
+    say "   xx RETRY: $i";
+    sleep 1;
+  }
   die "Failed to watch $player: $!\n" unless $watch;
   $MONITORED_PLAYERS{$player} = $watch;
   say "[ERR] Watch object is false for $player" unless $watch;
