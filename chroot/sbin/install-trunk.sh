@@ -62,7 +62,7 @@ copy-data-files() {
     cp -r source/dat docs settings $DATADIR
     cp -r settings/. $DGL_SETTINGS_DIR/$GAME-settings
     cp -r source/webserver/game_data/. $DATADIR/web
-    cp -r source/webserver/!(config.py|game_data) $WEBDIR
+    cp -r source/webserver/!(config.py|game_data|templates) $WEBDIR
 
     mkdir -p "$ABS_COMMON_DIR/data/docs"
     cp docs/crawl_changelog.txt "$ABS_COMMON_DIR/data/docs"
