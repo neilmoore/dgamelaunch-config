@@ -176,9 +176,11 @@ sub monitor_player($$$) {
     say "   xx RETRY: $i";
     sleep 1;
   }
-  die "Failed to watch $player: $!\n" unless $watch;
-  $MONITORED_PLAYERS{$player} = $watch;
-  say "[ERR] Watch object is false for $player" unless $watch;
+  if ($watch) {
+    $MONITORED_PLAYERS{$player} = $watch;
+  } else {
+    say "[ERR] Watch object is false for $player: $!"
+  }
 }
 
 sub unmonitor_player($) {
