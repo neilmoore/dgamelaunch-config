@@ -156,7 +156,7 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-tutorial"])),
 
-     "dcss-inception", dict(
+     ("dcss-inception", dict(
         name = "Inception",
         crawl_binary = "/usr/games/crawl-inception",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
