@@ -187,7 +187,7 @@ init_player_program = "/bin/init-webtiles.sh"
 ssl_options = {
     "certfile": "/etc/ssl/private/s-z.org.crt",
     "keyfile": "/etc/ssl/private/s-z.org.key",
-    "ca_certs": "/etc/ssl/private/sub.class1.server.ca.pem"
+    "ca_certs": "/etc/ssl/private/cas.pem"
 }
 ssl_address = "209.222.93.171"
 ssl_port = 443
