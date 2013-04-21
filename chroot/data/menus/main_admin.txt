@@ -9,15 +9,15 @@ Rebuild:            http://crawl.akrasiac.org/rebuild/
 ------------------------------------------------------------------------------
 
 Logged in as: $USERNAME (admin)
-
 W) Watch games in progress
 
 T) Dungeon Crawl Stone Soup Trunk
+2) Dungeon Crawl Stone Soup 0.12 (beta)
 1) Dungeon Crawl Stone Soup 0.11
-2) Dungeon Crawl Stone Soup 0.10
+0) Dungeon Crawl Stone Soup 0.10
 
 k) robotfindskitten
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print or Z)otDef in Crawl 0.11 now
+Q)uit or P)lay or S)print or Z)otDef in Crawl 0.12 now
 => 
