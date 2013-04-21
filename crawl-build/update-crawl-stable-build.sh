@@ -31,7 +31,7 @@ REVISION="$2"
 REVISION="$(git-do rev-parse HEAD | cut -c 1-7)"
 REVISION_FULL="$(git-do describe --long HEAD)"
 VER_STR="$(git-do describe HEAD)"
-VER_STR_OLD="$( ($CRAWL_BINARY_PATH/$GAME -version 2>/dev/null || true) | sed -ne 's/Crawl version //p')"
+VER_STR_OLD="$( (LANG=en_US.UTF-8 $CRAWL_BINARY_PATH/$GAME -version 2>/dev/null || true) | sed -ne 's/Crawl version //p')"
 REVISION_OLD="${VER_STR_OLD##*-g}"
 
 [[ "$REVISION" == "$REVISION_OLD" || "$VER_STR" = "$VER_STR_OLD" ]] && \
