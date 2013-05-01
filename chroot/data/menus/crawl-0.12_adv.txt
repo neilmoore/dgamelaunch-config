@@ -1,0 +1,23 @@
+Crawl server (North America) hosted and maintained by Rachel Elizabeth Dillon.
+------------------------------------------------------------------------------
+Server information: http://crawl.akrasiac.org
+Webtiles:           http://webtiles.akrasiac.org/
+Crawl information:  http://crawl.develz.org
+------------------------------------------------------------------------------
+** Games on this server are recorded for in-progress viewing and playback! **
+------------------------------------------------------------------------------
+
+Logged in as: $USERNAME
+
+Game selected: Dungeon Crawl Stone Soup 0.12 (beta)
+
+B)ackup your save-game (for bug reports and debugging)
+
+The next option allows you to reset your options.
+ALL CHANGES YOU'VE MADE TO YOUR OPTIONS WILL BE LOST.
+
+O) Reset options
+
+q) Return to previous menu
+
+=> 
