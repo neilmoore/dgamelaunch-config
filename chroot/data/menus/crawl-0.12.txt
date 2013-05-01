@@ -4,12 +4,11 @@ Webtiles:           https://crawl.s-z.org/
 Crawl information:  http://crawl.develz.org/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
-Report bugs at https://crawl.develz.org/mantis/bug_report_page.php
 ------------------------------------------------------------------------------
 
 Logged in as: $USERNAME
 
-Game selected: Dungeon Crawl Stone Soup 0.12 (beta)
+Game selected: Dungeon Crawl Stone Soup 0.12
 
 P)lay Crawl    S)print    Z)ot Defence    T)utorial
 
@@ -20,4 +19,5 @@ v) View changelog  V) with Virus
 A)dvanced options
 
 q) Return to main menu
+
 => 
