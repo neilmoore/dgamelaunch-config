@@ -16,7 +16,7 @@ T) Dungeon Crawl Stone Soup Trunk
 1) Dungeon Crawl Stone Soup 0.11
 0) Dungeon Crawl Stone Soup 0.10
 
-R) robotfindskitten  A) Air Traffic Control
+R) robotfindskitten  A) Air Traffic Control  B) Boggle
 c) Change password  e) Change email address
 
 Q)uit or P)lay or S)print or Z)otDef in Crawl 0.12 now
