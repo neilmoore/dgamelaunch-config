@@ -11,6 +11,9 @@
 
 . /lib/lsb/init-functions
 
+# kill -TERM doesn't work
+signal=ABRT
+
 announce() {
 	echo "$@" >> %%ANNOUNCEMENTS_FILE%%
 }
@@ -22,7 +25,7 @@ quietly() {
 stop_webtiles() {
 	log_daemon_msg "Stopping webtiles server" "webtiles"
 
-	[ -z "$1" ] || ! quietly ps "$1" || kill "$1"
+	[ -z "$1" ] || ! quietly ps "$1" || kill -$signal "$1"
 	local result=$?
 	log_end_msg $result
 	return $result
