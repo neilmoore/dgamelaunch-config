@@ -19,5 +19,5 @@ T) Dungeon Crawl Stone Soup Trunk
 R) robotfindskitten  A) Air Traffic Control  B) Boggle
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print or Z)otDef in Crawl 0.12 now
+Q)uit or P)lay or S)print or Z)otDef in Crawl Trunk now
 => 
