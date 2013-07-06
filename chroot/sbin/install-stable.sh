@@ -114,8 +114,7 @@ assert-not-evil "$COMMON_DIR"
 ABS_COMMON_DIR=$CHROOT$COMMON_DIR
 
 if [[ ! -d "$ABS_COMMON_DIR" ]]; then
-    echo -e "Expected to find common game dir $ABS_COMMON_DIR but did not find it"
-    exit 1
+    mkdir -p "$ABS_COMMON_DIR"
 fi
 
 GAME_BINARY=$GAME

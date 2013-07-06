@@ -4,7 +4,7 @@ VERSION=${1:-0.11}
 
 # Quoting for =~ changed from bash 3.0 to 3.2; using a variable for the
 # regexp works with both.
-VERS_RE='^[0-9]+.[0-9]+$'
+VERS_RE='^[0-9]+.[0-9]+|destruction$'
 if [[ ! $VERSION =~ $VERS_RE ]]; then
     echo "Bad crawl version $VERSION"
     exit 1
@@ -18,6 +18,9 @@ GAME=crawl-$VERSION
 
 export DESTDIR=$CRAWL_BASEDIR
 BRANCH=stone_soup-$VERSION
+if [[ $VERSION != [0-9]* ]]; then
+    BRANCH=$VERSION
+fi
 
 check-crawl-basedir-exists
 enable-prompts $*
@@ -76,7 +79,13 @@ prompt "install ${GAME} (${REVISION})"
 
 say-do sudo -H $DGL_CHROOT/sbin/install-stable.sh "$VERSION"
 
-announce "Stable ($VERSION) branch on $DGL_SERVER updated to: ${REVISION_FULL}"
+if [[ $VERSION = [0-9]* ]]; then
+    SUPER_VER="Stable"
+else
+    SUPER_VER="Experimental"
+fi
+
+announce "$SUPER_VER ($VERSION) branch on $DGL_SERVER updated to: ${REVISION_FULL}"
 
 echo "All done."
 echo
