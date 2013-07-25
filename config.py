@@ -196,8 +196,8 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-tutorial"])),
 
-     "dcss-destruction", dict(
-        name = "destruction branch",
+     ("dcss-destruction", dict(
+        name = "experimental (destruction branch)",
         crawl_binary = "/usr/games/crawl-destruction",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
