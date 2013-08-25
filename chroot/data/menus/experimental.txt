@@ -8,16 +8,11 @@ Crawl information:  http://crawl.develz.org/
 
 Logged in as: $USERNAME
 
-Game selected: Dungeon Crawl Stone Soup Trunk
+Game selected: Dungeon Crawl Stone Soup experimental branches
 
-P)lay Crawl    S)print    Z)ot Defence    T)utorial    X)perimental branches
+D)estruction
+F)ormicids
 
-o) Edit options    O) with Virus
-m) Edit macros     M) with Virus
-v) View changelog  V) with Virus
-
-A)dvanced options
-
-q) Return to main menu
+q) Return to trunk menu
 
 => 
