@@ -11,7 +11,8 @@ Logged in as: $USERNAME
 Game selected: Dungeon Crawl Stone Soup experimental branches
 
 D)estruction
-F)ormicids
+F)ormicids (formerly "Dwants")
+J)ump attack
 
 q) Return to trunk menu
 
