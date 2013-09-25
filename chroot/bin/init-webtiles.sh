@@ -8,6 +8,8 @@ NAME=$1
 
 ifnxcp %%CHROOT_DGLDIR%%/data/crawl-git-settings/init.txt %%CHROOT_RCFILESDIR%%/crawl-git/"$NAME".rc
 ifnxcp %%CHROOT_DGLDIR%%/data/crawl-git.macro %%CHROOT_RCFILESDIR%%/crawl-git/"$NAME".macro
+ifnxcp %%CHROOT_DGLDIR%%/data/crawl-0.13-settings/init.txt %%CHROOT_RCFILESDIR%%/crawl-0.13/"$NAME".rc
+ifnxcp %%CHROOT_DGLDIR%%/data/crawl-git.macro %%CHROOT_RCFILESDIR%%/crawl-0.13/"$NAME".macro
 ifnxcp %%CHROOT_DGLDIR%%/data/crawl-0.12-settings/init.txt %%CHROOT_RCFILESDIR%%/crawl-0.12/"$NAME".rc
 ifnxcp %%CHROOT_DGLDIR%%/data/crawl-git.macro %%CHROOT_RCFILESDIR%%/crawl-0.12/"$NAME".macro
 ifnxcp %%CHROOT_DGLDIR%%/data/crawl-0.11-settings/init.txt %%CHROOT_RCFILESDIR%%/crawl-0.11/"$NAME".rc

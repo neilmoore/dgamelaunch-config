@@ -2,22 +2,22 @@ Crawl server (North America) hosted and maintained by Neil Moore (|amethyst).
 ------------------------------------------------------------------------------
 Webtiles:           https://crawl.s-z.org/
 Crawl information:  http://crawl.develz.org/
-Rebuild:            http://dobrazupa.org/rebuild/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
 
-Logged in as: $USERNAME (admin)
-W) Watch games in progress
+Logged in as: $USERNAME
 
-T) Dungeon Crawl Stone Soup Trunk
-3) Dungeon Crawl Stone Soup 0.13
-2) Dungeon Crawl Stone Soup 0.12
-1) Dungeon Crawl Stone Soup 0.11
-0) Dungeon Crawl Stone Soup 0.10
+Game selected: Dungeon Crawl Stone Soup 0.13 (beta)
 
-R) robotfindskitten  A) Air Traffic Control  B) Boggle
-c) Change password  e) Change email address
+P)lay Crawl    S)print    Z)ot Defence    T)utorial
 
-Q)uit or P)lay or S)print or Z)otDef in Crawl Trunk now
+o) Edit options    O) with Virus
+m) Edit macros     M) with Virus
+v) View changelog  V) with Virus
+
+A)dvanced options
+
+q) Return to main menu
+
 => 
