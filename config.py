@@ -66,6 +66,36 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-zotdef"])),
     
+    ("dcss-0.13", dict(
+        name = "DCSS 0.13 (beta)",
+        crawl_binary = "/usr/games/crawl-0.13",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl13/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+    ("spr-0.13", dict(
+        name = "Sprint 0.13",
+        crawl_binary = "/usr/games/crawl-0.13",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl13-sprint/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-sprint"])),
+    ("zd-0.13", dict(
+        name = "Zot Defence 0.13",
+        crawl_binary = "/usr/games/crawl-0.13",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl13-zotdef/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-zotdef"])),
+
     ("dcss-0.12", dict(
         name = "DCSS 0.12",
         crawl_binary = "/usr/games/crawl-0.12",
