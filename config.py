@@ -236,16 +236,6 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-tutorial"])),
 
-     ("dcss-destruction", dict(
-        name = "experimental (destruction)",
-        crawl_binary = "/usr/games/crawl-destruction",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-destruction",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-
      ("dcss-dwants", dict(
         name = "experimental (formicids)",
         crawl_binary = "/usr/games/crawl-dwants",
@@ -253,16 +243,6 @@ games = OrderedDict([
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-dwants",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-
-     ("dcss-jump", dict(
-        name = "experimental (jump attack)",
-        crawl_binary = "/usr/games/crawl-jump",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-jump",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 ])
