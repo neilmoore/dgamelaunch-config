@@ -12,7 +12,7 @@ Logged in as: $USERNAME (admin)
 W) Watch games in progress
 
 T) Dungeon Crawl Stone Soup Trunk
-3) Dungeon Crawl Stone Soup 0.13 beta
+3) Dungeon Crawl Stone Soup 0.13
 2) Dungeon Crawl Stone Soup 0.12
 1) Dungeon Crawl Stone Soup 0.11
 0) Dungeon Crawl Stone Soup 0.10

@@ -67,7 +67,7 @@ games = OrderedDict([
         options = ["-zotdef"])),
     
     ("dcss-0.13", dict(
-        name = "DCSS 0.13 (beta)",
+        name = "DCSS 0.13",
         crawl_binary = "/usr/games/crawl-0.13",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
