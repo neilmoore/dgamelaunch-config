@@ -73,7 +73,7 @@ sub serve_file() {
   my $absfile = "$CONTENT_DIR/$file";
   if ($file =~ /[.]{2}/ ||
       $file !~ /^[a-zA-Z0-9._-]+$/ ||
-      $file !~ /\.(?:tar\.bz2|cs)$/ ||
+      $file !~ /\.(?:tar\.bz2|cs|core)$/ ||
       !-r $absfile)
   {
     print(header(-status => '404 Not Found'),
