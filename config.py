@@ -7,8 +7,13 @@ except ImportError:
 dgl_mode = True
 
 bind_nonsecure = True # Set to false to only use SSL
-bind_address = "209.222.93.171"
+bind_address = "66.111.46.147"
 bind_port = 80
+
+bind_pairs = (
+    ("209.222.93.171", 80),
+    ("66.111.46.147", 80),
+)
 
 logging_config = {
     "filename": "%%CHROOT_WEBDIR%%/run/webtiles.log",
@@ -269,8 +274,13 @@ ssl_options = {
     "keyfile": "/etc/ssl/private/s-z.org.key",
     "ca_certs": "/etc/ssl/private/cas.pem"
 }
-ssl_address = "209.222.93.171"
+ssl_address = "66.111.46.147"
 ssl_port = 443
+
+ssl_bind_pairs = (
+    ("209.222.93.171", 443),
+    ("66.111.46.147", 443),
+)
 
 connection_timeout = 600
 max_idle_time = 5 * 60 * 60
