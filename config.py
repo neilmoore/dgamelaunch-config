@@ -83,7 +83,8 @@ games = OrderedDict([
 
     ("dcss-0.13", dict(
         name = "DCSS 0.13",
-        crawl_binary = "/usr/games/crawl-0.13",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.13" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -92,7 +93,8 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
     ("spr-0.13", dict(
         name = "Sprint 0.13",
-        crawl_binary = "/usr/games/crawl-0.13",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.13" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -102,7 +104,8 @@ games = OrderedDict([
         options = ["-sprint"])),
     ("zd-0.13", dict(
         name = "Zot Defence 0.13",
-        crawl_binary = "/usr/games/crawl-0.13",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.13" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -112,7 +115,8 @@ games = OrderedDict([
         options = ["-zotdef"])),
     ("tut-0.13", dict(
         name = "Tutorial 0.13",
-        crawl_binary = "/usr/games/crawl-0.13",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.13" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.13/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -123,7 +127,8 @@ games = OrderedDict([
     
     ("dcss-0.12", dict(
         name = "DCSS 0.12",
-        crawl_binary = "/usr/games/crawl-0.12",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.12" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.12/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.12/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -132,7 +137,8 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
     ("spr-0.12", dict(
         name = "Sprint 0.12",
-        crawl_binary = "/usr/games/crawl-0.12",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.12" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.12/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.12/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -142,7 +148,8 @@ games = OrderedDict([
         options = ["-sprint"])),
     ("zd-0.12", dict(
         name = "Zot Defence 0.12",
-        crawl_binary = "/usr/games/crawl-0.12",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.12" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.12/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.12/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -152,7 +159,8 @@ games = OrderedDict([
         options = ["-zotdef"])),
     ("tut-0.12", dict(
         name = "Tutorial 0.12",
-        crawl_binary = "/usr/games/crawl-0.12",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.12" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.12/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.12/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -163,7 +171,8 @@ games = OrderedDict([
 
     ("dcss-0.11", dict(
         name = "DCSS 0.11",
-        crawl_binary = "/usr/games/crawl-0.11",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.11" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -172,7 +181,8 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
     ("spr-0.11", dict(
         name = "Sprint 0.11",
-        crawl_binary = "/usr/games/crawl-0.11",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.11" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -182,7 +192,8 @@ games = OrderedDict([
         options = ["-sprint"])),
     ("zd-0.11", dict(
         name = "Zot Defence 0.11",
-        crawl_binary = "/usr/games/crawl-0.11",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.11" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -192,7 +203,8 @@ games = OrderedDict([
         options = ["-zotdef"])),
     ("tut-0.11", dict(
         name = "Tutorial 0.11",
-        crawl_binary = "/usr/games/crawl-0.11",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.11" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.11/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -203,7 +215,8 @@ games = OrderedDict([
 
     ("dcss-0.10", dict(
         name = "DCSS 0.10",
-        crawl_binary = "/usr/games/crawl-0.10",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.10" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -212,7 +225,8 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
     ("spr-0.10", dict(
         name = "Sprint 0.10",
-        crawl_binary = "/usr/games/crawl-0.10",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.10" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -222,7 +236,8 @@ games = OrderedDict([
         options = ["-sprint"])),
     ("zd-0.10", dict(
         name = "Zot Defence 0.10",
-        crawl_binary = "/usr/games/crawl-0.10",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.10" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -232,7 +247,8 @@ games = OrderedDict([
         options = ["-zotdef"])),
     ("tut-0.10", dict(
         name = "Tutorial 0.10",
-        crawl_binary = "/usr/games/crawl-0.10",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.10" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.10/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",

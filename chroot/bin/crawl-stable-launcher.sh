@@ -56,7 +56,7 @@ TRANSFER_ENABLED="1"
 CHAR_NAME="$2"
 
 # Clear screen
-[[ -z "$JUST_RUN_CRAWL_ALREADY" ]] && printf "\e[2J\e[H"
+[[ -z "$JUST_RUN_CRAWL_ALREADY" && -z "$WEBTILES" ]] && printf "\e[2J\e[H"
 
 export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
