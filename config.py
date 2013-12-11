@@ -39,6 +39,7 @@ games = OrderedDict([
     ("dcss-git", dict(
         name = "DCSS trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",
+        send_json_options = True,
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -48,6 +49,7 @@ games = OrderedDict([
     ("spr-git", dict(
         name = "Sprint trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",
+        send_json_options = True,
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -58,6 +60,7 @@ games = OrderedDict([
     ("zd-git", dict(
         name = "Zot Defence trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",
+        send_json_options = True,
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
