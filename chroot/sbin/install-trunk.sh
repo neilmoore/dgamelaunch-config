@@ -64,6 +64,7 @@ copy-data-files() {
     cp -r source/webserver/game_data/. $DATADIR/web
     cp -r source/webserver/!(config.py|game_data|templates) $WEBDIR
     cp source/webserver/templates/client.html $WEBDIR/templates/
+    cp source/webserver/templates/game_links.html $WEBDIR/templates/
 
     mkdir -p "$ABS_COMMON_DIR/data/docs"
     cp docs/crawl_changelog.txt "$ABS_COMMON_DIR/data/docs"
