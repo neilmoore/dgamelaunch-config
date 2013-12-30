@@ -15,7 +15,7 @@ branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping
 us evaluate potential new features!
 
-There's nothing here!
+V)ine Stalker
 
 q) Return to trunk menu
 => 
