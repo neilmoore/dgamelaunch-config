@@ -1,6 +1,6 @@
-Crawl server (North America) hosted and maintained by Neil Moore (|amethyst).
+Crawl server (North America) hosted and maintained by John Boyle (johnstein).
 ------------------------------------------------------------------------------
-Webtiles:           https://crawl.s-z.org/
+Webtiles:           https://crawl.beRotato.org/
 Crawl information:  http://crawl.develz.org/
 Rebuild:            http://dobrazupa.org/rebuild/
 ------------------------------------------------------------------------------
