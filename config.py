@@ -31,7 +31,7 @@ template_path = "%%CHROOT_WEBDIR%%/templates/"
 server_socket_path = None # Uses global temp dir
 
 # Server name, so far only used in the ttyrec metadata
-server_id = "cbn"
+server_id = "cbro"
 
 # Disable caching of game data files
 game_data_no_cache = False
