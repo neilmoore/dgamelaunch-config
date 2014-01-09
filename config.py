@@ -189,3 +189,5 @@ chroot = "%%DGL_CHROOT%%"
 
 pidfile = "%%CHROOT_WEBDIR%%/run/webtiles.pid"
 daemon = True # If true, the server will detach from the session after startup
+
+player_url = "http://crawl.akrasiac.org/scoring/players/%s.html"
