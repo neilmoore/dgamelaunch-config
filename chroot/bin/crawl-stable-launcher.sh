@@ -38,12 +38,16 @@ USER_ID="%%DGL_UID%%"
 
 export HOME="%%CHROOT_COREDIR%%"
 
+# Word boundary regex; bash's =~ is funny about that.
+wb='\b'
+
 JUST_RUN_CRAWL_ALREADY=
 # If set, this script will not event report the existence of newer versions.
-[[ "$@" =~ --print-charset\b ]] && JUST_RUN_CRAWL_ALREADY=1
+[[ "$@" =~ -print-charset$wb ]] && JUST_RUN_CRAWL_ALREADY=1
+[[ "$@" =~ -print-webtiles-options$wb ]] && JUST_RUN_CRAWL_ALREADY=1
 
 WEBTILES=
-[[ "$@" =~ -await-connection\b ]] && WEBTILES=1
+[[ "$@" =~ -await-connection$wb ]] && WEBTILES=1
 
 cecho() {
     [[ -z "$WEBTILES" ]] && echo "$@"
@@ -62,9 +66,11 @@ export LANG="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 
 if [[ $# == 0 || -z "$CHAR_NAME" ]]; then
-    echo "Parameters missing. Aborting..."
-    read -n 1 -s -p "--- any key to continue ---"
-    echo
+    if [[ -z "$JUST_RUN_CRAWL_ALREADY" ]]; then
+        echo "Parameters missing. Aborting..."
+        read -n 1 -s -p "--- any key to continue ---"
+        echo
+    fi;
     exit 1
 fi
 
