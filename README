@@ -1,4 +1,4 @@
-dgamelaunch-config
+dgamelaunch-dev.config
 ------------------
 
 This is a collection of scripts to manage a dgamelaunch
@@ -9,7 +9,7 @@ These are still very incomplete, WIP.
 
 Currently available commands:
 
-1. Update your dgamelaunch config from the repository:
+1. Update your dgamelaunch-dev.config from the repository:
    $ sudo dgl publish --confirm
 
 2. Change a dgl user's password:
@@ -33,7 +33,7 @@ Currently available commands:
    using the dgamelaunch extra_info_file option.
 
    You may also run the crawl-inotify-dglwhere script standalone (without
-   the rest of the dgamelaunch-config setup) by starting it as:
+   the rest of the dgamelaunch-dev.config setup) by starting it as:
 
       sudo -u dgl perl crawl-inotify-dglwhere.pl <dgldir> <morguedir>
 
@@ -59,7 +59,7 @@ TODO
        `dgl install nethack 3.4.3` etc.)
 
    Installing a game should also (eventually) add a suitable entry to
-   the various menu files and update the dgamelaunch config
+   the various menu files and update the dgamelaunch-dev.config
    appropriately.
 
 4. Support for tracking development versions of games (such as Crawl
@@ -76,7 +76,7 @@ TODO
    manifest. The manifest could be a file or a directory containing
    multiple manifest files.
 
-   Given a manifest, I should be able to install dgamelaunch-config
+   Given a manifest, I should be able to install dgamelaunch-dev.config
    on a brand new machine and use one dgl command to recreate the manifest.
 
    For instance, something like:

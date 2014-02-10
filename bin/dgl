@@ -35,7 +35,7 @@ test-set-dgl-home() {
         return 0
     fi
     local dir=$1
-    if [[ -d "$dir" && -d "$dir/bin" && -f "$dir/dgamelaunch.conf" \
+    if [[ -d "$dir" && -d "$dir/bin" && -f "$dir/dgamelaunch-dev.conf" \
            && -d "$dir/chroot" ]]; then
         export DGL_CONF_HOME="$(canonical-name $dir)"
         export DGL_CONF_LOGS="$dir/logs"
@@ -53,7 +53,7 @@ find-dgl-home() {
     fi
 
     if [[ -z "$DGL_CONF_HOME" ]]; then
-        echo -e "Cannot find dgamelaunch config base directory"
+        echo -e "Cannot find dgamelaunch-dev.config base directory"
         return 1
     fi
 }

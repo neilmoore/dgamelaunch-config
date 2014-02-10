@@ -8,8 +8,8 @@ valid-dgl() {
     [[ -n "$DGAMELAUNCH" && -x "$DGAMELAUNCH" ]]
 }
 
-valid-dgl || DGAMELAUNCH="$(which dgamelaunch 2>/dev/null || true)"
-valid-dgl || DGAMELAUNCH=/usr/local/sbin/dgamelaunch
+valid-dgl || DGAMELAUNCH="$(which dgamelaunch-dev 2>/dev/null || true)"
+valid-dgl || DGAMELAUNCH=/usr/local/sbin/dgamelaunch-dev
 valid-dgl || abort-saying "Cannot find dgamelaunch binary"
 
 STRACE_OUT=strace.out
@@ -18,7 +18,7 @@ if not-running-as-root; then
     cat-error <<EOF
 $SCRIPT_NAME: runs dgamelaunch with the current (testing) configuration
 
-Run this command as root to test your dgamelaunch.conf
+Run this command as root to test your dgamelaunch-dev.conf
 
 Options:
     --strace: Run dgamelaunch with strace and dump strace output to $STRACE_OUT
@@ -29,7 +29,7 @@ fi
 
 [[ "$1" == "--strace" ]] && STRACE=1 || STRACE=
 
-TEST_FILE=dgamelaunch.conf
+TEST_FILE=dgamelaunch-dev.conf
 TMP_DIR=.tmp
 
 trap "rm $TMP_DIR/$TEST_FILE && rmdir $TMP_DIR" EXIT

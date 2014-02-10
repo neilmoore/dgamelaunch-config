@@ -96,9 +96,9 @@ user-is-admin() {
 BINARY_NAME="$CRAWL_BINARY_PATH/$BINARY_BASE_NAME"
 GAME_FOLDER="$CRAWL_GIT_DIR/$BINARY_BASE_NAME"
 
-if user-is-admin; then
+#if user-is-admin; then
     set -- "$@" -wizard
-fi
+#fi
 
 if test -x "${BINARY_NAME}" -a -d "${GAME_FOLDER}"
 then
