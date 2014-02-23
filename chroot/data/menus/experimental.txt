@@ -16,6 +16,7 @@ without warning: don't get too attached to your character. Thanks for helping
 us evaluate potential new features!
 
 D)ithmengos changes (halftone branch)
+S)mith God (and swamp layout)
 
 q) Return to trunk menu
 => 
