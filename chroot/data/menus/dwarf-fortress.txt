@@ -8,15 +8,9 @@ Crawl information:  http://crawl.develz.org/
 
 Logged in as: $USERNAME
 
-Game selected: Dungeon Crawl Stone Soup Farmer
+Game selected: Dwarf Fortress v34.11
 
-P)lay Crawl
-
-o) Edit options    O) with Virus
-m) Edit macros     M) with Virus
-v) View changelog  V) with Virus
-
-A)dvanced options
+P)lay Dwarf Fortress
 
 q) Return to main menu
 

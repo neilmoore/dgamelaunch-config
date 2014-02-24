@@ -1,6 +1,6 @@
 Crawl server (North America) hosted and maintained by John Boyle (johnstein).
 ------------------------------------------------------------------------------
-Webtiles:           https://crawl.berotato.org/
+Webtiles:           https://dev.berotato.org/
 Crawl information:  http://crawl.develz.org/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **

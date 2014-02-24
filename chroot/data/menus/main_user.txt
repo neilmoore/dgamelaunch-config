@@ -1,6 +1,6 @@
 Crawl server (North America) hosted and maintained by John Boyle (johnstein).
 ------------------------------------------------------------------------------
-Webtiles:           https://crawl.berotato.org/
+Webtiles:           https://dev.berotato.org/
 Crawl information:  http://crawl.develz.org/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
@@ -11,6 +11,7 @@ W) Watch games in progress
 
 1) Dungeon Crawl Stone Soup Farmer
 2) Dungeon Crawl Stone Soup Helen
+D) Dwarf Fortress v34.11
 
 c) Change password  e) Change email address
 

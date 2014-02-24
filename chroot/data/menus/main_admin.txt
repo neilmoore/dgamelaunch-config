@@ -1,8 +1,7 @@
 Crawl server (North America) hosted and maintained by John Boyle (johnstein).
 ------------------------------------------------------------------------------
-Webtiles:           https://crawl.berotato.org/
+Webtiles:           https://dev.berotato.org/
 Crawl information:  http://crawl.develz.org/
-Rebuild:            http://crawl.berotato.org/crawl/rebuild/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
@@ -10,13 +9,10 @@ Rebuild:            http://crawl.berotato.org/crawl/rebuild/
 Logged in as: $USERNAME (admin)
 W) Watch games in progress
 
-T) Dungeon Crawl Stone Soup Trunk
-3) Dungeon Crawl Stone Soup 0.13
-2) Dungeon Crawl Stone Soup 0.12
-1) Dungeon Crawl Stone Soup 0.11
-0) Dungeon Crawl Stone Soup 0.10
+1) Crawl-Farmer
+2) Crawl-Helen
+D) Dwarf-Fortress
 
-R) robotfindskitten  A) Air Traffic Control  B) Boggle
 c) Change password  e) Change email address
 
 Q)uit or P)lay or S)print or Z)otDef in Crawl Trunk now
