@@ -146,7 +146,7 @@ transfer-save() {
     wecho -n '{"msg":"show_dialog", "html":"'
     
     if [[ -d "$target" ]]; then
-        mv "$src_save_dir/$CHAR_NAME"* \
+        mv "$src_save_dir/$CHAR_NAME".cs \
             "$src_save_dir/start-$CHAR_NAME-ns.prf" \
             "$target"
 
