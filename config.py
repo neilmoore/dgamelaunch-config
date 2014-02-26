@@ -281,9 +281,10 @@ games = OrderedDict([
         options = ["-tutorial"])),
 
     ("dcss-halftone", dict(
-        name = "experimental (dith changes)",
-        crawl_binary = "/usr/games/crawl-halftone",
-        separator = "<br>",
+        name = "Dith changes",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "halftone" ],
+        separator = "<br><strong class='experimental-label'>Experimental:</strong> ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -293,7 +294,7 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
     ("dcss-smithgod", dict(
-        name = "experimental (Smith God + swamp layout)",
+        name = "Smith God + swamp layout",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
         pre_options  = [ "smithgod" ],
         separator = "|",
