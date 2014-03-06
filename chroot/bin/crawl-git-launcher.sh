@@ -41,7 +41,8 @@ wb='\b'
 
 JUST_RUN_CRAWL_ALREADY=
 # If set, this script will not event report the existence of newer versions.
-[[ "$@" =~ --print-charset$wb ]] && JUST_RUN_CRAWL_ALREADY=1
+[[ "$@" =~ -print-charset$wb ]] && JUST_RUN_CRAWL_ALREADY=1
+[[ "$@" =~ -print-webtiles-options$wb ]] && JUST_RUN_CRAWL_ALREADY=1
 
 WEBTILES=
 [[ "$@" =~ -await-connection$wb ]] && WEBTILES=1
@@ -76,9 +77,11 @@ SAVES="saves"
 [[ "$@" =~ -zotdef$wb ]] && SAVES="$SAVES/zotdef"
 
 if [[ $# == 0 || -z "$CHAR_NAME" ]]; then
-    echo "Parameters missing. Aborting..."
-    read -n 1 -s -p "--- any key to continue ---"
-    echo
+    if [[ -z "$JUST_RUN_CRAWL_ALREADY" ]]; then
+        echo "Parameters missing. Aborting..."
+        read -n 1 -s -p "--- any key to continue ---"
+        echo
+    fi
     exit 1
 fi
 
