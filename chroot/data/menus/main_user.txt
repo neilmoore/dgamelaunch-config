@@ -10,6 +10,7 @@ Logged in as: $USERNAME
 W) Watch games in progress
 
 T) Dungeon Crawl Stone Soup Trunk
+4) Dungeon Crawl Stone Soup 0.14
 3) Dungeon Crawl Stone Soup 0.13
 
 c) Change password  e) Change email address

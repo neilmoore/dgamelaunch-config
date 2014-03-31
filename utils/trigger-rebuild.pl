@@ -11,13 +11,13 @@ my $DGL = "/home/crawl-dev/dgamelaunch-config/bin/dgl";
 my $DB = "%%LOGIN_DB%%";
 my $CONTENT_DIR = '%%SAVE_DUMPDIR%%/';
 
-my $AUTH_REALM = 'CSZO developer account';
+my $AUTH_REALM = 'CBRO developer account';
 
 sub request_auth() {
   print(header(-type => 'text/html',
                -status => '401 Authorization Required',
                -WWW_Authenticate => "Basic realm=\"$AUTH_REALM\""),
-        start_html('CSZO rebuild trigger'),
+        start_html('CBRO rebuild trigger'),
         p('Must authenticate to trigger rebuilds.'),
         end_html);
   return undef;
@@ -95,7 +95,7 @@ sub do_update($;$) {
   local $| = 1;
   print(header(-type => 'text/html',
                -WWW_Authenticate => "Basic realm=\"$AUTH_REALM\""),
-        start_html('CSZO rebuild trigger'),
+        start_html('CBRO rebuild trigger'),
         p("Rebuilding $specific. . ."));
   print "<pre>";
   open my $olderr, ">&STDERR";
@@ -123,7 +123,7 @@ sub do_update($;$) {
 sub do_prompt(@) {
   print(header(-type => 'text/html',
                -WWW_Authenticate => "Basic realm=\"$AUTH_REALM\""),
-        start_html('CSZO rebuild trigger'),
+        start_html('CBRO rebuild trigger'),
         start_form,
         p('Select a version'),
         popup_menu(-name => 'v', -values => [ @_ ]),
@@ -137,7 +137,7 @@ sub do_fail($) {
   print(header(-type => 'text/html',
                -status => '403 Forbidden',
                -WWW_Authenticate => "Basic realm=\"$AUTH_REALM\""),
-        start_html('CSZO rebuild trigger'),
+        start_html('CBRO rebuild trigger'),
         start_form,
         p({-style=>'background-color: #ffcccc;'}, $msg),
         popup_menu(-name => 'v', -values => @_),
@@ -151,10 +151,10 @@ sub main() {
   my $ver = param('v');
 
   if (not $ver) {
-    do_prompt 'trunk', '0.13', '0.12', '0.11', '0.10';
+    do_prompt 'trunk', '0.13', '0.14';
   } elsif ($ver eq 'trunk') {
     do_update 'trunk';
-  } elsif ($ver =~ /^0.1[0123]$/) {
+  } elsif ($ver =~ /^0.1[34]$/) {
     do_update 'stable', $ver;
   } else {
     do_fail "Unknown version " . escapeHTML($ver);
