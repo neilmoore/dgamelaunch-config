@@ -1,6 +1,6 @@
 #! /usr/bin/perl
 #
-# Allows DGL admin users to download saves from CSZO's save dump directory.
+# Allows DGL admin users to download saves from CBRO's save dump directory.
 #
 
 use CGI qw/:standard/;
@@ -11,13 +11,13 @@ use DBI;
 my $DB = "%%LOGIN_DB%%";
 my $CONTENT_DIR = '%%SAVE_DUMPDIR%%/';
 
-my $AUTH_REALM = 'CSZO developer account';
+my $AUTH_REALM = 'CBRO developer account';
 
 sub request_auth() {
   print(header(-type => 'text/html',
                -status => '401 Authorization Required',
                -WWW_Authenticate => "Basic realm=\"$AUTH_REALM\""),
-        start_html('CSZO save dumps'),
+        start_html('CBRO save dumps'),
         p('Must authenticate to access saves'),
         end_html);
   return undef;
