@@ -178,6 +178,7 @@ games = OrderedDict([
      ("dcss-nostalgia", dict(
         name = "experimental (nostalgia)",
         crawl_binary = "/usr/games/crawl-nostalgia",
+        separator = "<br>",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
