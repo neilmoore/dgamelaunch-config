@@ -91,6 +91,7 @@ games = OrderedDict([
     ("dcss-0.14", dict(
         name = "DCSS 0.14",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
         pre_options  = [ "0.14" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.14/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.14/",
@@ -102,6 +103,7 @@ games = OrderedDict([
     ("spr-0.14", dict(
         name = "Sprint 0.14",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
         pre_options  = [ "0.14" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.14/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.14/",
@@ -114,6 +116,7 @@ games = OrderedDict([
     ("zd-0.14", dict(
         name = "Zot Defence 0.14",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
         pre_options  = [ "0.14" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.14/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.14/",
@@ -126,6 +129,7 @@ games = OrderedDict([
     ("tut-0.14", dict(
         name = "Tutorial 0.14",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
         pre_options  = [ "0.14" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.14/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.14/",
@@ -331,6 +335,7 @@ games = OrderedDict([
     ("dcss-halftone", dict(
         name = "Dith changes",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
         pre_options  = [ "halftone" ],
         separator = "<br><strong class='experimental-label'>Experimental:</strong> ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -344,6 +349,7 @@ games = OrderedDict([
     ("dcss-smithgod", dict(
         name = "Smith God + swamp layout",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
         pre_options  = [ "smithgod" ],
         separator = "|",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -357,6 +363,7 @@ games = OrderedDict([
     ("dcss-nostalgia", dict(
         name = "Nostalgia",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
         pre_options  = [ "nostalgia" ],
         separator = "|",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
