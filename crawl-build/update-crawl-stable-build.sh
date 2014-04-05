@@ -1,5 +1,4 @@
 #!/bin/bash
-
 VERSION=${1:-0.11}
 
 # Quoting for =~ changed from bash 3.0 to 3.2; using a variable for the
@@ -37,7 +36,8 @@ VER_STR="$(git-do describe HEAD)"
 VER_STR_OLD="$(($CRAWL_BINARY_PATH/$GAME -version 2>/dev/null || true) | sed -ne 's/Crawl version //p')"
 REVISION_OLD="${VER_STR_OLD##*-g}"
 
-[[ "$REVISION" == "$REVISION_OLD" || "$VER_STR" = "$VER_STR_OLD" ]] && \
+
+[[ "$REVISION" == "$REVISION_OLD" || "$VER_STR" == "$VER_STR_OLD" ]] && \
     abort-saying "Nothing new to install at the moment: you asked for $REVISION_FULL and it's already installed"
 
 prompt "start update build"
@@ -68,7 +68,7 @@ say-do crawl-do nice make -C source \
     GAME=${GAME} \
     GAME_MAIN=${GAME} MCHMOD=0755 MCHMOD_SAVEDIR=755 \
     INSTALL_UGRP=$CRAWL_UGRP \
-    WEBTILES=YesPlease USE_DGAMELAUNCH=YesPlease WIZARD=YesPlease \
+    WEBTILES=YesPlease USE_DGAMELAUNCH=YesPlease WIZARD=YesPlease USE_PCRE=YesPlease \
     STRIP=true DESTDIR=${DESTDIR} prefix= bin_prefix=/bin \
     SAVEDIR=$CHROOT_CRAWL_BASEDIR/${GAME}/saves \
     DATADIR=$CHROOT_CRAWL_BASEDIR/${GAME}/data \
