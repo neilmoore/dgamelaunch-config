@@ -17,10 +17,9 @@ clone-crawl-ref() {
 }
 
 update-crawl-ref() {
-    say "Updating git repository $REPO_DIR"
+    say "Checking out version from Repo: $REPO_DIR"
     ( cd $REPO_DIR && git checkout -f &&
-        git checkout $BRANCH &&
-        git pull )
+        git checkout $BRANCH )
     if [[ -n "$REVISION" ]]; then
         say "Checking out requested revision: $REVISION"
         ( cd $REPO_DIR && git checkout "$REVISION" )
