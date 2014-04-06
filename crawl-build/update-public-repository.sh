@@ -5,7 +5,7 @@ set -e
 source $DGL_CONF_HOME/sh-utils
 source $DGL_CONF_HOME/crawl-git.conf
 
-REPO_DIR=$PWD/$CRAWL_REPOSITORY_DIR
+REPO_DIR=$CRAWL_REPOSITORY_DIR
 
 clone-crawl-ref() {
     if [[ -d "$CRAWL_REPOSITORY_DIR" && -d "$CRAWL_REPOSITORY_DIR/.git" ]]; then
