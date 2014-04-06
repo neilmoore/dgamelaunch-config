@@ -42,7 +42,7 @@ REVISION_OLD="${VER_STR_OLD##*-g}"
 
 prompt "start update build"
 
-cd /home/crawl-dev/crawl-dev/crawl/crawl-ref
+cd $CRAWL_REPOSITORY_DIR/crawl-ref
 
 echo "Copying CREDITS to docs/crawl_credits.txt..."
 cp CREDITS.txt docs/crawl_credits.txt
