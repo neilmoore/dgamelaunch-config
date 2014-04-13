@@ -15,6 +15,6 @@ T) Dungeon Crawl Stone Soup Trunk
 
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print or Z)otDef in Crawl Trunk now
+Q)uit or P)lay or S)print or Z)otDef in Crawl version 0.14 now!
 
 => 
