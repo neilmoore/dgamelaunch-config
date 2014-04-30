@@ -8,18 +8,18 @@ Crawl information:  http://crawl.develz.org/
 
 Logged in as: $USERNAME
 
-Game selected: Dungeon Crawl Stone Soup experimental branches
+Game selected: Dungeon Crawl Stone Soup EXPERIMENTAL
 
-WARNING: Experimental branches have limited save compatibility! Updates to the
-branches may cause the loss of existing games, and branches may be removed
-without warning: don't get too attached to your character. Thanks for helping
-us evaluate potential new features!
+Select the experimental version you wish to backup
+(for bug reports and debugging)
 
 N) Nostalgia
-R) Ranged Combat (Nobody understands ranged combat)
-G) GODS! (gold god and elemental god)
 
-A) Advanced Options (create save backup for experimental versions)
+R) Ranged_Combat
 
-q) Return to trunk menu
+G) Gods
+
+
+q) Return to previous menu
+
 => 
