@@ -5,7 +5,6 @@ Crawl information:  http://crawl.develz.org/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
-
 Logged in as: $USERNAME
 
 Game selected: Dungeon Crawl Stone Soup experimental branches
@@ -15,8 +14,9 @@ branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping
 us evaluate potential new features!
 
+G)ods (Gozag and Qazlal)
+R)anged combat overhaul
 N)ostalgia
-D)ithmengos changes (halftone branch)
 S)mith God (and swamp layout)
 
 q) Return to trunk menu

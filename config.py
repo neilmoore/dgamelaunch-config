@@ -332,31 +332,31 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-tutorial"])),
 
-    ("dcss-halftone", dict(
-        name = "Dith changes",
+    ("dcss-gods", dict(
+        name = "Gods (Gozag + Qazlal)",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
         send_json_options = True,
-        pre_options  = [ "halftone" ],
+        pre_options  = [ "gods" ],
         separator = "<br><strong class='experimental-label'>Experimental:</strong> ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://dobrazupa.org/morgue/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-halftone",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-gods",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-
-    ("dcss-smithgod", dict(
-        name = "Smith God + swamp layout",
+    
+    ("dcss-ranged_combat", dict(
+        name = "Ranged combat overhaul",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
         send_json_options = True,
-        pre_options  = [ "smithgod" ],
+        pre_options  = [ "ranged_combat" ],
         separator = "|",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://dobrazupa.org/morgue/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-smithgod",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-ranged_combat",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
@@ -371,6 +371,20 @@ games = OrderedDict([
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://dobrazupa.org/morgue/%n/",
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-nostalgia",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+
+    ("dcss-smithgod", dict(
+        name = "Smith God + swamp layout",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
+        pre_options  = [ "smithgod" ],
+        separator = "|",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://dobrazupa.org/morgue/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-smithgod",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 ])
