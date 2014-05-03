@@ -14,7 +14,7 @@ branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping
 us evaluate potential new features!
 
-G)ods (Gozag and Qazlal)
+G)ods (Gozag and Qazlal)      P) Gods Sprint
 R)anged combat overhaul
 N)ostalgia
 S)mith God (and swamp layout)
