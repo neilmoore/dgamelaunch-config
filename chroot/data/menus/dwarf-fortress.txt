@@ -10,6 +10,8 @@ Logged in as: $USERNAME
 
 Game selected: Dwarf Fortress v34.11
 
+DISABLED CURRENTLY DUE TO CRAWL TOURNAMENT!
+
 P)lay Dwarf Fortress
 
 q) Return to main menu
