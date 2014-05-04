@@ -3,7 +3,7 @@ VERSION=${1:-0.11}
 
 # Quoting for =~ changed from bash 3.0 to 3.2; using a variable for the
 # regexp works with both.
-VERS_RE='^[0-9]+.[0-9]+|helen|farmer$'
+VERS_RE='^[0-9]+.[0-9]+|helen|farmer|potion_fun$'
 if [[ ! $VERSION =~ $VERS_RE ]]; then
     echo "Bad crawl version $VERSION"
     exit 1
@@ -82,10 +82,10 @@ say-do sudo -H $DGL_CHROOT/sbin/install-stable.sh "$VERSION"
 if [[ $VERSION = [0-9]* ]]; then
     SUPER_VER="Stable"
 else
-    SUPER_VER="Experimental"
+    SUPER_VER="Development"
 fi
 
-announce "$SUPER_VER ($VERSION) branch on $DGL_SERVER updated to: ${REVISION_FULL}"
+announce "$SUPER_VER ($VERSION) branch on http://$DGL_SERVER updated to: ${REVISION_FULL}"
 
 echo "All done."
 echo

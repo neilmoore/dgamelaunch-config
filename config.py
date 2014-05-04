@@ -64,6 +64,17 @@ games = OrderedDict([
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-helen/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+
+    ("dcss-potion_fun", dict(
+        name = "DCSS potion_fun",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "potion_fun" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-potion_fun/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-potion_fun/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-potion_fun/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
     
 ])
 

@@ -11,6 +11,7 @@ W) Watch games in progress
 
 1) Crawl-Farmer
 2) Crawl-Helen
+3) Crawl-Potion_Fun
 D) Dwarf-Fortress
 
 c) Change password  e) Change email address
