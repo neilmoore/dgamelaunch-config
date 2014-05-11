@@ -19,6 +19,7 @@ R) Ranged_Combat
 
 G) Gods
 
+X) New Nemelex
 
 q) Return to previous menu
 

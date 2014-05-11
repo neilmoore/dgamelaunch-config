@@ -151,10 +151,10 @@ sub main() {
   my $ver = param('v');
 
   if (not $ver) {
-    do_prompt 'trunk', '0.13', '0.14', 'nostalgia', 'ranged_combat', 'gods';
+    do_prompt 'trunk', '0.13', '0.14', 'nostalgia', 'ranged_combat', 'gods', 'new_nemelex';
   } elsif ($ver eq 'trunk') {
     do_update 'trunk';
-  } elsif ($ver =~ /^0.1[34]|nostalgia|ranged_combat|gods$/) {
+  } elsif ($ver =~ /^0.1[34]|nostalgia|ranged_combat|gods|new_nemelex$/) {
     do_update 'stable', $ver;
   } else {
     do_fail "Unknown version " . escapeHTML($ver);
