@@ -332,21 +332,36 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-tutorial"])),
 
-    ("dcss-new_nemelex", dict(
-        name = "New Nemelex",
+    ("dcss-weightless", dict(
+        name = "Weightless",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
         send_json_options = True,
-        pre_options  = [ "new_nemelex" ],
+        pre_options  = [ "weightless" ],
         separator = "<br><strong class='experimental-label'>Experimental:</strong> ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://dobrazupa.org/morgue/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-new_nemelex",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-weightless",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-    ("sprint-new_nemelex", dict(
-        name = "Nemelex Sprint",
+    ("sprint-weightless", dict(
+        name = "Weightless Sprint",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
+        pre_options  = [ "weightless" ],
+        separator = "|",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://dobrazupa.org/morgue/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/sprint-weightless",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-sprint"])),
+
+    ("dcss-new_nemelex", dict(
+        name = "New Nemelex",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
         send_json_options = True,
         pre_options  = [ "new_nemelex" ],
@@ -355,10 +370,9 @@ games = OrderedDict([
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://dobrazupa.org/morgue/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/sprint-new_nemelex",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-new_nemelex",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets",
-        options = ["-sprint"])),
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
     
     ("dcss-nostalgia", dict(
         name = "Nostalgia",
