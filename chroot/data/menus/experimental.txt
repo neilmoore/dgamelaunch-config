@@ -16,8 +16,6 @@ without warning: don't get too attached to your character. Thanks for helping
 us evaluate potential new features!
 
 N) Nostalgia
-R) Ranged Combat (Nobody understands ranged combat)
-G) GODS! (gold god and elemental god)
 X) New Nemelex (Nemelex Piety changes and new cards)
 A) Advanced Options (create save backup for experimental versions)
 
