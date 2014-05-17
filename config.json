@@ -1,0 +1,89 @@
+{
+    "binds": [
+        {
+            "port": 8081,
+            "address": "192.73.239.18"
+        }
+    ],
+    "ssl_options": null,
+    "ssl_binds": [],
+    "daemon": true,
+    "uid": 1010,
+    "gid": 1011,
+    "umask": null,
+    "chroot": "%%DGL_CHROOT%%",
+    "pidfile": "%%CHROOT_WEBDIR%%/run/webtiles.pid",
+    "logging_config": {
+        "format": "%(asctime)s %(levelname)s: %(message)s",
+        "level": 20,
+        "filename": "%%CHROOT_WEBDIR%%/run/webtiles.log"
+    },
+    "http_connection_timeout": 600,
+    "max_connections": 200,
+    "dgl_status_file": "%%CHROOT_WEBDIR%%/run/status",
+    "server_id": "dbro",
+    "init_player_program": "/bin/init-webtiles.sh",
+    "password_db": "%%CHROOT_LOGIN_DB%%",
+    "crypt_algorithm": "6",
+    "crypt_salt_length": 16,
+    "nick_regex": "^[a-zA-Z0-9]{3,20}$",
+    "max_passwd_length": 20,
+    "login_token_lifetime": 7,
+    "static_path": "%%CHROOT_WEBDIR%%/static",
+    "template_path": "%%CHROOT_WEBDIR%%/templates/",
+    "server_socket_path": null,
+    "max_idle_time": 18000,
+    "connection_timeout": 600,
+    "kill_timeout": 10,
+    "recording_term_size": [
+        80,
+        24
+    ],
+    "watch_socket_dirs": true,
+    "status_file_update_rate": 5,
+    "player_url": "http://crawl.akrasiac.org/scoring/players/%s.html",
+    "milestone_files": [
+        "%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones"
+    ],
+    "games": [
+        {
+            "id": "dcss-farmer",
+            "name": "DCSS farmer",
+            "mode": "Dungeon Crawl",
+            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
+            "crawl_binary": "/bin/crawl-stable-launcher.sh",
+            "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-farmer/",
+            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-farmer/",
+            "socket_path": "%%CHROOT_WEBDIR%%/sockets",
+            "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
+            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-farmer/",
+            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
+        },
+        {
+            "id": "dcss-helen",
+            "name": "DCSS helen",
+            "mode": "Dungeon Crawl",
+            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
+            "crawl_binary": "/bin/crawl-stable-launcher.sh",
+            "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-helen/",
+            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-helen/",
+            "socket_path": "%%CHROOT_WEBDIR%%/sockets",
+            "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
+            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-helen/",
+            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
+        },
+        {
+            "id": "dcss-potion_fun",
+            "name": "DCSS potion_fun",
+            "mode": "Dungeon Crawl",
+            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
+            "crawl_binary": "/bin/crawl-stable-launcher.sh",
+            "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-potion_fun/",
+            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-potion_fun/",
+            "socket_path": "%%CHROOT_WEBDIR%%/sockets",
+            "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
+            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-potion_fun/",
+            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
+        }
+    ]
+}
