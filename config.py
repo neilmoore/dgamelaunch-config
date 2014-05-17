@@ -149,4 +149,6 @@ player_url = "http://crawl.akrasiac.org/scoring/players/%s.html"
 # Only for development:
 # Automatically log in all users with the username given here.
 autologin = None
+#disable caching of static files which are not part of game data.
+no_cache = False
 
