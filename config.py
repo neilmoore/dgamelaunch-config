@@ -40,7 +40,8 @@ game_data_no_cache = False
 watch_socket_dirs = True
 
 # Game configs
-# %n in paths is replaced by the current username
+# %n in paths and urls is replaced by the current username
+# morgue_url is for a publicly available URL to access morgue_path
 games = OrderedDict([
 
     ("dcss-farmer", dict(
@@ -50,6 +51,7 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-farmer/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-farmer/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n",
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-farmer/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
@@ -61,6 +63,7 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-helen/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-helen/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n",
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-helen/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
@@ -72,6 +75,7 @@ games = OrderedDict([
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-potion_fun/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-potion_fun/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n",
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-potion_fun/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
@@ -141,3 +145,8 @@ pidfile = "%%CHROOT_WEBDIR%%/run/webtiles.pid"
 daemon = True # If true, the server will detach from the session after startup
 
 player_url = "http://crawl.akrasiac.org/scoring/players/%s.html"
+
+# Only for development:
+# Automatically log in all users with the username given here.
+autologin = None
+
