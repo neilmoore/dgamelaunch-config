@@ -22,7 +22,7 @@ update-crawl-ref() {
         git checkout master &&
         git pull origin &&
         git checkout $BRANCH
-        git rebase master )
+    )
     if [[ -n "$REVISION" ]]; then
         say "Checking out requested revision: $REVISION"
         ( cd $REPO_DIR && git checkout "$REVISION" )
