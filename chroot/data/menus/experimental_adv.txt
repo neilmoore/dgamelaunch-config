@@ -1,0 +1,23 @@
+Crawl server (North America) hosted and maintained by John Boyle (johnstein).
+------------------------------------------------------------------------------
+Webtiles:           https://crawl.beRotato.org/
+Crawl information:  http://crawl.develz.org/
+------------------------------------------------------------------------------
+** Games on this server are recorded for in-progress viewing and playback! **
+------------------------------------------------------------------------------
+
+Logged in as: $USERNAME
+
+Game selected: Dungeon Crawl Stone Soup EXPERIMENTAL
+
+Select the experimental version you wish to backup
+(for bug reports and debugging)
+
+F) Farmer
+H) Helen
+P) Potion Fun
+W) Webtiles-Changes
+
+q) Return to previous menu
+
+=> 

@@ -48,8 +48,8 @@ games = OrderedDict([
         name = "DCSS farmer",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
         pre_options  = [ "farmer" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-farmer/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-farmer/",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n",
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-farmer/",
@@ -60,8 +60,8 @@ games = OrderedDict([
         name = "DCSS helen",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
         pre_options  = [ "helen" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-helen/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-helen/",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n",
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-helen/",
@@ -72,14 +72,27 @@ games = OrderedDict([
         name = "DCSS potion_fun",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
         pre_options  = [ "potion_fun" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-potion_fun/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-potion_fun/",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n",
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-potion_fun/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-    
+
+    ("dcss-webtiles-changes", dict(
+        name = "DCSS webtiles-changes",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "webtiles-changes" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-webtiles-changes/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+
+
 ])
 
 dgl_status_file = "%%CHROOT_WEBDIR%%/run/status"
