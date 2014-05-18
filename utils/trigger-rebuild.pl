@@ -151,7 +151,6 @@ sub main() {
   my $ver = param('v');
 
   if (not $ver) {
-<<<<<<< HEAD
     do_prompt 'trunk', '0.13', '0.14', 'nostalgia', 'new_nemelex';
   } elsif ($ver eq 'trunk') {
     do_update 'trunk';
