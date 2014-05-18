@@ -16,6 +16,7 @@ Select the experimental version you wish to backup
 N) Nostalgia
 X) New Nemelex
 W) Weightless
+P) Plutonians
 
 q) Return to previous menu
 

@@ -18,6 +18,8 @@ us evaluate potential new features!
 N) Nostalgia
 X) New Nemelex (Nemelex Piety changes and new cards)
 W) Weightless (All items, cept large rocks, cause no burden)
+P) Plutonians (New Species Idea. Plays with Contam mechanic)
+
 A) Advanced Options (create save backup for experimental versions)
 
 q) Return to trunk menu
