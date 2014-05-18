@@ -53,10 +53,10 @@
             "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
             "crawl_binary": "/bin/crawl-stable-launcher.sh",
             "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-farmer/",
-            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-farmer/",
+            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
             "socket_path": "%%CHROOT_WEBDIR%%/sockets",
             "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
-            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-farmer/",
+            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
             "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
         },
         {
@@ -66,10 +66,10 @@
             "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
             "crawl_binary": "/bin/crawl-stable-launcher.sh",
             "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-helen/",
-            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-helen/",
+            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
             "socket_path": "%%CHROOT_WEBDIR%%/sockets",
             "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
-            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-helen/",
+            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
             "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
         },
         {
@@ -79,10 +79,23 @@
             "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
             "crawl_binary": "/bin/crawl-stable-launcher.sh",
             "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-potion_fun/",
-            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-potion_fun/",
+            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
             "socket_path": "%%CHROOT_WEBDIR%%/sockets",
             "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
-            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-potion_fun/",
+            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
+            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
+        },
+        {
+            "id": "dcss-webtiles-changes",
+            "name": "DCSS webtiles-changes",
+            "mode": "Dungeon Crawl",
+            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
+            "crawl_binary": "/bin/crawl-stable-launcher.sh",
+            "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-webtiles-changes/",
+            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
+            "socket_path": "%%CHROOT_WEBDIR%%/sockets",
+            "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
+            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
             "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
         }
     ]
