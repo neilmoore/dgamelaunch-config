@@ -43,6 +43,16 @@ watch_socket_dirs = True
 # %n in paths and urls is replaced by the current username
 # morgue_url is for a publicly available URL to access morgue_path
 games = OrderedDict([
+    ("dcss-git", dict(
+        name = "DCSS trunk",
+        crawl_binary = "/bin/crawl-git-launcher.sh",
+        send_json_options = True,
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
     ("dcss-farmer", dict(
         name = "DCSS farmer",
