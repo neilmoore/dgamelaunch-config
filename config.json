@@ -47,6 +47,21 @@
     ],
     "games": [
         {
+            "id": "dcss-git",
+            "name": "DCSS trunk",
+            "version": "trunk",
+            "mode": "Dungeon Crawl",
+            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
+            "crawl_binary": "/bin/crawl-git-launcher.sh",
+            "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-git/",
+            "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
+            "socket_path": "%%CHROOT_WEBDIR%%/sockets",
+            "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
+            "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
+            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/",
+            "send_json_options": true
+        },
+        {
             "id": "dcss-farmer",
             "name": "DCSS farmer",
             "mode": "Dungeon Crawl",
