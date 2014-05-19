@@ -100,10 +100,11 @@ fi
 assert-not-evil "$VERSION"
 
 #I think the user crawl-dev is making things screwy so I commented this out
-#if [[ ! ( "$CRAWL_UGRP" =~ ^[a-z0-9]+:[a-z0-9]+$ ) ]]; then
-#    echo -e "Expected CRAWL_UGRP to be user:group, but got $CRAWL_UGRP"
-#    exit 1
-#fi
+#uncommented it to keep it consistent with CBRO
+if [[ ! ( "$CRAWL_UGRP" =~ ^[a-z0-9]+:[a-z0-9]+$ ) ]]; then
+    echo -e "Expected CRAWL_UGRP to be user:group, but got $CRAWL_UGRP"
+    exit 1
+fi
 
 # COMMON_DIR is the absolute path *inside* the chroot jail of the
 # directory holding common data for all game versions, viz: saves.
