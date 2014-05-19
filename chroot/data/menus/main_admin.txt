@@ -9,6 +9,7 @@ Crawl information:  http://crawl.develz.org/
 Logged in as: $USERNAME (admin)
 W) Watch games in progress
 
+0) Crawl-Trunk
 1) Crawl-Farmer
 2) Crawl-Helen
 3) Crawl-Potion_Fun

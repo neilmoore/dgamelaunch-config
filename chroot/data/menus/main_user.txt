@@ -9,6 +9,7 @@ Crawl information:  http://crawl.develz.org/
 Logged in as: $USERNAME
 W) Watch games in progress
 
+0) Dungeon Crawl Stone Soup Trunk
 1) Dungeon Crawl Stone Soup Farmer
 2) Dungeon Crawl Stone Soup Helen
 3) Dungeon Crawl Stone Soup Potion_Fun

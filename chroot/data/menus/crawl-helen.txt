@@ -12,10 +12,6 @@ Game selected: Dungeon Crawl Stone Soup Helen
 
 P)lay Crawl
 
-o) Edit options    O) with Virus
-m) Edit macros     M) with Virus
-v) View changelog  V) with Virus
-
 A)dvanced options
 
 q) Return to main menu
