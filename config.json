@@ -51,7 +51,6 @@
             "name": "DCSS trunk",
             "version": "trunk",
             "mode": "Dungeon Crawl",
-            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
             "crawl_binary": "/bin/crawl-git-launcher.sh",
             "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-git/",
             "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -65,40 +64,49 @@
             "id": "dcss-farmer",
             "name": "DCSS farmer",
             "mode": "Dungeon Crawl",
-            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
+            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n/",
             "crawl_binary": "/bin/crawl-stable-launcher.sh",
             "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-farmer/",
             "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
             "socket_path": "%%CHROOT_WEBDIR%%/sockets",
             "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
             "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
-            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
+            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/",
+            "pre_options": [
+                "farmer"
+            ]
         },
         {
             "id": "dcss-helen",
             "name": "DCSS helen",
             "mode": "Dungeon Crawl",
-            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
+            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n/",
             "crawl_binary": "/bin/crawl-stable-launcher.sh",
             "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-helen/",
             "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
             "socket_path": "%%CHROOT_WEBDIR%%/sockets",
             "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
             "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
-            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
+            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/",
+            "pre_options": [
+                "helen"
+            ]
         },
         {
             "id": "dcss-potion_fun",
             "name": "DCSS potion_fun",
             "mode": "Dungeon Crawl",
-            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n",
+            "morgue_url": "http://crawl.berotato.org/crawl/dev/morgue/%n/",
             "crawl_binary": "/bin/crawl-stable-launcher.sh",
             "inprogress_path": "%%CHROOT_INPROGRESSDIR%%/crawl-potion_fun/",
             "rcfile_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
             "socket_path": "%%CHROOT_WEBDIR%%/sockets",
             "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
             "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
-            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
+            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/",
+            "pre_options": [
+                "potion_fun"
+            ]
         },
         {
             "id": "dcss-webtiles-changes",
@@ -111,7 +119,10 @@
             "socket_path": "%%CHROOT_WEBDIR%%/sockets",
             "morgue_path": "%%CHROOT_MORGUEDIR%%/%n/",
             "macro_path": "%%CHROOT_RCFILESDIR%%/crawl-git/",
-            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/"
+            "ttyrec_path": "%%CHROOT_TTYRECDIR%%/%n/",
+            "pre_options": [
+                "webtiles-changes"
+            ]
         }
     ]
 }
