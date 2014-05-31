@@ -17,6 +17,7 @@ N) Nostalgia
 X) New Nemelex
 W) Weightless
 P) Plutonians
+C) Chunkless
 
 q) Return to previous menu
 
