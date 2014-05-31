@@ -14,8 +14,7 @@ branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping
 us evaluate potential new features!
 
-W) Weightless                P) Weightless Sprint
-X) New Nemelex
+C)hunkless
 N)ostalgia
 S)mith God (and swamp layout)
 
