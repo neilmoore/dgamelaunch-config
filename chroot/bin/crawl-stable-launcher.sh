@@ -59,6 +59,9 @@ wecho() {
 TRANSFER_ENABLED="1"
 CHAR_NAME="$2"
 
+NICE=""
+[[ $CHAR_NAME = notqw ]] && NICE="nice -n 10 ionice -c 3"
+
 # Clear screen
 [[ -z "$JUST_RUN_CRAWL_ALREADY" && -z "$WEBTILES" ]] && printf "\e[2J\e[H"
 
@@ -103,7 +106,7 @@ fi
 if test -x "${BINARY_NAME}" -a -d "${GAME_FOLDER}"
 then
     cd ${HOME}
-    exec ${BINARY_NAME} "$@"
+    exec ${NICE} ${BINARY_NAME} "$@"
 fi
 
 cecho "Failed starting: ${BINARY_NAME} not found!"
