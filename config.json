@@ -45,6 +45,7 @@
     "milestone_files": [
         "%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones"
     ],
+
     "games": [
         {
             "id": "dcss-git",
