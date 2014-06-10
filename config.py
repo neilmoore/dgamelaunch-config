@@ -360,17 +360,17 @@ games = OrderedDict([
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
-    ("dcss-smithgod", dict(
-        name = "Smith God + swamp layout",
+    ("dcss-smithgod_rebased", dict(
+        name = "Smith God (updated)",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
         send_json_options = True,
-        pre_options  = [ "smithgod" ],
+        pre_options  = [ "smithgod_rebased" ],
         separator = "|",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://dobrazupa.org/morgue/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-smithgod",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-smithgod_rebased",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 ])

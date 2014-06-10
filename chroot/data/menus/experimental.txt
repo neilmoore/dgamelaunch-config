@@ -16,7 +16,7 @@ us evaluate potential new features!
 
 C)hunkless
 N)ostalgia
-S)mith God (and swamp layout)
+S)mith God (updated)
 
 q) Return to trunk menu
 => 
