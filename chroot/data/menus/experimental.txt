@@ -15,7 +15,7 @@ without warning: don't get too attached to your character. Thanks for helping
 us evaluate potential new features!
 
 C)hunkless
-N)ostalgia
+I)ashol
 S)mith God (updated)
 
 q) Return to trunk menu
