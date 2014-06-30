@@ -54,10 +54,10 @@ if [ ! -d "$userdir" ]; then
 
   cp $dflauncher $userdir/df-launch.sh
    
-  #use sed to replace XXXXXX with $user in dwizzell.pl and save it there.
-  sed "s/XXXXXX/${user}/g" $dwizzell > $userdir/dwizzell.pl
-   
 fi
+#for now, always copy the latest dwizzell
+#use sed to replace XXXXXX with $user in dwizzell.pl and save it there.
+sed "s/XXXXXX/${user}/g" $dwizzell > $userdir/dwizzell.pl
 
 #now run the game
 
