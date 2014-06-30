@@ -190,8 +190,11 @@ sub user_is_bad($) {
 sub newsworthy
 {
   my $g = shift;
+  my $ms = $$g{milestone} || '';
 
   return 0 if user_is_bad($g->{name});
+  return 0 if ($ms =~ /wear/ || $ms =~ /You pick up/ || $ms =~ /stands up/ || $ms =~ /You drop/ || $ms =~ /You make/ || $ms =~ /stand up/ || $ms =~ /You empty/ || $ms =~ /nothing to pick up/);
+  return 0 if ($ms =~ /counterstrikes/ || $ms =~ /misses You/ || $ms =~ /You miss/ || $ms =~ /You attack/ || $ms =~ /latches on firmly/ || $ms =~ /falls over/);
 
   return 1;
 
@@ -274,7 +277,7 @@ sub report_milestone
   my $channel  = shift;
 
   my $place = xlog_place($game_ref);
-  my $placestring = "";
+  my $placestring = " ($place)";
   my $milestone = $$game_ref{milestone} || '';
   if ($milestone eq "reached level 27 of the Dungeon.")
   {
@@ -282,8 +285,10 @@ sub report_milestone
   }
 
   post_message({ channel => $channel },
-               sprintf("%s %s%s",
+               sprintf("%s (L%s %s) %s%s",
                        $game_ref->{name},
+                       $game_ref->{xl},
+                       $game_ref->{char},
                        $milestone,
                        $placestring));
 }
@@ -844,6 +849,10 @@ sub demunge_xlogline
   chomp $line;
   die "Unable to handle internal newlines." if $line =~ y/\n//;
   $line =~ s/::/\n\n/g;
+
+  #remove (L ) and ()
+  $line =~ s/\(L \)//g;
+  $line =~ s/\(\)//g;
 
   $game{milestone} = $line;
   return \%game;
