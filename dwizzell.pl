@@ -193,7 +193,8 @@ sub newsworthy
   my $ms = $$g{milestone} || '';
 
   return 0 if user_is_bad($g->{name});
-  return 0 if ($ms =~ /wear/ || $ms =~ /You pick up/ || $ms =~ /stands up/ || $ms =~ /You drop/ || $ms =~ /You make/);
+  return 0 if ($ms =~ /wear/ || $ms =~ /You pick up/ || $ms =~ /stands up/ || $ms =~ /You drop/ || $ms =~ /You make/ || $ms =~ /stand up/ || $ms =~ /You empty/ || $ms =~ /nothing to pick up/);
+  return 0 if ($ms =~ /counterstrikes/ || $ms =~ /misses You/ || $ms =~ /You miss/ || $ms =~ /You attack/ || $ms =~ /latches on firmly/ || $ms =~ /falls over/);
 
   return 1;
 
