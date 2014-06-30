@@ -190,8 +190,10 @@ sub user_is_bad($) {
 sub newsworthy
 {
   my $g = shift;
+  my $ms = $$g{milestone} || '';
 
   return 0 if user_is_bad($g->{name});
+  return 0 if ($ms =~ /wear/ || $ms =~ /You pick up/ || $ms =~ /stands up/ || $ms =~ /You drop/ || $ms =~ /You make/);
 
   return 1;
 
