@@ -28,8 +28,8 @@ my @COPY_TARGETS = ([ 'dgamelaunch-dev.conf', '//etc' ],
                     [ 'chroot/data/menus/*.txt', "/dgldir/data/menus" ],
                     [ 'chroot/data/*.{rc,macro}', "/dgldir/data" ],
                     [ 'chroot/bin/*.sh', '/bin' ],
-                    [ 'dwizzell.pl', "/dfdir/" ],
-                    [ 'dwarf-fortress-launcher.sh', "/dfdir/" ], 
+                    [ 'dwizzell.pl', "/bin/" ],
+                    [ 'dwarf-fortress-launcher.sh', "/bin/" ], 
                     [ 'chroot/sbin/*.sh', '/sbin' ]);
 
 if ($OPT{match}) {
