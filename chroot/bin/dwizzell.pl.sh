@@ -35,11 +35,11 @@ my $ircname        = '|df_XXXXXX, the MFC Dwarf Fortress Bot';
 # my $ircserver      = 'kornbluth.freenode.net';
 # my $ircserver      = 'bartol.freenode.net';
 # my $ircserver      = 'pratchett.freenode.net';
-my $ircserver      = 'chat.freenode.net';
-my $port           = 8001;
-my @CHANNELS       = ('#octolog', '##crawl-df');
-my $ANNOUNCE_CHAN  = ('##crawl-df');
-my $DEV_CHAN       = '#octolog';
+my $ircserver      = 'irc.lunarnet.org';
+my $port           = 6667;
+my @CHANNELS       = '#mfc-df';
+my $ANNOUNCE_CHAN  = '#mfc-df';
+my $DEV_CHAN       = '#mfc-df';
 my @badusers;
 
 my @stonefiles     = ('/dfdir/df_XXXXXX/gamelog.txt');
