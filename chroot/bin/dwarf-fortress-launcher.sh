@@ -46,6 +46,9 @@ if [ ! -d "$userdir" ]; then
   rm -r "$userdir/data/save"
   mkdir "$userdir/data/save"
 
+  #then add default world
+  cp -R $dfdir/data/save/region1 $userdir/data/save/
+
   #delete the gamelog.txt then touch the new one
   rm -r "$userdir/gamelog.txt"
   touch "$userdir/gamelog.txt"
