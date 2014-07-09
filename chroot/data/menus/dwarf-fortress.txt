@@ -8,7 +8,7 @@ Crawl information:  http://crawl.develz.org/
 
 Logged in as: $USERNAME
 
-Game selected: Dwarf Fortress v34.11
+Game selected: Dwarf Fortress v40.01 (v34.11 games have been archived)
 
 P)lay Dwarf Fortress
 
