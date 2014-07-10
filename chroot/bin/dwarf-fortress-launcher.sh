@@ -12,13 +12,14 @@
 #
 
 user=$1
+major_version=$2
 #don't use / for end of path so find/replace works correctly
 
-dfdir="/dfdir/df_linux"
-userdir="/dfdir/df_$user"
+dfdir="/dfdir/${major_version}/df_linux"
+userdir="/dfdir/${major_version}/df_$user"
 dflauncher="/bin/df-launch.sh"
 dwizzell="/bin/dwizzell.pl.sh"
-MAXGAMES=3
+MAXGAMES=6
 inprogressdir="/dgldir/inprogress/dwarf-fortress"
 
 #check to see if dir exist
