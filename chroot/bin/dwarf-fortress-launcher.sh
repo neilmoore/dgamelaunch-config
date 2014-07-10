@@ -65,7 +65,7 @@ fi
 cp "$dflauncher" "$userdir/df-launch.sh"
 
 #use sed to replace XXXXXX with $user in dwizzell.pl and save it there.
-sed "s/XXXXXX/\/${major_version}\/${user}/g" $dwizzell > "$userdir/dwizzell.pl"
+sed "s/df_XXXXXX/\/${major_version}\/${user}/g" $dwizzell > "$userdir/dwizzell.pl"
 
 
 
