@@ -195,7 +195,7 @@ sub newsworthy
   return 0 if user_is_bad($g->{name});
   return 0 if ($ms =~ /wear/ || $ms =~ /You pick up/ || $ms =~ /stands up/ || $ms =~ /You drop/ || $ms =~ /You make/ || $ms =~ /stand up/ || $ms =~ /You empty/ || $ms =~ /nothing to pick up/);
   return 0 if ($ms =~ /counterstrikes/ || $ms =~ /misses You/ || $ms =~ /You miss/ || $ms =~ /You attack/ || $ms =~ /latches on firmly/ || $ms =~ /falls over/);
-
+  return 0 if ($ms =~ /cancels/ || $ms =~ /vomits/ || $ms =~ /retches/ || $ms =~ /slams/ || $ms=~ /regains consciousness/ || $ms =~ /gives in to pain/ || $ms =~ /nothing to catch/);
   return 1;
 
   # Milestone type, empty if this is not a milestone.
