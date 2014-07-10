@@ -1,9 +1,21 @@
 #! /bin/bash
+version=$1
 
+major_version=`echo $version | awk -F"." '{print $1}'`
+minor_version=`echo $version | awk -F"." '{print $2}'`
+version_string=${major_version}_${minor_version}
+
+echo $version_string
+
+if [ ! -d "$version" ]; then
+  mkdir $major_version
+fi
+
+cd $version
 rm -r df_linux
 
-wget http://www.bay12games.com/dwarves/df_40_01_linux.tar.bz2
-tar -xjvf df_40_01_linux.tar.bz2
+wget http://www.bay12games.com/dwarves/df_${version_string}_linux.tar.bz2
+tar -xjvf df_${version_string}_linux.tar.bz2
 
 mv df_linux/command\ line.txt df_linux/command_line.txt
 mv df_linux/data/art/font\ license.txt df_linux/data/art/font_license.txt
