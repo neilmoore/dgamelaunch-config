@@ -32,3 +32,8 @@ sed -i 's/INTRO:YES/INTRO:NO/'  df_linux/data/init/init.txt
 sed -i 's/WINDOWEDX:80/WINDOWEDX:800/'  df_linux/data/init/init.txt
 sed -i 's/WINDOWEDY:25/WINDOWEDY:600/'  df_linux/data/init/init.txt
 
+#copy save templates if they exist
+if [ -d templates/${major_version}/save ]; then
+  cp -R templates/${major_version}/save df_linux/data/save
+fi
+
