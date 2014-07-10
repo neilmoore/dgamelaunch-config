@@ -7,11 +7,11 @@ version_string=${major_version}_${minor_version}
 
 echo $version_string
 
-if [ ! -d "$version" ]; then
+if [ ! -d "$major_version" ]; then
   mkdir $major_version
 fi
 
-cd $version
+cd $major_version
 rm -r df_linux
 
 wget http://www.bay12games.com/dwarves/df_${version_string}_linux.tar.bz2
