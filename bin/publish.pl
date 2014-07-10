@@ -28,6 +28,7 @@ my @COPY_TARGETS = ([ 'dgamelaunch-dev.conf', '//etc' ],
                     [ 'chroot/data/menus/*.txt', "/dgldir/data/menus" ],
                     [ 'chroot/data/*.{rc,macro}', "/dgldir/data" ],
                     [ 'chroot/bin/*.sh', '/bin' ],
+                    [ 'df_dl_install.sh', '/dfdir' ],
                     [ 'chroot/sbin/*.sh', '/sbin' ]);
 
 if ($OPT{match}) {
