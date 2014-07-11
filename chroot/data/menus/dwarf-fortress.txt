@@ -8,14 +8,14 @@ Crawl information:  http://crawl.develz.org/
 
 Logged in as: $USERNAME
 
-Game selected: Dwarf Fortress v40.01 (v34.11 games have been archived)
+Game selected: Dwarf Fortress 
 
-P)lay Most Recent Version of Dwarf Fortress (40.xx)
+P)lay Most Recent Version of Dwarf Fortress (40.02)
 
 Play Specific Version:
-1) Play Dwarf Fortress 34.xx
-2) Play Dwarf Fortress 40.xx
-
+1) Play Dwarf Fortress v34.11 (current stable)
+2) Play Dwarf Fortress v40.01 
+3) Play Dwarf Fortress v40.02 (save incompatibility with 40.01)
 q) Return to main menu
 
 => 
