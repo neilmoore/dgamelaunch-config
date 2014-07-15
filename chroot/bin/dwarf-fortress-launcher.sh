@@ -58,7 +58,8 @@ if [ ! -d "$userdir" ]; then
   rm "$userdir/data/init/*"
   cp "$dfdir/data/init/*" "$userdir/data/init/"
 
-
+  #remove old yucky libstdc so that dfhack will work
+  rm "$userdir/libs/libstdc++.so.6"
    
 fi
 
