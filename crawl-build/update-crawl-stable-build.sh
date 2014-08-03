@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION=${1:-0.11}
+VERSION=${1:-0.15}
 
 # Quoting for =~ changed from bash 3.0 to 3.2; using a variable for the
 # regexp works with both.

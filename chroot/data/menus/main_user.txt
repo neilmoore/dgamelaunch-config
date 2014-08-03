@@ -10,8 +10,8 @@ Logged in as: $USERNAME
 W) Watch games in progress
 
 T) Dungeon Crawl Stone Soup Trunk
-4) Dungeon Crawl Stone Soup 0.14
-3) 0.13   2) 0.12   1) 0.11  0) 0.10
+5) Dungeon Crawl Stone Soup 0.15 (beta)
+4) 0.14  3) 0.13   2) 0.12   1) 0.11  0) 0.10
 X)perimental branches
 
 R) robotfindskitten  A) Air Traffic Control  B) Boggle
