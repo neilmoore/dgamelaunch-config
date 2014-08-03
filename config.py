@@ -270,7 +270,7 @@ http_connection_timeout = 600
 
 kill_timeout = 10 # Seconds until crawl is killed after HUP is sent
 
-nick_regex = r"^[a-zA-Z0-9]{3,20}$"
+nick_regex = r"^[a-zA-Z0-9]{2,20}$"
 max_passwd_length = 20
 
 # crypt() algorithm, e.g. "1" for MD5 or "6" for SHA-512; see crypt(3).
