@@ -66,7 +66,7 @@ if [ ! -d "$userdir" ]; then
    
 fi
 
-if [ "$dftype" -eq "dfhack" ]; then
+if [ "$dftype" = "dfhack" ]; then
   launchscript=$userdir/dfhack-launch.sh
   cp "$dfhacklauncher" "$launchscript"
 else
@@ -88,6 +88,7 @@ if [ "${num_current_games}" -gt "${MAXGAMES}" ]; then
 else
    #now run the game
    cd "$userdir"
+   echo "Running $launchscript"
    exec "$launchscript"
    #exec strace -v -s 4096 -ff -o /tmp/traces/trace.$$. $userdir/df 
 fi
