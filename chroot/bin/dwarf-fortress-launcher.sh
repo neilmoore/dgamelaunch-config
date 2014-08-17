@@ -13,11 +13,14 @@
 
 user=$1
 major_version=$2
+dftype=$3
+
 #don't use / for end of path so find/replace works correctly
 
 dfdir="/dfdir/${major_version}/df_linux"
 userdir="/dfdir/${major_version}/df_$user"
 dflauncher="/bin/df-launch.sh"
+dfhacklauncher="/bin/dfhack-launch.sh"
 dwizzell="/bin/dwizzell.pl.sh"
 MAXGAMES=6
 inprogressdir="/dgldir/inprogress/dwarf-fortress"
@@ -63,7 +66,13 @@ if [ ! -d "$userdir" ]; then
    
 fi
 
-cp "$dflauncher" "$userdir/df-launch.sh"
+if [ "$dftype" -eq "dfhack" ]; then
+  launchscript=$userdir/dfhack-launch.sh
+  cp "$dfhacklauncher" "$launchscript"
+else
+  launchscript=$userdir/df-launch.sh
+  cp "$dflauncher" "$launchscript"
+fi
 
 #use sed to replace XXXXXX with $user in dwizzell.pl and save it there.
 sed "s/|df_XXXXXX/|df_${user}/g" $dwizzell |\
@@ -79,7 +88,7 @@ if [ "${num_current_games}" -gt "${MAXGAMES}" ]; then
 else
    #now run the game
    cd "$userdir"
-   exec "$userdir/df-launch.sh"
+   exec "$launchscript"
    #exec strace -v -s 4096 -ff -o /tmp/traces/trace.$$. $userdir/df 
 fi
 
