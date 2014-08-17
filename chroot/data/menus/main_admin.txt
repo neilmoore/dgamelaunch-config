@@ -15,6 +15,7 @@ W) Watch games in progress
 3) Crawl-Potion_Fun
 4) Crawl-Webtiles-Changes
 5) Crawl-Bloax hpregen
+6) Crawl-Bloax megavamps
 D) Dwarf-Fortress
 
 c) Change password  e) Change email address
