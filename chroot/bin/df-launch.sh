@@ -12,7 +12,6 @@
 
 #now run the game
 perl ./dwizzell.pl > /dev/null 2>&1
-screen -d -m ./dfhack
 ./df
 kill `cat dwizzell.pid`
 
