@@ -9,7 +9,7 @@ Crawl information:  http://crawl.develz.org
 
 Logged in as: $USERNAME
 
-Game selected: Dungeon Crawl Stone Soup 0.15 (beta)
+Game selected: Dungeon Crawl Stone Soup 0.15
 
 P)lay Crawl    S)print    Z)ot Defence
 
