@@ -16,5 +16,5 @@ T) Dungeon Crawl Stone Soup Trunk
 4) Dungeon Crawl Stone Soup 0.14
 3) Dungeon Crawl Stone Soup 0.13
 
-Q)uit or P)lay or S)print or Z)otDef in Crawl v0.15 now!
+Q)uit or P)lay or S)print or Z)otDef in Trunk now!
 => 
