@@ -16,8 +16,6 @@ W) Watch games in progress
 4) Dungeon Crawl Stone Soup Webtiles-Changes
 5) Dungeon Crawl Stone Soup Bloax player.cc hpregen build
 6) Dungeon Crawl Stone Soup Bloax mega vampires build
-
-DorfServer disabled during Crawl Tourney!
 D) Dwarf Fortress (current versions v40.08, v34.11)
 
 c) Change password  e) Change email address
