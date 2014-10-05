@@ -10,7 +10,7 @@ Logged in as: $USERNAME
 
 Game selected: Dwarf Fortress 
 
-P)lay Most Recent Version of Dwarf Fortress (40.08 NOW WITH dfhack!)
+P)lay Most Recent Version of Dwarf Fortress (40.13 NOW WITH dfhack!)
 
 Play Specific Version:
 1) Play Dwarf Fortress v34.11 (current stable)
