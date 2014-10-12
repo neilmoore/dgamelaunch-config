@@ -29,8 +29,10 @@ inprogressdir="/dgldir/inprogress/cataclysm"
 
 if [ ! -d "$userdir" ]; then
 
+  echo "MAKING NEW USER DIRECTORY!"
   mkdir "$userdir"
 
+  echo "SETTING UP USER DIRECTORY! THIS MAY TAKE SEVERAL MOMENTS!"
   cd "$userdir"
   (cd "$catdir"; find -type d ! -name .) |xargs mkdir -p
 
@@ -47,25 +49,25 @@ if [ ! -d "$userdir" ]; then
 
 
   #then delete saved games
-  rm -r "$userdir/data/save"
-  mkdir "$userdir/data/save"
+#  rm -r "$userdir/data/save"
+#  mkdir "$userdir/data/save"
 
   #then add default worlds
-  cp -R $catdir/data/save $userdir/data
+#  cp -R $catdir/data/save $userdir/data
 
   #delete the gamelog.txt then touch the new one
-  rm -r "$userdir/gamelog.txt"
-  touch "$userdir/gamelog.txt"
+#  rm -r "$userdir/gamelog.txt"
+#  touch "$userdir/gamelog.txt"
 
   #do a regular copy of the data/init/init.txt file
-  rm "$userdir/data/init/*"
+#  rm "$userdir/data/init/*"
   
 
    
 fi
 
 launchscript=$userdir/cat-launch.sh
-cp "$cathacklauncher" "$launchscript"
+cp "$catlauncher" "$launchscript"
 
 #use sed to replace XXXXXX with $user in cwizzell.pl and save it there.
 sed "s/|cat_XXXXXX/|cat_${user}/g" $cwizzell |\
