@@ -17,6 +17,7 @@ W) Watch games in progress
 5) Dungeon Crawl Stone Soup Bloax-Crawl (hp/mp tweaks and Op upgrade)
 6) Dungeon Crawl Stone Soup Bloax mega vampires build
 D) Dwarf Fortress WITH DFHACK! (current versions v40.13, v34.11)
+X) Cataclysm-DDA (Version 0.A)
 
 c) Change password  e) Change email address
 
