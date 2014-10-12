@@ -6,19 +6,14 @@ Crawl information:  http://crawl.develz.org/
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
 
-Logged in as: $USERNAME (admin)
-W) Watch games in progress
+Logged in as: $USERNAME
 
-0) Crawl-Trunk
-1) Crawl-Farmer
-2) Crawl-Helen
-3) Crawl-Potion_Fun
-4) Crawl-Webtiles-Changes
-5) Bloax Crawl
-6) Crawl-Bloax megavamps
-D) Dwarf-Fortress
+Game selected: Dungeon Crawl Stone Soup Bloax-Crawl! (hp/mp tweaks and Op upgrade!)
 
-c) Change password  e) Change email address
+P)lay Crawl
 
-Q)uit or P)lay or S)print or Z)otDef in Crawl Trunk now
+A)dvanced options
+
+q) Return to main menu
+
 => 
