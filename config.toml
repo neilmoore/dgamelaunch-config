@@ -195,6 +195,6 @@ pre_options = ["megavamps"]
 hide_versions = []
 
 [logging_config]
-# filename = "webtiles.log"
+filename = "%%CHROOT_WEBDIR%%/run/webtiles.log"
 format = "%(asctime)s %(levelname)s: %(message)s"
 level = 20
