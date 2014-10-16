@@ -1,12 +1,12 @@
 # Server name, so far only used in the ttyrec metadata
-server_id = ""
+server_id = "dbro"
 
 # Script to initialize a user, e.g. make sure the paths
 # and the rc file exist. This is not done by the server
 # at the moment.
-init_player_program = "./util/webtiles-init-player.sh"
+init_player_program = "/bin/init-webtiles.sh"
 
-password_db = "./webserver/passwd.db3"
+password_db = "%%CHROOT_LOGIN_DB%%"
 # crypt() algorithm, e.g. "1" for MD5 or "6" for SHA-512; see crypt(3). If
 # false, use traditional DES (but then only the first eight characters of the
 # password are significant). If set to "broken", use traditional DES with
@@ -18,13 +18,13 @@ crypt_algorithm = "6"
 # setting is ignored and the salt is two characters.
 crypt_salt_length = 16
 
-nick_regex = "^[a-zA-Z0-9]{3,20}$"
+nick_regex = "^[a-zA-Z0-9]{2,20}$"
 max_passwd_length = 20
 
 login_token_lifetime = 7
 
-static_path = "./webserver/static"
-template_path = "./webserver/templates/"
+static_path = "%%CHROOT_WEBDIR%%/static"
+template_path = "%%CHROOT_WEBDIR%%/templates/"
 # Path for server-side unix sockets (to be used to communicate with crawl)
 # By default, the system temp dir is used
 # server_socket_path = ""
@@ -38,38 +38,38 @@ max_connections = 100
 recording_term_size = [80, 24]
 
 # Watch socket dirs for games not started by the server
-watch_socket_dirs = false
+watch_socket_dirs = true
 
 # Status file containing information about the currently running games
-dgl_status_file = "./rcs/status"
+dgl_status_file =  "%%CHROOT_WEBDIR%%/run/status"
 status_file_update_rate = 5
 
-milestone_files = ["./milestones"]
+milestone_files = ["%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones"]
 list_savegames = false
 
 # Set to a URL with %s where lowercased player name should go in order to
 # hyperlink WebTiles spectator names to their player pages.
 # Leave out to disable player page hyperlinks
-# player_url = "http://crawl.akrasiac.org/scoring/players/%s.html"
+player_url = "http://crawl.akrasiac.org/scoring/players/%s.html"
 
 # Detach from session after startup?
-daemon = false
-# pidfile = "server.pid"
+daemon = true
+pidfile = "%%CHROOT_WEBDIR%%/run/webtiles.pid"
 
-# uid =
-# gid =
-# umask =
-# chroot =
+uid = 1010
+gid = 1011
+umask = mask
+chroot = "%%DGL_CHROOT%%"
 
 no_cache = false
 game_data_no_cache = true
-use_minified = true
+use_minified = false
 use_cdn = true
 
 # Non-SSL bindings
 [[binds]]
-port = 8080
-address = ""
+port = 8081
+address = "192.73.239.18"
 
 # SSL
 # [ssl_options]
@@ -81,72 +81,39 @@ address = ""
 # address = "localhost"
 
 [[games]]
-id = "dcss-web-trunk"
+id = "dcss-git"
 name = "DCSS trunk"
 version = "trunk"
 mode = "Dungeon Crawl"
 comment = "Start a standard game of Crawl."
-crawl_binary = "./crawl"
-inprogress_path = "./rcs/running"
-rcfile_path = "./rcs/"
-socket_path = "./rcs"
-morgue_path = "./rcs/%n"
-client_path = "./webserver/game_data/"
-macro_path = "./rcs/"
-ttyrec_path = "./rcs/ttyrecs/%n"
+crawl_binary =  "/bin/crawl-git-launcher.sh"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git/"
+rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+client_path = "%%CHROOT_WEBDIR%%/game_data"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
 send_json_options = true
-# morgue_url = ""
+morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
 
 [[games]]
-id = "sprint-web-trunk"
-name = "Sprint trunk"
-version = "trunk"
-mode = "Dungeon Sprint"
-comment = "Start one of several single-map challenge mode games of Crawl."
-crawl_binary = "./crawl"
-options = ["-sprint"]
-inprogress_path = "./rcs/running"
-rcfile_path = "./rcs/"
-socket_path = "./rcs"
-morgue_path = "./rcs/%n"
-client_path = "./webserver/game_data/"
-macro_path = "./rcs/"
-ttyrec_path = "./rcs/ttyrecs/%n"
+id = "dcss-farmer"
+name = "DCSS farmer"
+version = "farmer"
+mode = "Dungeon Crawl"
+comment = "Play a Farmer of Fedhas!."
+crawl_binary =  "/bin/crawl-stable-launcher.sh"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-farmer/"
+rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+client_path = "%%CHROOT_WEBDIR%%/game_data"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
 send_json_options = true
-
-[[games]]
-id = "zd-web-trunk"
-name = "Zot Defense trunk"
-version = "trunk"
-mode = "Zot Defence"
-comment = "Start one of several \"tower defence\"-style games of Crawl."
-crawl_binary = "./crawl"
-options = ["-zotdef"]
-inprogress_path = "./rcs/running"
-rcfile_path = "./rcs/"
-socket_path = "./rcs"
-morgue_path = "./rcs/%n"
-client_path = "./webserver/game_data/"
-macro_path = "./rcs/"
-ttyrec_path = "./rcs/ttyrecs/%n"
-send_json_options = true
-
-[[games]]
-id = "tut-web-trunk"
-name = "Tutorial trunk"
-version = "trunk"
-mode = "Tutorial"
-comment = "Start one of several specialised tutorials to learn how to play."
-crawl_binary = "./crawl"
-options = ["-tutorial"]
-inprogress_path = "./rcs/running"
-rcfile_path = "./rcs/"
-socket_path = "./rcs"
-morgue_path = "./rcs/%n"
-client_path = "./webserver/game_data/"
-macro_path = "./rcs/"
-ttyrec_path = "./rcs/ttyrecs/%n"
-send_json_options = true
+morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
+pre_options = "farmer"
 
 [game_link_settings]
 hide_versions = []
