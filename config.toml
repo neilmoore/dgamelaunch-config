@@ -113,7 +113,7 @@ macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
 ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
 send_json_options = true
 morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
-pre_options = "farmer"
+pre_options = ["farmer"]
 
 [game_link_settings]
 hide_versions = []
