@@ -58,7 +58,7 @@ pidfile = "%%CHROOT_WEBDIR%%/run/webtiles.pid"
 
 uid = 1010
 gid = 1011
-umask = null
+#umask = null
 chroot = "%%DGL_CHROOT%%"
 
 no_cache = false
