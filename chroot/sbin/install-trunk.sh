@@ -62,9 +62,12 @@ copy-data-files() {
     cp -r source/dat docs settings $DATADIR
     cp -r settings/. $DGL_SETTINGS_DIR/$GAME-settings
     cp -r source/webserver/game_data/. $DATADIR/web
-    cp -r source/webserver/!(config.py|game_data|templates) $WEBDIR
-    cp source/webserver/templates/client.html $WEBDIR/templates/
-    cp source/webserver/templates/game_links.html $WEBDIR/templates/
+# remove these lines to prevent trunk recompile to obliterate webserver 
+# can uncomment once webtiles-changes merges with trunk
+
+#    cp -r source/webserver/!(config.py|game_data|templates) $WEBDIR
+#    cp source/webserver/templates/client.html $WEBDIR/templates/
+#    cp source/webserver/templates/game_links.html $WEBDIR/templates/
 
     mkdir -p "$ABS_COMMON_DIR/data/docs"
     cp docs/crawl_changelog.txt "$ABS_COMMON_DIR/data/docs"
