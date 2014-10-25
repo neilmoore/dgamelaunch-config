@@ -54,12 +54,12 @@ player_url = "http://crawl.akrasiac.org/scoring/players/%s.html"
 
 # Set to a list of users who administrate the server. The admin title will be
 # indicated by color/description on the WebTiles lobby and spectator list.
-server_admins = ['johnstein','neil','TZer0']
+server_admins = ["johnstein"]
 
 # A text file containing user accounts of the DCSS Development Team. The
 # devteam title is indicated by color/description on the WebTiles lobby and
 # spectator list. This file should come as part of the repository.
-devteam_file = "%%CHROOT_WEBDIR%%/devteam_crawl_accounts.txt"
+devteam_file = "devteam_crawl_accounts.txt"
 
 # URL to the public Sequell nick database. This is only used by the
 # get_titles.py script.
@@ -67,7 +67,7 @@ nickdb_url = "https://loom.shalott.org/nickmap.txt"
 
 # A text file containing maps of the achievment titles to users accounts. This
 # file is parsed from nick_url by get_titles.py.
-player_title_file = "%%CHROOT_WEBDIR%%/player_titles.txt"
+player_title_file = "player_titles.txt"
 
 # A list of possible titles in the player title file. These are treated as
 # mutually exclusive, so they are assumed to be in an order where later titles
@@ -84,8 +84,8 @@ gid = 1011
 chroot = "%%DGL_CHROOT%%"
 
 no_cache = false
-game_data_no_cache = true
-use_minified = false
+game_data_no_cache = false
+use_minified = true
 use_cdn = true
 
 # Non-SSL bindings
