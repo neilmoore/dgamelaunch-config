@@ -18,6 +18,7 @@ W) Watch games in progress
 6) Crawl-Bloax megavamps
 D) Dwarf-Fortress
 X) Cataclysm-DDA
+V) Vaulted (johnstein vaults)
 
 c) Change password  e) Change email address
 
