@@ -18,6 +18,7 @@ X) New Nemelex
 W) Weightless
 P) Plutonians
 C) Chunkless
+R) Cards
 
 q) Return to previous menu
 
