@@ -19,6 +19,7 @@ W) Watch games in progress
 D) Dwarf-Fortress
 X) Cataclysm-DDA
 V) Vaulted (johnstein vaults)
+D) Dominoes
 
 c) Change password  e) Change email address
 
