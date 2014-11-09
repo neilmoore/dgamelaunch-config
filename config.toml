@@ -228,22 +228,22 @@ morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
 pre_options = ["vaulted"]
 
 [[games]]
-id = "dcss-dominoes"
-name = "DCSS dominoes"
-version = "dominoes"
+id = "dcss-domino"
+name = "DCSS domino"
+version = "domino"
 mode = "Dungeon Crawl"
 comment = "Play Dominoes! (with herringbone-wang tiles)"
 crawl_binary =  "/bin/crawl-stable-launcher.sh"
-inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-dominoes/"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-domino/"
 rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
 socket_path = "%%CHROOT_WEBDIR%%/sockets"
 morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
-client_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-dominoes/data/web/"
+client_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-domino/data/web/"
 macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
 ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
 send_json_options = true
 morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
-pre_options = ["dominoes"]
+pre_options = ["domino"]
 
 
 
