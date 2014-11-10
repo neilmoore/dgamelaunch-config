@@ -17,6 +17,7 @@ N) Nostalgia
 P) Plutonians
 C) Chunkless
 R) Cards
+S) Salamanders
 
 q) Return to previous menu
 
