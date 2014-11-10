@@ -14,7 +14,6 @@ Select the experimental version you wish to backup
 (for bug reports and debugging)
 
 N) Nostalgia
-W) Weightless
 P) Plutonians
 C) Chunkless
 R) Cards

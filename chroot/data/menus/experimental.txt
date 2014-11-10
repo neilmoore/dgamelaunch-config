@@ -16,7 +16,6 @@ without warning: don't get too attached to your character. Thanks for helping
 us evaluate potential new features!
 
 N) Nostalgia
-W) Weightless (All items, cept large rocks, cause no burden)
 P) Plutonians (New Species Idea. Plays with Contam mechanic)
 C) Chunkless (Remove Chunk Eating for Most Species)
 R) Cards (new Cards experimental branch)
