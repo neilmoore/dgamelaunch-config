@@ -273,6 +273,17 @@ games = OrderedDict([
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-salamander",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+     
+     ("dcss-faithful", dict(
+        name = "experimental (lacertillians)",
+        crawl_binary = "/usr/games/crawl-faithful",
+        separator = "<br>",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-faithful",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 ])
 
 dgl_status_file = "%%CHROOT_WEBDIR%%/run/status"

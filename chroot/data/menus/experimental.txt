@@ -20,6 +20,7 @@ P) Plutonians (New Species Idea. Plays with Contam mechanic)
 C) Chunkless (Remove Chunk Eating for Most Species)
 R) Cards (new Cards experimental branch)
 S) Salamander (Salamander Player Species!)
+L) Lacertillians (Pious Reptillian Species!)
 
 A) Advanced Options (create save backup for experimental versions)
 
