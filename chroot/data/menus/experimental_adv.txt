@@ -19,6 +19,7 @@ C) Chunkless
 R) Cards
 S) Salamanders
 L) Lacertillians
+W) Wulndraste
 
 q) Return to previous menu
 

@@ -21,6 +21,7 @@ C) Chunkless (Remove Chunk Eating for Most Species)
 R) Cards (new Cards experimental branch)
 S) Salamander (Salamander Player Species!)
 L) Lacertillians (Pious Reptillian Species!)
+W) Wulndraste (No Backtracking God!)
 
 A) Advanced Options (create save backup for experimental versions)
 
