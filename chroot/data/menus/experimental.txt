@@ -5,15 +5,13 @@ Crawl information:  http://crawl.develz.org/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
-
 Logged in as: $USERNAME
 
 Game selected: Dungeon Crawl Stone Soup experimental branches
 
 WARNING: Experimental branches have limited save compatibility! Updates to the
 branches may cause the loss of existing games, and branches may be removed
-without warning: don't get too attached to your character. Thanks for helping
-us evaluate potential new features!
+without warning: don't get too attached to your character. Thanks for helping!
 
 N) Nostalgia
 P) Plutonians (New Species Idea. Plays with Contam mechanic)
