@@ -62,9 +62,6 @@ copy-data-files() {
     cp -r source/dat README.txt docs settings $DATADIR
     cp -r settings/. $DGL_SETTINGS_DIR/$GAME-settings
     cp -r source/webserver/game_data/. $DATADIR/web
-    cp -r source/webserver/!(config.py|game_data|templates) $WEBDIR
-    cp source/webserver/templates/client.html $WEBDIR/templates/
-    cp source/webserver/templates/game_links.html $WEBDIR/templates/
 
     mkdir -p "$ABS_COMMON_DIR/data/docs"
     cp docs/crawl_changelog.txt "$ABS_COMMON_DIR/data/docs"
@@ -154,7 +151,6 @@ if [[ -n "${SGV_MAJOR}" && -n "${SGV_MINOR}" ]]; then
     GAME_BINARY=$GAME-$REVISION
     BINARIES_DIR=$CHROOT$CHROOT_BINARIES
     
-    WEBDIR=$CHROOT$CHROOT_CRAWL_BASEDIR/webserver
     GAMEDIR=$CHROOT$CHROOT_CRAWL_BASEDIR/$GAME_BINARY
     # Absolute path to save game directory
     SAVEDIR=$GAMEDIR/saves
