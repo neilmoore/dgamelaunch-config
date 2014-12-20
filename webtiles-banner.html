@@ -1,0 +1,13 @@
+Welcome to crawl.s-z.org (CSZO) WebTiles! (<a href="http://dobrazupa.org/">morgues&nbsp;etc.</a>) (<a href="http://crawl.akrasiac.org/scoring/overview.html">Scoring @CAO</a>)<br>
+<a href="https://twitter.com/hashtag/StopGamerGate2014">#stopgamergate2014</a>
+{% if username %}
+<p>
+Hello, {{ username }}! <a style="color: #ffc0c0" href="#" onclick="var exp = $('#expwarn'); if (exp.css('display') == 'none') exp.css('display', 'block'); else exp.css('display', 'none');">A warning about experimental</a><br>Games on this server are recorded for in-progress viewing and playback. Chat messages might be logged, depending on the player's settings.
+</p>
+<p id="expwarn" style="color: #ff8080; display:none; margin-left: 2em">
+<b>Warning:</b> "Experimental" branches have limited save compatibility and may be removed without
+notice. Don't get too attached to your experimental characters.  Thanks for helping us evaluate
+potential new features!<br>
+Experimental branches use the same rc (player configuration file) as trunk.
+</p>
+{% end %}

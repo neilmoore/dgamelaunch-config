@@ -25,6 +25,7 @@ my @COPY_TARGETS = ([ 'dgamelaunch.conf', '//etc' ],
                     [ 'utils/webtiles', '//etc/init.d' ],
                     [ 'config.py', "/crawl-master/webserver" ],
                     [ 'chroot/data/menus/*.txt', "/dgldir/data/menus" ],
+                    [ 'webtiles-banner.html', "/crawl-master/webserver/templates" ],
                     [ 'chroot/data/*.{rc,macro}', "/dgldir/data" ],
                     [ 'chroot/bin/*.sh', '/bin' ],
                     [ 'chroot/sbin/*.sh', '/sbin' ]);
