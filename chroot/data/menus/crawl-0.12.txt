@@ -1,4 +1,4 @@
-Crawl server (North America) hosted and maintained by Rachel Elizabeth Dillon.
+Crawl server (North America) hosted and maintained by Rax E. Dillon.
 ------------------------------------------------------------------------------
 Server information: http://crawl.akrasiac.org
 Webtiles:           http://webtiles.akrasiac.org/
