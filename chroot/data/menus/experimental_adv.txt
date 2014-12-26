@@ -15,8 +15,6 @@ Select the experimental version you wish to backup
 
 N) Nostalgia
 P) Plutonians
-C) Chunkless
-R) Cards
 S) Salamanders
 L) Lacertillians
 W) Wulndraste

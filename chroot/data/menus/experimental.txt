@@ -15,8 +15,6 @@ without warning: don't get too attached to your character. Thanks for helping!
 
 N) Nostalgia
 P) Plutonians (New Species Idea. Plays with Contam mechanic)
-C) Chunkless (Remove Chunk Eating for Most Species)
-R) Cards (new Cards experimental branch)
 S) Salamander (Salamander Player Species!)
 L) Lacertillians (Pious Reptillian Species!)
 W) Wulndraste (No Backtracking God!)
