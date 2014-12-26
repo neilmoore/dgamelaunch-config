@@ -18,6 +18,7 @@ P) Plutonians (New Species Idea. Plays with Contam mechanic)
 S) Salamander (Salamander Player Species!)
 L) Lacertillians (Pious Reptillian Species!)
 W) Wulndraste (No Backtracking God!)
+E) Evoker God Pakellas
 
 A) Advanced Options (create save backup for experimental versions)
 

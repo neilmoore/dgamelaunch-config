@@ -18,7 +18,7 @@ P) Plutonians
 S) Salamanders
 L) Lacertillians
 W) Wulndraste
-
+E) Evoker God Pakellas
 q) Return to previous menu
 
 => 
