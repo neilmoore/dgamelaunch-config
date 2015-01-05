@@ -47,6 +47,9 @@ status_file_update_rate = 5
 milestone_files = ["%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones"]
 list_savegames = false
 
+# scoring config
+max_score_list_length = 1000
+
 # Set to a URL with %s where lowercased player name should go in order to
 # hyperlink WebTiles spectator names to their player pages.
 # Leave out to disable player page hyperlinks
@@ -88,6 +91,8 @@ game_data_no_cache = false
 use_minified = true
 use_cdn = true
 
+games_conf_d = "games.conf.d/"
+
 # Non-SSL bindings
 [[binds]]
 port = 8081
@@ -109,13 +114,17 @@ version = "trunk"
 mode = "Dungeon Crawl"
 comment = "Start a standard game of Crawl."
 crawl_binary =  "/bin/crawl-git-launcher.sh"
+# options = ["-extra-options", "-go-here"]
 inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git/"
 rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
 socket_path = "%%CHROOT_WEBDIR%%/sockets"
 morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-latest/saves/scores"
 client_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-latest/data/web/"
 macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
 ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+# dir_path = "./"
+env_lang = "en_US.UTF8"
 send_json_options = true
 morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
 
@@ -130,9 +139,11 @@ inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-farmer/"
 rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
 socket_path = "%%CHROOT_WEBDIR%%/sockets"
 morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-farmer/saves/scores"
 client_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-farmer/data/web/"
 macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
 ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
 send_json_options = true
 morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
 pre_options = ["farmer"]
@@ -148,9 +159,11 @@ inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-helen/"
 rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
 socket_path = "%%CHROOT_WEBDIR%%/sockets"
 morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-helen/saves/scores"
 client_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-helen/data/web/"
 macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
 ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
 send_json_options = true
 morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
 pre_options = ["helen"]
@@ -166,9 +179,11 @@ inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-potion_fun/"
 rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
 socket_path = "%%CHROOT_WEBDIR%%/sockets"
 morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-potion_fun/saves/scores"
 client_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-potion_fun/data/web/"
 macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
 ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
 send_json_options = true
 morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
 pre_options = ["potion_fun"]
@@ -184,9 +199,11 @@ inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-bloaxcrawl/"
 rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
 socket_path = "%%CHROOT_WEBDIR%%/sockets"
 morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-bloaxcrawl/saves/scores"
 client_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-bloaxcrawl/data/web/"
 macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
 ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
 send_json_options = true
 morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
 pre_options = ["bloaxcrawl"]
@@ -202,9 +219,11 @@ inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-megavamps/"
 rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
 socket_path = "%%CHROOT_WEBDIR%%/sockets"
 morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-megavamps/saves/scores"
 client_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-megavamps/data/web/"
 macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
 ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
 send_json_options = true
 morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
 pre_options = ["megavamps"]
@@ -220,9 +239,11 @@ inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-vaulted/"
 rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
 socket_path = "%%CHROOT_WEBDIR%%/sockets"
 morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-vaulted/saves/scores"
 client_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-vaulted/data/web/"
 macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
 ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
 send_json_options = true
 morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
 pre_options = ["vaulted"]
@@ -238,9 +259,11 @@ inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-domino/"
 rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
 socket_path = "%%CHROOT_WEBDIR%%/sockets"
 morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-domino/saves/scores"
 client_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-domino/data/web/"
 macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
 ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
 send_json_options = true
 morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
 pre_options = ["domino"]
@@ -253,4 +276,8 @@ hide_versions = []
 [logging_config]
 filename = "%%CHROOT_WEBDIR%%/run/webtiles.log"
 format = "%(asctime)s %(levelname)s: %(message)s"
+# 10, 20, 30, 40 = DEBUG, INFO, WARNING, ERROR
 level = 20
+# Enable logging of requests & websocket connect/disconnect events
+enable_access_log = true
+
