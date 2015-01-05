@@ -1,0 +1,140 @@
+
+[[games]]
+id = "dcss-farmer"
+name = "DCSS farmer"
+version = "farmer"
+mode = "Dungeon Crawl"
+comment = "Play a Farmer of Fedhas!"
+crawl_binary =  "/bin/crawl-stable-launcher.sh"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-farmer/"
+rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "../crawl-farmer/saves/scores"
+client_path = "../crawl-farmer/data/web/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
+send_json_options = true
+morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
+pre_options = ["farmer"]
+
+[[games]]
+id = "dcss-helen"
+name = "DCSS helen"
+version = "helen"
+mode = "Dungeon Crawl"
+comment = "Play against Helen! The Octopode of Fedhas!"
+crawl_binary =  "/bin/crawl-stable-launcher.sh"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-helen/"
+rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "../crawl-helen/saves/scores"
+client_path = "../crawl-helen/data/web/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
+send_json_options = true
+morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
+pre_options = ["helen"]
+
+[[games]]
+id = "dcss-potion_fun"
+name = "DCSS potion_fun"
+version = "potion_fun"
+mode = "Dungeon Crawl"
+comment = "Play with New Potions!"
+crawl_binary =  "/bin/crawl-stable-launcher.sh"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-potion_fun/"
+rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "../crawl-potion_fun/saves/scores"
+client_path = "../crawl-potion_fun/data/web/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
+send_json_options = true
+morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
+pre_options = ["potion_fun"]
+
+[[games]]
+id = "dcss-bloaxcrawl"
+name = "DCSS bloaxcrawl"
+version = "bloaxcrawl"
+mode = "Dungeon Crawl"
+comment = "Play BloaxCrawl! (hp/mp regen and upgraded Op)."
+crawl_binary =  "/bin/crawl-stable-launcher.sh"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-bloaxcrawl/"
+rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "../crawl-bloaxcrawl/saves/scores"
+client_path = "../crawl-bloaxcrawl/data/web/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
+send_json_options = true
+morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
+pre_options = ["bloaxcrawl"]
+
+[[games]]
+id = "dcss-megavamps"
+name = "DCSS megavamps"
+version = "megavamps"
+mode = "Dungeon Crawl"
+comment = "Play MEGA VAMPS! (bloax)."
+crawl_binary =  "/bin/crawl-stable-launcher.sh"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-megavamps/"
+rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "../crawl-megavamps/saves/scores"
+client_path = "../crawl-megavamps/data/web/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
+send_json_options = true
+morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
+pre_options = ["megavamps"]
+
+[[games]]
+id = "dcss-vaulted"
+name = "DCSS vaulted"
+version = "vaulted"
+mode = "Dungeon Crawl"
+comment = "Play Vaulted! (vaults by johnstein)"
+crawl_binary =  "/bin/crawl-stable-launcher.sh"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-vaulted/"
+rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "../crawl-vaulted/saves/scores"
+client_path = "../crawl-vaulted/data/web/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
+send_json_options = true
+morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
+pre_options = ["vaulted"]
+
+[[games]]
+id = "dcss-domino"
+name = "DCSS domino"
+version = "domino"
+mode = "Dungeon Crawl"
+comment = "Play Dominoes! (with herringbone-wang tiles)"
+crawl_binary =  "/bin/crawl-stable-launcher.sh"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-domino/"
+rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+score_path = "../crawl-domino/saves/scores"
+client_path = "../crawl-domino/data/web/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+env_lang = "en_US.UTF8"
+send_json_options = true
+morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
+pre_options = ["domino"]
