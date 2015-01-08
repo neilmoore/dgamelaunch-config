@@ -107,27 +107,6 @@ address = "192.73.239.18"
 # port = 8081
 # address = "localhost"
 
-[[games]]
-id = "dcss-git"
-name = "DCSS trunk"
-version = "trunk"
-mode = "Dungeon Crawl"
-comment = "Start a standard game of Crawl."
-crawl_binary =  "/bin/crawl-git-launcher.sh"
-# options = ["-extra-options", "-go-here"]
-inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git/"
-rcfile_path =  "%%CHROOT_RCFILESDIR%%/crawl-git/"
-socket_path = "%%CHROOT_WEBDIR%%/sockets"
-morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
-score_path = "../crawl-latest/saves/scores"
-client_path = "..//crawl-latest/data/web/"
-macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
-ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
-# dir_path = "./"
-env_lang = "en_US.UTF8"
-send_json_options = true
-morgue_url = "http://crawl.berotato.org/crawl/dev/morgue/%n/"
-
 [game_link_settings]
 hide_versions = []
 
