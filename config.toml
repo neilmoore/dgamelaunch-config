@@ -45,7 +45,7 @@ dgl_status_file =  "%%CHROOT_WEBDIR%%/run/status"
 status_file_update_rate = 5
 
 milestone_files = ["%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones"]
-list_savegames = false
+list_savegames = true
 
 # scoring config
 max_score_list_length = 1000
