@@ -286,7 +286,7 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
      ("dcss-shoals-lite", dict(
-        name = "experimental (Pakellas, Evoker God)",
+        name = "experimental (Shoals-Lite)",
         crawl_binary = "/usr/games/crawl-shoals-lite",
         separator = "<br>",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
