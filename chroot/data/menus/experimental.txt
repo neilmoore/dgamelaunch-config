@@ -6,7 +6,6 @@ Crawl information:  http://crawl.develz.org/
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
 Logged in as: $USERNAME
-
 Game selected: Dungeon Crawl Stone Soup experimental branches
 
 WARNING: Experimental branches have limited save compatibility! Updates to the
@@ -19,6 +18,7 @@ S) Salamander (Salamander Player Species!)
 L) Lacertillians (Pious Reptillian Species!)
 W) Wulndraste (No Backtracking God!)
 E) Evoker God Pakellas
+H) Shoals-Lite
 
 A) Advanced Options (create save backup for experimental versions)
 

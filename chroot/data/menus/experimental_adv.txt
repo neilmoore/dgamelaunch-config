@@ -7,7 +7,6 @@ Crawl information:  http://crawl.develz.org/
 ------------------------------------------------------------------------------
 
 Logged in as: $USERNAME
-
 Game selected: Dungeon Crawl Stone Soup EXPERIMENTAL
 
 Select the experimental version you wish to backup
@@ -19,6 +18,8 @@ S) Salamanders
 L) Lacertillians
 W) Wulndraste
 E) Evoker God Pakellas
+H) Shoals-Lite
+
 q) Return to previous menu
 
 => 
