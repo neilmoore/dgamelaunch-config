@@ -221,8 +221,9 @@ games = OrderedDict([
 
      ("dcss-nostalgia", dict(
         name = "experimental (nostalgia)",
-        crawl_binary = "/usr/games/crawl-nostalgia",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
         separator = "<br>",
+	pre_options = [ "nostalgia" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -232,7 +233,8 @@ games = OrderedDict([
 
      ("dcss-plutonians", dict(
         name = "experimental (plutonians)",
-        crawl_binary = "/usr/games/crawl-plutonians",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+	pre_options = [ "plutonians" ],
         separator = "<br>",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -243,7 +245,8 @@ games = OrderedDict([
 
      ("dcss-salamander", dict(
         name = "experimental (salamander)",
-        crawl_binary = "/usr/games/crawl-salamander",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+	pre_options = [ "salamander" ],
         separator = "<br>",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -254,7 +257,8 @@ games = OrderedDict([
      
      ("dcss-faithful", dict(
         name = "experimental (lacertillians)",
-        crawl_binary = "/usr/games/crawl-faithful",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+	pre_options = [ "faithful" ],
         separator = "<br>",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -265,7 +269,8 @@ games = OrderedDict([
 
      ("dcss-no_backtracking_god", dict(
         name = "experimental (W, No Backtracking God)",
-        crawl_binary = "/usr/games/crawl-no_backtracking_god",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+	pre_options = [ "no_backtracking_god" ],
         separator = "<br>",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -276,7 +281,8 @@ games = OrderedDict([
 
      ("dcss-evoker-god", dict(
         name = "experimental (Pakellas, Evoker God)",
-        crawl_binary = "/usr/games/crawl-evoker-god",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+	pre_options = [ "evoker-god" ],
         separator = "<br>",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
