@@ -29,6 +29,11 @@ set -o nounset
 
 VERSION=$1
 shift
+WIZ=0
+
+if [ "${VERSION}" == "shoals-lite" ];then
+	WIZ=1
+fi
 
 CRAWL_GIT_DIR="%%CHROOT_CRAWL_BASEDIR%%"
 USER_DB="%%CHROOT_LOGIN_DB%%"
@@ -97,6 +102,10 @@ BINARY_NAME="$CRAWL_BINARY_PATH/$BINARY_BASE_NAME"
 GAME_FOLDER="$CRAWL_GIT_DIR/$BINARY_BASE_NAME"
 
 if user-is-admin; then
+    set -- "$@" -wizard
+fi
+
+if [ "${WIZ}" == "1" ]; then
     set -- "$@" -wizard
 fi
 

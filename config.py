@@ -287,8 +287,9 @@ games = OrderedDict([
 
      ("dcss-shoals-lite", dict(
         name = "experimental (Shoals-Lite)",
-        crawl_binary = "/usr/games/crawl-shoals-lite",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
         separator = "<br>",
+	pre_options = [ "shoals-lite" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
