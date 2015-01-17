@@ -220,9 +220,9 @@ games = OrderedDict([
         options = ["-tutorial"])),
 
      ("dcss-nostalgia", dict(
-	name = "Misc Experimentals: nostalgia",
+	name = "Nostalgia",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
-        separator = " | ",
+	separator = "<br><br>EXPERIMENTALS<br>Misc: ",
 	pre_options = [ "nostalgia" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -234,7 +234,7 @@ games = OrderedDict([
      ("dcss-shoals-lite", dict(
         name = "Shoals-Lite",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
-        separator = "<br>",
+        separator = " | ",
 	pre_options = [ "shoals-lite" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -244,10 +244,10 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
      
      ("dcss-plutonians", dict(
-	name = "Species Experimentals: Plutonians",
+	name = "Plutonians",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "plutonians" ],
-        separator = " | ",
+	separator = "<br>Species: ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -271,7 +271,7 @@ games = OrderedDict([
         name = "Lacertilians",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "faithful" ],
-        separator = "<br>",
+        separator = " | ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -280,10 +280,10 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
      ("dcss-no_backtracking_god", dict(
-	name = "Gods Experimentals: Wuldraste: No Backtracking God)",
+	name = "Wuldraste: No Backtracking God",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "no_backtracking_god" ],
-        separator = " | ",
+	separator = "<br>Gods: ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -292,10 +292,10 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
      ("dcss-evoker-god", dict(
-	name = "Pakellas: Evoker God)",
+	name = "Pakellas: Evoker God",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "evoker-god" ],
-        separator = "<br>",
+        separator = " | ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
