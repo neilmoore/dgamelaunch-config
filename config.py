@@ -222,7 +222,7 @@ games = OrderedDict([
      ("dcss-nostalgia", dict(
 	name = "Nostalgia",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
-	separator = "<br><br>EXPERIMENTALS<br>Misc: ",
+	separator = "<br><br>EXPERIMENTALS<br>Misc   : ",
 	pre_options = [ "nostalgia" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -283,7 +283,7 @@ games = OrderedDict([
 	name = "Wuldraste: No Backtracking God",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "no_backtracking_god" ],
-	separator = "<br>Gods: ",
+	separator = "<br>Gods   : ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
