@@ -220,9 +220,9 @@ games = OrderedDict([
         options = ["-tutorial"])),
 
      ("dcss-nostalgia", dict(
-        name = "experimental (nostalgia)",
+	name = "Misc Experimentals: nostalgia",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
-        separator = "<br>",
+        separator = " | ",
 	pre_options = [ "nostalgia" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -231,11 +231,23 @@ games = OrderedDict([
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),    
 
+     ("dcss-shoals-lite", dict(
+        name = "Shoals-Lite",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        separator = "<br>",
+	pre_options = [ "shoals-lite" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-shoals-lite",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+     
      ("dcss-plutonians", dict(
-        name = "experimental (plutonians)",
+	name = "Species Experimentals: Plutonians",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "plutonians" ],
-        separator = "<br>",
+        separator = " | ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -244,10 +256,10 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
      ("dcss-salamander", dict(
-        name = "experimental (salamander)",
+        name = "Salamander",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "salamander" ],
-        separator = "<br>",
+        separator = " | ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -256,7 +268,7 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
      
      ("dcss-faithful", dict(
-        name = "experimental (lacertillians)",
+        name = "Lacertilians",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "faithful" ],
         separator = "<br>",
@@ -268,10 +280,10 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
      ("dcss-no_backtracking_god", dict(
-        name = "experimental (W, No Backtracking God)",
+	name = "Gods Experimentals: Wuldraste: No Backtracking God)",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "no_backtracking_god" ],
-        separator = "<br>",
+        separator = " | ",
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
@@ -280,7 +292,7 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
      ("dcss-evoker-god", dict(
-        name = "experimental (Pakellas, Evoker God)",
+	name = "Pakellas: Evoker God)",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "evoker-god" ],
         separator = "<br>",
@@ -288,18 +300,6 @@ games = OrderedDict([
         macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-evoker-god",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-
-     ("dcss-shoals-lite", dict(
-        name = "experimental (Shoals-Lite)",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-        separator = "<br>",
-	pre_options = [ "shoals-lite" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-shoals-lite",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
