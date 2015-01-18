@@ -11,12 +11,11 @@ Game selected: Dungeon Crawl Stone Soup experimental branches
 WARNING: Experimental branches have limited save compatibility! Updates to the
 branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping!
+(Check learnDB in ##crawl on freenode (irc) for detailed info on each branch)
 
 MISC   : N) Nostalgia  H) Shoals-Lite
 SPECIES: P) Plutonians S) Salamander L) Lacertilians B) Bearkin
 GODS   : W) Wulndraste E) Evoker God Pakellas
-
-(check learnDB in ##crawl on freenode (irc) for detailed info on each branch
 
 A) Advanced Options (create save backup for experimental versions)
 
