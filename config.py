@@ -279,6 +279,18 @@ games = OrderedDict([
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
+     ("dcss-bearkin", dict(
+        name = "Salamander",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+	pre_options = [ "bearkin" ],
+        separator = " | ",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-bearkin",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+
      ("dcss-no_backtracking_god", dict(
 	name = "Wuldraste: No Backtracking God",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
