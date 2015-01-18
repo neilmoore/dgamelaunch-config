@@ -1,0 +1,66 @@
+[[games]]
+id = "dcss-git"
+name = "DCSS trunk"
+version = "trunk"
+mode = "Dungeon Crawl"
+morgue_url = "http://trilobyte/crawl/morgue/%n/"
+crawl_binary = "/bin/crawl-git-launcher.sh"
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git/"
+rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-git/saves/scores"
+send_json_options = true
+
+[[games]]
+id = "spr-git"
+name = "Sprint trunk"
+version = "trunk"
+mode = "Dungeon Sprint"
+morgue_url = "http://trilobyte/crawl/morgue/%n/"
+crawl_binary = "/bin/crawl-git-launcher.sh"
+options = [ "-sprint",]
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git-sprint/"
+rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-git/saves/sprint-%m"
+map_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-git/data/sprint.toml"
+send_json_options = true
+
+[[games]]
+id = "zd-git"
+name = "Zot Defence trunk"
+version = "trunk"
+mode = "Zot Defence"
+morgue_url = "http://trilobyte/crawl/morgue/%n/"
+crawl_binary = "/bin/crawl-git-launcher.sh"
+options = [ "-zotdef",]
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git-zotdef/"
+rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+score_path = "%%CHROOT_CRAWL_BASEDIR%%/crawl-git/saves/scores-zotdef"
+send_json_options = true
+
+[[games]]
+id = "tut-git"
+name = "Tutorial trunk"
+version = "trunk"
+mode = "Tutorial"
+crawl_binary = "/bin/crawl-git-launcher.sh"
+options = [ "-tutorial",]
+inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git-tut/"
+rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+socket_path = "%%CHROOT_WEBDIR%%/sockets"
+morgue_path = "%%CHROOT_MORGUEDIR%%/%n/"
+macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/"
+ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/"
+send_json_options = true
+

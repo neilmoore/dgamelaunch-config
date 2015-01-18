@@ -42,7 +42,7 @@ fi
 
 install-webserver() {
     echo "Copying web server files to $WEBDIR"
-    cp -r source/webserver/!(config.py|config.toml|game_data|templates) "$WEBDIR"
+    cp -r source/webserver/!(config.py|config.toml|game_data|templates|games.conf.d) "$WEBDIR"
     cp source/webserver/templates/!(banner.html) "$WEBDIR"/templates/
     chown -R "$CRAWL_UGRP" "$WEBDIR"
 }
