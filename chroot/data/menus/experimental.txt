@@ -12,13 +12,11 @@ WARNING: Experimental branches have limited save compatibility! Updates to the
 branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping!
 
-N) Nostalgia
-P) Plutonians (New Species Idea. Plays with Contam mechanic)
-S) Salamander (Salamander Player Species!)
-L) Lacertillians (Pious Reptillian Species!)
-W) Wulndraste (No Backtracking God!)
-E) Evoker God Pakellas
-H) Shoals-Lite
+MISC   : N) Nostalgia  H) Shoals-Lite
+SPECIES: P) Plutonians S) Salamander L) Lacertilians 
+GODS   : W) Wulndraste E) Evoker God Pakellas
+
+(check learnDB in ##crawl on freenode (irc) for detailed info on each branch
 
 A) Advanced Options (create save backup for experimental versions)
 

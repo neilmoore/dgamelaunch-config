@@ -12,13 +12,9 @@ Game selected: Dungeon Crawl Stone Soup EXPERIMENTAL
 Select the experimental version you wish to backup
 (for bug reports and debugging)
 
-N) Nostalgia
-P) Plutonians
-S) Salamanders
-L) Lacertillians
-W) Wulndraste
-E) Evoker God Pakellas
-H) Shoals-Lite
+MISC   : N) Nostalgia  H) Shoals-Lite
+SPECIES: P) Plutonians S) Salamander L) Lacertilians
+GODS   : W) Wulndraste E) Evoker God Pakellas
 
 q) Return to previous menu
 
