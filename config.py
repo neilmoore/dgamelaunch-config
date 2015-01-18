@@ -280,7 +280,7 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
      ("dcss-bearkin", dict(
-        name = "Salamander",
+        name = "Bearkin",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "bearkin" ],
         separator = " | ",
