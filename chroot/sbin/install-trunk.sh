@@ -71,6 +71,8 @@ copy-data-files() {
 
     mkdir -p "$ABS_COMMON_DIR/data/docs"
     cp docs/crawl_changelog.txt "$ABS_COMMON_DIR/data/docs"
+    # Enable something like this when we merge webtiles-changes into trunk.
+    #cp source/dat/des/sprint/sprint.toml "$ABS_COMMON_DIR/data/"
 }
 
 link-logfiles() {

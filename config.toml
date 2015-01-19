@@ -30,7 +30,7 @@ template_path = "%%CHROOT_WEBDIR%%/templates/"
 # server_socket_path = ""
 
 max_idle_time = 18000
-connection_timeout = 600
+http_connection_timeout = 600
 kill_timeout = 10
 
 max_connections = 100
@@ -117,4 +117,6 @@ format = "%(asctime)s %(levelname)s: %(message)s"
 level = 20
 # Enable logging of requests & websocket connect/disconnect events
 enable_access_log = true
+max_bytes = 10000000
+backup_count = 5
 
