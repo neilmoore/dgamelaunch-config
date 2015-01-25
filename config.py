@@ -292,7 +292,7 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
      ("dcss-no_backtracking_god", dict(
-	name = "Wuldraste: No Backtracking God",
+	name = "Wulndraste- No Backtracking God",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "no_backtracking_god" ],
 	separator = "<br>Gods &nbsp;&nbsp;: ",
@@ -304,7 +304,7 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
      ("dcss-evoker-god", dict(
-	name = "Pakellas: Evoker God",
+	name = "Pakellas- Evoker God",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	pre_options = [ "evoker-god" ],
         separator = " | ",
