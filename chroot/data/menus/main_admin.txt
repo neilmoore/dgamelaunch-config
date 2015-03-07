@@ -12,9 +12,10 @@ Logged in as: $USERNAME (admin)
 W) Watch games in progress
 
 T) Dungeon Crawl Stone Soup Trunk
+6) Dungeon Crawl Stone Soup 0.16
 5) Dungeon Crawl Stone Soup 0.15
 4) Dungeon Crawl Stone Soup 0.14
 3) Dungeon Crawl Stone Soup 0.13
 
-Q)uit or P)lay or S)print or Z)otDef in Trunk now!
+Q)uit or P)lay or S)print in Trunk now!
 => 
