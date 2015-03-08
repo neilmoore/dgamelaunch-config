@@ -7,16 +7,16 @@ Crawl information:  http://crawl.develz.org/
 ------------------------------------------------------------------------------
 
 Logged in as: $USERNAME
-W) Watch games in progress
 
-T) Dungeon Crawl Stone Soup Trunk
-6) Dungeon Crawl Stone Soup 0.16 (beta)
-5) 0.15  4) 0.14  3) 0.13   2) 0.12   1) 0.11  0) 0.10
-X)perimental branches
+Game selected: Dungeon Crawl Stone Soup 0.16 (beta)
 
-R) robotfindskitten  A) Air Traffic Control  B) Boggle
-c) Change password  e) Change email address
+B)ackup your save-game (for bug reports and debugging)
 
-Q)uit or P)lay or S)print in Crawl 0.16 now
+The next option allows you to reset your options.
+ALL CHANGES YOU'VE MADE TO YOUR OPTIONS WILL BE LOST.
+
+O) Reset options
+
+q) Return to previous menu
 
 => 
