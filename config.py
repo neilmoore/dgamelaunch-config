@@ -36,38 +36,27 @@ watch_socket_dirs = True
 # Game configs
 # %n in paths is replaced by the current username
 games = OrderedDict([
-    ("dcss-0.15", dict(
-        name = "DCSS 0.15",
-        crawl_binary = "/usr/games/crawl-0.15",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
+    ("dcss-0.16", dict(
+        name = "DCSS 0.16",
+        crawl_binary = "/usr/games/crawl-0.16",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.16/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.16/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://crawl.akrasiac.org/rawdata/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl15/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl16/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-    ("spr-0.15", dict(
-        name = "Sprint 0.15",
-        crawl_binary = "/usr/games/crawl-0.15",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
+    ("spr-0.16", dict(
+        name = "Sprint 0.16",
+        crawl_binary = "/usr/games/crawl-0.16",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.16/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.16/",
         morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
         morgue_url = "http://crawl.akrasiac.org/rawdata/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl15-sprint/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl16-sprint/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-sprint"])),
-    ("zd-0.15", dict(
-        name = "Zot Defence 0.15",
-        crawl_binary = "/usr/games/crawl-0.15",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        morgue_url = "http://crawl.akrasiac.org/rawdata/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl15-zotdef/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets",
-        options = ["-zotdef"])),
 
     ("dcss-git", dict(
         name = "DCSS trunk",
@@ -105,6 +94,39 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-zotdef"])),
     
+    ("dcss-0.15", dict(
+        name = "DCSS 0.15",
+        crawl_binary = "/usr/games/crawl-0.15",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://crawl.akrasiac.org/rawdata/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl15/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+    ("spr-0.15", dict(
+        name = "Sprint 0.15",
+        crawl_binary = "/usr/games/crawl-0.15",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://crawl.akrasiac.org/rawdata/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl15-sprint/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-sprint"])),
+    ("zd-0.15", dict(
+        name = "Zot Defence 0.15",
+        crawl_binary = "/usr/games/crawl-0.15",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.15/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://crawl.akrasiac.org/rawdata/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl15-zotdef/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-zotdef"])),
+
     ("dcss-0.14", dict(
         name = "DCSS 0.14",
         crawl_binary = "/usr/games/crawl-0.14",
