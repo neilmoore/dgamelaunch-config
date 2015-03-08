@@ -102,18 +102,6 @@ games = OrderedDict([
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-sprint"])),
-    ("zd-git", dict(
-        name = "Zot Defence trunk",
-        crawl_binary = "/bin/crawl-git-launcher.sh",
-        send_json_options = True,
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        morgue_url = "http://dobrazupa.org/morgue/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-git-zotdef/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets",
-        options = ["-zotdef"])),
     ("tut-git", dict(
         name = "Tutorial trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",
