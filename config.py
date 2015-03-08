@@ -410,48 +410,6 @@ games = OrderedDict([
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-tutorial"])),
-
-    ("dcss-chunkless", dict(
-        name = "Chunkless",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-        send_json_options = True,
-        pre_options  = [ "chunkless" ],
-        separator = "<br><strong class='experimental-label'>Experimental:</strong> ",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        morgue_url = "http://dobrazupa.org/morgue/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-chunkless",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-    
-    ("dcss-iashol", dict(
-        name = "Iashol",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-        send_json_options = True,
-        pre_options  = [ "iashol" ],
-        separator = "|",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        morgue_url = "http://dobrazupa.org/morgue/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-iashol",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-
-    ("dcss-smithgod_rebased", dict(
-        name = "Smith God (updated)",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-        send_json_options = True,
-        pre_options  = [ "smithgod_rebased" ],
-        separator = "|",
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        morgue_url = "http://dobrazupa.org/morgue/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-smithgod_rebased",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 ])
 
 dgl_status_file = "%%CHROOT_WEBDIR%%/run/status"
