@@ -9,14 +9,14 @@ Crawl information:  http://crawl.develz.org/
 Logged in as: $USERNAME
 W) Watch games in progress
 
+6) Dungeon Crawl Stone Soup 0.16 (Tournament begins 20:00 UTC March 13!)
 T) Dungeon Crawl Stone Soup Trunk
-6) Dungeon Crawl Stone Soup 0.16
 5) Dungeon Crawl Stone Soup 0.15
 4) Dungeon Crawl Stone Soup 0.14
 3) Dungeon Crawl Stone Soup 0.13
 
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print in Trunk now!
+Q)uit or P)lay or S)print in 0.16 now!
 
 => 
