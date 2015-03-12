@@ -9,7 +9,7 @@ Crawl information:  http://crawl.develz.org
 
 Logged in as: $USERNAME
 
-Game selected: Dungeon Crawl Stone Soup 0.16 (beta)
+Game selected: Dungeon Crawl Stone Soup 0.16
 
 B)ackup your save-game (for bug reports and debugging)
 
