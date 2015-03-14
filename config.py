@@ -421,7 +421,7 @@ status_file_update_rate = 5
 
 recording_term_size = (80, 24)
 
-max_connections = 200
+max_connections = 500
 
 # Script to initialize a user, e.g. make sure the paths
 # and the rc file exist. This is not done by the server
