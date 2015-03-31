@@ -64,7 +64,9 @@ copy-game-binary() {
 
 copy-data-files() {
     echo "Copying game data files to $DATADIR"
-    cp -r source/dat README.txt docs settings $DATADIR
+    cp -r source/dat docs settings $DATADIR
+    # Only one of these exists, don't error for the other.
+    cp -r README.txt README.md $DATADIR 2>/dev/null || true
     cp -r settings/. $DGL_SETTINGS_DIR/$GAME-settings
     cp -r source/webserver/game_data/. $DATADIR/web
 
