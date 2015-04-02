@@ -23,6 +23,7 @@ quietly() {
 
 failures=()
 skip=0 succ=0 fail=0
+shopt -s nullglob
 for ttyrec in "$TTYRECDIR"/*/*.ttyrec; do
     # If anyone has it open, skip it.
     if quietly lsof "$ttyrec"; then
