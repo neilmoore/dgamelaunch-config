@@ -12,7 +12,7 @@ Game selected: Dungeon Crawl Stone Soup EXPERIMENTAL
 Select the experimental version you wish to backup
 (for bug reports and debugging)
 
-MISC   : N) Nostalgia  
+MISC   : N) Nostalgia  M) Mulch
 SPECIES: P) Plutonians S) Salamander L) Lacertilians B) Bearkin I) Imps
 GODS   : W) Wulndraste E) Evoker God Pakellas
 

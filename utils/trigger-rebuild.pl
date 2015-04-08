@@ -151,10 +151,10 @@ sub main() {
   my $ver = param('v');
 
   if (not $ver) {
-    do_prompt 'trunk', '0.13', '0.14', '0.15', '0.16',  'nostalgia', 'salamander', 'no_backtracking_god', 'evoker-god', 'imp', 'bearkin', 'faithful';
+    do_prompt 'trunk', '0.13', '0.14', '0.15', '0.16',  'nostalgia', 'salamander', 'no_backtracking_god', 'evoker-god', 'imp', 'bearkin', 'mulch_ado_about_nothing', 'faithful';
   } elsif ($ver eq 'trunk') {
     do_update 'trunk';
-  } elsif ($ver =~ /^0.1[3456]|nostalgia|salamander|faithful|evoker-god|imp|bearkin|no_backtracking_god$/) {
+  } elsif ($ver =~ /^0.1[3456]|nostalgia|salamander|faithful|evoker-god|imp|bearkin|mulch_ado_about_nothing|no_backtracking_god$/) {
     do_update 'stable', $ver;
   } else {
     do_fail "Unknown version " . escapeHTML($ver);

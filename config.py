@@ -253,6 +253,18 @@ games = OrderedDict([
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),    
 
+     ("dcss-mulch_ado_about_nothing", dict(
+        name = "MULCH (always)",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+	pre_options = [ "mulch_ado_about_nothing" ],
+        separator = " | ",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-mulch_ado_about_nothing",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+     
      ("dcss-plutonians", dict(
 	name = "Plutonians",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
