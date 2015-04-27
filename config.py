@@ -265,6 +265,18 @@ games = OrderedDict([
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
      
+     ("dcss-squarelos-0.17", dict(
+        name = "SquareLoS",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+	pre_options = [ "squarelos-0.17" ],
+        separator = " | ",
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-squarelos-0.17",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+     
      ("dcss-plutonians", dict(
 	name = "Plutonians",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
