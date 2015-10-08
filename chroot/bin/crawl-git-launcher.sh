@@ -249,7 +249,7 @@ EOF
 	    fi
             wecho '{"msg":"hide_dialog"}'
 
-	    if test "$REPLY" = "t" -o "$REPLY" = "T" -o "$REPLY" = "y"
+	    if test "$REPLY" = "t" -o "$REPLY" = "T" -o "$REPLY" = "y" -o "$REPLY" = "Y"
 	    then
 		cecho -n "Transferring..."
                 transfer-save "$SAVE" "$NEW_GAME_HASH"
