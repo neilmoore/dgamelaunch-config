@@ -1,0 +1,23 @@
+Crawl server (North America) hosted and maintained by Neil Moore (|amethyst).
+------------------------------------------------------------------------------
+Webtiles:           https://crawl.s-z.org/
+Crawl information:  http://crawl.develz.org/
+------------------------------------------------------------------------------
+** Games on this server are recorded for in-progress viewing and playback! **
+------------------------------------------------------------------------------
+
+Logged in as: $USERNAME
+
+Game selected: Dungeon Crawl Stone Soup 0.17
+
+P)lay Crawl    S)print    T)utorial
+
+o) Edit options    O) with Virus
+m) Edit macros     M) with Virus
+v) View changelog  V) with Virus
+
+A)dvanced options
+
+q) Return to main menu
+
+=> 
