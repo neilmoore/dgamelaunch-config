@@ -40,6 +40,45 @@ watch_socket_dirs = True
 # Game configs
 # %n in paths is replaced by the current username
 games = OrderedDict([
+    ("dcss-0.17", dict(
+        name = "DCSS 0.17",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
+        pre_options  = [ "0.17" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.17/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.17/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://dobrazupa.org/morgue/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-17/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+    ("spr-0.17", dict(
+        name = "Sprint 0.17",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
+        pre_options  = [ "0.17" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.17/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.17/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://dobrazupa.org/morgue/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-17-sprint/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-sprint"])),
+    ("tut-0.17", dict(
+        name = "Tutorial 0.17",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
+        pre_options  = [ "0.17" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.17/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.17/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://dobrazupa.org/morgue/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-17-tut/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-tutorial"])),
+
     ("dcss-git", dict(
         name = "DCSS trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",

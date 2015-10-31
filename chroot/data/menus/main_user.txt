@@ -10,12 +10,12 @@ Logged in as: $USERNAME
 W) Watch games in progress
 
 T) Dungeon Crawl Stone Soup Trunk
-6) Dungeon Crawl Stone Soup 0.16
-5) 0.15  4) 0.14  3) 0.13   2) 0.12   1) 0.11  0) 0.10
+7) Dungeon Crawl Stone Soup 0.17 (beta)
+6) 0.16   5) 0.15   4) 0.14   3) 0.13   2) 0.12   1) 0.11   0) 0.10
 
 R) robotfindskitten  A) Air Traffic Control  B) Boggle
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print in Crawl Trunk now
+Q)uit or P)lay or S)print in Crawl 0.17 now
 
 => 
