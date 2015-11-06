@@ -278,7 +278,29 @@ games = OrderedDict([
 dgl_status_file = "%%CHROOT_WEBDIR%%/run/status"
 
 # Set to None not to read milestones
-milestone_file = "%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones"
+milestone_file = [
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.13/saves/milestones",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.13/saves/milestones-tutorial",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.13/saves/milestones-sprint",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.13/saves/milestones-zotdef",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.14/saves/milestones",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.14/saves/milestones-tutorial",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.14/saves/milestones-sprint",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.14/saves/milestones-zotdef",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.15/saves/milestones",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.15/saves/milestones-tutorial",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.15/saves/milestones-sprint",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.15/saves/milestones-zotdef",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.16/saves/milestones",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.16/saves/milestones-tutorial",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.16/saves/milestones-sprint",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.17/saves/milestones",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.17/saves/milestones-tutorial",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.17/saves/milestones-sprint",
+ "%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones",
+ "%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones-tutorial",
+ "%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones-sprint"
+]
 
 status_file_update_rate = 5
 
