@@ -13,7 +13,7 @@ branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping!
 (Check learnDB in ##crawl on freenode (irc) for detailed info on each branch)
 
-NOTE: Experimental Versions are disabled until after the 0.17 Tourney!
+NOTE: New Experimental Versions Coming soon!
 
 A) Advanced Options (create save backup for experimental versions)
 
