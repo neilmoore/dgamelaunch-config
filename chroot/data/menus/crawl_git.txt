@@ -9,7 +9,6 @@ Crawl information:  http://crawl.develz.org/
 Logged in as: $USERNAME
 
 Game selected: Dungeon Crawl Stone Soup Trunk
-NOTE: Experimental Versions diabled until after the 0.17 tourney!
 
 P)lay Crawl    S)print    T)utorial    X)perimental branches
 

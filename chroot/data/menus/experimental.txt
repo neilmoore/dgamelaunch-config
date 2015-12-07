@@ -13,7 +13,9 @@ branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping!
 (Check learnDB in ##crawl on freenode (irc) for detailed info on each branch)
 
-NOTE: New Experimental Versions Coming soon!
+B) AbyssRun (Deep Banishment & Exit ONLY on Abyss:1)
+O) Orcs and Elves (Shorter Orc Branch & several Elf Branch Tweaks)
+P) Pakellas (New and Improved Evoker God)
 
 A) Advanced Options (create save backup for experimental versions)
 
