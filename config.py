@@ -298,19 +298,6 @@ games = OrderedDict([
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
-    ("dcss-evoker-god-rebase", dict(
-        name = "Pakellas: New and Improved Evoker God!!",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-        separator = "<br>",
-	pre_options  = [ "evoker-god-rebase" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-evoker-god-rebase/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-    
-    
 ])
 
 dgl_status_file = "%%CHROOT_WEBDIR%%/run/status"

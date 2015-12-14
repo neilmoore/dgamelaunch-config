@@ -15,7 +15,6 @@ without warning: don't get too attached to your character. Thanks for helping!
 
 B) AbyssRun (Deep Banishment & Exit ONLY on Abyss:1)
 O) Orcs and Elves (Shorter Orc Branch & several Elf Branch Tweaks)
-P) Pakellas (New and Improved Evoker God)
 
 A) Advanced Options (create save backup for experimental versions)
 

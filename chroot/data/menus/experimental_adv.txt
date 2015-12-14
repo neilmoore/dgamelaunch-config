@@ -14,7 +14,6 @@ Select the experimental version you wish to backup
 
 B) AbyssRun
 O) Orcs and Elves
-P) Pakellas
 
 q) Return to previous menu
 
