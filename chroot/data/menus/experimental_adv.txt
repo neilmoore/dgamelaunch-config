@@ -13,7 +13,6 @@ Select the experimental version you wish to backup
 (for bug reports and debugging)
 
 B) AbyssRun
-O) Orcs and Elves
 L) Lacertilians
 
 q) Return to previous menu
