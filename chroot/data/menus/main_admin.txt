@@ -7,7 +7,6 @@ Saves:              http://crawl.beRotato.org/crawl/saves/
 ------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
-
 Logged in as: $USERNAME (admin)
 W) Watch games in progress
 
@@ -17,6 +16,8 @@ T) Dungeon Crawl Stone Soup Trunk
 5) Dungeon Crawl Stone Soup 0.15
 4) Dungeon Crawl Stone Soup 0.14
 3) Dungeon Crawl Stone Soup 0.13
+
+c) Change password  e) Change email address
 
 Q)uit or P)lay or S)print in Trunk now!
 => 

@@ -297,6 +297,20 @@ games = OrderedDict([
         inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-faithful/",
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+
+    ("dcss-combo_god", dict(
+        name = "Ukayaw & Helpiaklqana (god of ecstatic dance & god of ancestral memory)",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        separator = "<br><br>Experimentals<br>",
+	pre_options  = [ "combo_god" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-combo_god/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+    
+
 ])
 
 dgl_status_file = "%%CHROOT_WEBDIR%%/run/status"
