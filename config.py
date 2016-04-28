@@ -43,7 +43,7 @@ watch_socket_dirs = True
 # %n in paths is replaced by the current username
 games = OrderedDict([
     ("dcss-git", dict(
-        name = "DCSS trunk",
+        name = "DCSS trunk (Updates Daily!)",
         crawl_binary = "/bin/crawl-git-launcher.sh",
         send_json_options = True,
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -75,6 +75,39 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-tutorial"])),
 
+    ("dcss-0.18", dict(
+        name = "DCSS 0.18 (Latest Stable Version!)",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.18" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.18/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.18/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-18/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+    ("spr-0.18", dict(
+        name = "Sprint 0.18",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.18" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.18/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.18/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-18-sprint/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-sprint"])),
+    ("tut-0.18", dict(
+        name = "Tutorial 0.18",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        pre_options  = [ "0.18" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.18/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.18/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-18-tut/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-tutorial"])),
+ 
     ("dcss-0.17", dict(
         name = "DCSS 0.17",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
@@ -335,6 +368,9 @@ milestone_file = [
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.17/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.17/saves/milestones-tutorial",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.17/saves/milestones-sprint",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.18/saves/milestones",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.18/saves/milestones-tutorial",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.18/saves/milestones-sprint",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-abyssrun/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-evoker-god-rebase/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-orcs_and_elves/saves/milestones",

@@ -9,15 +9,16 @@ Crawl information:  http://crawl.develz.org/
 Logged in as: $USERNAME
 W) Watch games in progress
 
-T) Dungeon Crawl Stone Soup Trunk
-7) Dungeon Crawl Stone Soup 0.17
-6) Dungeon Crawl Stone Soup 0.16
-5) Dungeon Crawl Stone Soup 0.15
-4) Dungeon Crawl Stone Soup 0.14
-3) Dungeon Crawl Stone Soup 0.13
+Play Dungeon Crawl Stone Soup!
+Current Versions:
+[T] Trunk (Updates Daily!)
+[8] 0.18  (Latest Stable Version!)
+
+Old Versions:
+[7] 0.17   [6] 0.16   [5] 0.15   [4] 0.14   [3] 0.13
 
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print in Trunk now!
+Q)uit or P)lay or S)print in 0.18 now!
 
 => 
