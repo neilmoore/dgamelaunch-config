@@ -12,9 +12,7 @@ Game selected: Dungeon Crawl Stone Soup EXPERIMENTAL
 Select the experimental version you wish to backup
 (for bug reports and debugging)
 
-B) AbyssRun
-L) Lacertilians
-U) Ukayaw & Helpliaklqana
+H) Desperate Haste
 
 q) Return to previous menu
 
