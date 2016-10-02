@@ -318,6 +318,18 @@ games = OrderedDict([
 	inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-adrenaline_rush/",
 	ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
 	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+  
+   ("dcss-basajaun", dict(
+	name = "Basajaunak (Large, Hairy, Magic-Oriented Species!)",
+	crawl_binary = "/bin/crawl-stable-launcher.sh",
+	separator = "<br>",
+	pre_options  = [ "basajaun" ],
+	rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+	macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+	morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+	inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-basajaun/",
+	ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
 ])
 
@@ -347,6 +359,7 @@ milestone_file = [
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.18/saves/milestones-tutorial",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.18/saves/milestones-sprint",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-abyssrun/saves/milestones",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-basajaun/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-evoker-god-rebase/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-orcs_and_elves/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-adrenaline_rush/saves/milestones",
