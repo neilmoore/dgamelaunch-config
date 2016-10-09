@@ -15,6 +15,7 @@ without warning: don't get too attached to your character. Thanks for helping!
 
 H) Desperate Haste (Haste Reform!)
 B) Basajaunak (Large, Hairy, Magic-Oriented Species)
+T) Thorn God (God of Wild Plants and Natural Selection!)
 
 A) Advanced Options (create save backup for experimental versions)
 

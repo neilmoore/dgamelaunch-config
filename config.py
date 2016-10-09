@@ -330,6 +330,18 @@ games = OrderedDict([
 	inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-basajaun/",
 	ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
 	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+   
+   ("dcss-thorn_god", dict(
+	name = "Thorn God (God of Wild Plants and Natural Selection)",
+	crawl_binary = "/bin/crawl-stable-launcher.sh",
+	separator = "<br>",
+	pre_options  = [ "thorn_god" ],
+	rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+	macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+	morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+	inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-thorn_god/",
+	ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
 ])
 
@@ -360,6 +372,7 @@ milestone_file = [
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.18/saves/milestones-sprint",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-abyssrun/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-basajaun/saves/milestones",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-thorn_god/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-evoker-god-rebase/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-orcs_and_elves/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-adrenaline_rush/saves/milestones",
