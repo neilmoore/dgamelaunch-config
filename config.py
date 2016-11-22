@@ -367,45 +367,6 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-tutorial"])),
 
-   ("dcss-adrenaline_rush", dict(
-	name = "Desperate Haste (Haste Reform!)",
-	crawl_binary = "/bin/crawl-stable-launcher.sh",
-	separator = "<br><br>Experimentals<br>",
-	pre_options  = [ "adrenaline_rush" ],
-	rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-	macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-	morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        morgue_url = "%%CHROOT_MORGUE_URL%%/%n/",
-	inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-adrenaline_rush/",
-	ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-  
-   ("dcss-basajaun", dict(
-	name = "Basajaunak (Large, Hairy, Magic-Oriented Species!)",
-	crawl_binary = "/bin/crawl-stable-launcher.sh",
-	separator = "<br>",
-	pre_options  = [ "basajaun" ],
-	rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-	macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-	morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        morgue_url = "%%CHROOT_MORGUE_URL%%/%n/",
-	inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-basajaun/",
-	ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-   
-   ("dcss-thorn_god", dict(
-	name = "Thorn God (God of Wild Plants and Natural Selection)",
-	crawl_binary = "/bin/crawl-stable-launcher.sh",
-	separator = "<br>",
-	pre_options  = [ "thorn_god" ],
-	rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-	macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-	morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        morgue_url = "%%CHROOT_MORGUE_URL%%/%n/",
-	inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-thorn_god/",
-	ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-
 ])
 
 dgl_status_file = "%%CHROOT_WEBDIR%%/run/status"
@@ -452,7 +413,7 @@ status_file_update_rate = 5
 
 recording_term_size = (80, 24)
 
-max_connections = 200
+max_connections = 500
 
 # Script to initialize a user, e.g. make sure the paths
 # and the rc file exist. This is not done by the server
