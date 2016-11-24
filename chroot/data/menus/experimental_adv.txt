@@ -12,6 +12,7 @@ Game selected: Dungeon Crawl Stone Soup EXPERIMENTAL
 Select the experimental version you wish to backup
 (for bug reports and debugging)
 
+C) Council God (cross-training, martial arts, and weapon proficiency)
 
 q) Return to previous menu
 

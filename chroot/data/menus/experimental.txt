@@ -13,6 +13,7 @@ branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping!
 (Check learnDB in ##crawl on freenode (irc) for detailed info on each branch)
 
+C) Council God! (cross-training, martial arts, and weapon proficiency) 
 
 A) Advanced Options (create save backup for experimental versions)
 

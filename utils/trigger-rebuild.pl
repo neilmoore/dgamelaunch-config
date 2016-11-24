@@ -151,10 +151,10 @@ sub main() {
   my $ver = param('v');
 
   if (not $ver) {
-    do_prompt 'trunk', '0.13', '0.14', '0.15', '0.16', '0.17', '0.18', '0.19', 'nostalgia', 'adrenaline_rush','thorn_god', 'basajaun', 'salamander', 'no_backtracking_god','evoker-god-rebase','orcs_and_elves','combo_god','abyssrun', 'evoker-god', 'imp', 'bearkin', 'mulch_ado_about_nothing', 'squarelos-0.17', 'faithful';
+    do_prompt 'trunk', '0.13', '0.14', '0.15', '0.16', '0.17', '0.18', '0.19', 'nostalgia', 'councilgod', 'adrenaline_rush','thorn_god', 'basajaun', 'salamander', 'no_backtracking_god','evoker-god-rebase','orcs_and_elves','combo_god','abyssrun', 'evoker-god', 'imp', 'bearkin', 'mulch_ado_about_nothing', 'squarelos-0.17', 'faithful';
   } elsif ($ver eq 'trunk') {
     do_update 'trunk';
-  } elsif ($ver =~ /^0.1[3456789]|evoker-god-rebase|orcs_and_elves|combo_god|abyssrun|nostalgia|adrenaline_rush|thorn_god|basajaun|salamander|faithful|evoker-god|imp|bearkin|squarelos-0.17|mulch_ado_about_nothing|no_backtracking_god$/) {
+  } elsif ($ver =~ /^0.1[3456789]|evoker-god-rebase|orcs_and_elves|combo_god|abyssrun|nostalgia|councilgod|adrenaline_rush|thorn_god|basajaun|salamander|faithful|evoker-god|imp|bearkin|squarelos-0.17|mulch_ado_about_nothing|no_backtracking_god$/) {
     do_update 'stable', $ver;
   } else {
     do_fail "Unknown version " . escapeHTML($ver);
