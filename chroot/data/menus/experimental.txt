@@ -2,7 +2,6 @@ Crawl server (North America) hosted and maintained by John Boyle (johnstein).
 ------------------------------------------------------------------------------
 Webtiles:           https://crawl.beRotato.org/
 Crawl information:  http://crawl.develz.org/
-------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
 Logged in as: $USERNAME !
@@ -14,6 +13,7 @@ without warning: don't get too attached to your character. Thanks for helping!
 (Check learnDB in ##crawl on freenode (irc) for detailed info on each branch)
 
 D) Dynamic Monsters! (As monsters track you, they can become more scary)
+Y) Cyno Species! (+2 apt in all skills, but a max skill of 14)
 C) Council God! (New weaponless revision) 
 H) HellCrawl! (Unofficial Crawl Fork, created by hellmonk)
 F) Frogs!  (In Trunk now! Experimental will be removed roughly 1/15)

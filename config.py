@@ -379,6 +379,18 @@ games = OrderedDict([
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
  
+   ("dcss-cyno-PR", dict(
+        name = "Cyno Species (+2 apt in all skills, but a max skill of 14)",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+	separator = "<br>",
+        pre_options  = [ "cyno-PR" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-cyno-PR/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+ 
   ("dcss-councilgod-PR", dict(
         name = "Council God (cross-training, martial arts, and weapon proficiency)",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
@@ -453,6 +465,7 @@ milestone_file = [
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-adrenaline_rush/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-councilgod-PR/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-dpegs_dynamic_monsters/saves/milestones",
+ "%%CHROOT_CRAWL_BASEDIR%%/crawl-cyno-PR/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-hellcrawl-cbro/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-frogs/saves/milestones",
  "%%CHROOT_CRAWL_BASEDIR%%/crawl-faithful/saves/milestones",

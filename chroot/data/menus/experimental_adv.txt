@@ -2,7 +2,6 @@ Crawl server (North America) hosted and maintained by John Boyle (johnstein).
 ------------------------------------------------------------------------------
 Webtiles:           https://crawl.beRotato.org/
 Crawl information:  http://crawl.develz.org/
-------------------------------------------------------------------------------
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
 
@@ -13,6 +12,7 @@ Select the experimental version you wish to backup
 (for bug reports and debugging)
 
 D) Dynamic Monsters
+Y) Cyno Species
 C) Council God 
 H) HellCrawl
 F) Frogs
