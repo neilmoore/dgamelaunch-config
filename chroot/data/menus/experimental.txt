@@ -15,6 +15,7 @@ without warning: don't get too attached to your character. Thanks for helping!
 
 C) Council God! (cross-training, martial arts, and weapon proficiency) 
 H) HellCrawl! (Unofficial Crawl Fork, created by hellmonk)
+F) Frogs!  (Slow species that can hop!)
 
 A) Advanced Options (create save backup for experimental versions)
 
