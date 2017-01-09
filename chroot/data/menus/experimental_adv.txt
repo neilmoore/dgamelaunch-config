@@ -12,6 +12,7 @@ Game selected: Dungeon Crawl Stone Soup EXPERIMENTAL
 Select the experimental version you wish to backup
 (for bug reports and debugging)
 
+D) Dynamic Monsters
 C) Council God 
 H) HellCrawl
 F) Frogs
