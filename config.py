@@ -392,7 +392,7 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets")),
  
   ("dcss-councilgod-PR", dict(
-        name = "Council God (cross-training, martial arts, and weapon proficiency)",
+        name = "Council God (New weaponless revision)",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
 	separator = "<br>",
         pre_options  = [ "councilgod-PR" ],
