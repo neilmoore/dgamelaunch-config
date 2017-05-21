@@ -12,11 +12,6 @@ branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping!
 (Check learnDB in ##crawl on freenode (irc) for detailed info on each branch)
 
-D) Dynamic Monsters! (As monsters track you, they can become more scary)
-Y) Cyno Species! (+2 apt in all skills, but a max skill of 14)
-C) Council God! (New weaponless revision) 
-H) HellCrawl! (Unofficial Crawl Fork, created by hellmonk)
-F) Frogs!  (In Trunk now! Experimental will be removed roughly 1/15)
 
 A) Advanced Options (create save backup for experimental versions)
 

@@ -403,65 +403,6 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-tutorial"])),
 
-   ("dcss-dpegs_dynamic_monsters", dict(
-        name = "Dynamic Monsters (As monsters track you, they can become more scary)",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-	separator = "<br>Experimentals:<br>",
-        pre_options  = [ "dpegs_dynamic_monsters" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-dpegs_dynamic_monsters/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
- 
-   ("dcss-cyno-PR", dict(
-        name = "Cyno Species (+2 apt in all skills, but a max skill of 14)",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-	separator = "<br>",
-        pre_options  = [ "cyno-PR" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-cyno-PR/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
- 
-  ("dcss-councilgod-PR", dict(
-        name = "Council God (New weaponless revision)",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-	separator = "<br>",
-        pre_options  = [ "councilgod-PR" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-councilgod-PR/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-
-   ("dcss-hellcrawl-cbro", dict(
-        name = "HellCrawl! (Unofficial Crawl fork, created by hellmonk)",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-	separator = "<br>",
-        pre_options  = [ "hellcrawl-cbro" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-hellcrawl-cbro/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-
-   ("dcss-frogs", dict(
-        name = "Frogs! (Now in Trunk! Experimental will be removed ~ 1/15)",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-	separator = "<br>",
-        pre_options  = [ "frogs" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-frogs/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
 ])
 
