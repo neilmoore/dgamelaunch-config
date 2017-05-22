@@ -8,15 +8,16 @@ Crawl information:  http://crawl.develz.org
 ------------------------------------------------------------------------------
 
 Logged in as: $USERNAME
-W) Watch games in progress
 
-T) Dungeon Crawl Stone Soup Trunk
-9) Dungeon Crawl Stone Soup 0.19
-8) 0.18   7) 0.17   6) 0.16   5) 0.15   4) 0.14   
-3) 0.13   2) 0.12   1) 0.11   0) 0.10
+Game selected: Dungeon Crawl Stone Soup 0.19
 
-k) robotfindskitten  c) Change password  e) Change email address
+P)lay Crawl    S)print
 
-Q)uit or P)lay or S)print in Crawl 0.19 now
+o) Edit options    O) with Virus
+m) Edit macros     M) with Virus
+v) View changelog  V) with Virus
 
+A)dvanced options
+
+q) Return to main menu
 => 
