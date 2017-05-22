@@ -8,16 +8,11 @@ Crawl information:  http://crawl.develz.org
 ------------------------------------------------------------------------------
 
 Logged in as: $USERNAME
-W) Watch games in progress
 
-T) Dungeon Crawl Stone Soup Trunk
-2) Dungeon Crawl Stone Soup 0.20
+Old Crawl Versions
 
-9) 0.19   8) 0.18   7) 0.17   6) 0.16   5) 0.15   4) 0.14   
-X) Older versions (0.13 to 0.10)
+3) 0.13   2) 0.12   1) 0.11   0) 0.10
 
-k) robotfindskitten  c) Change password  e) Change email address
-
-Q)uit or P)lay or S)print in Crawl 0.20 now
+B)ack to previous menu
 
 => 
