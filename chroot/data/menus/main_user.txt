@@ -12,14 +12,14 @@ W) Watch games in progress
 Play Dungeon Crawl Stone Soup!
 Current Versions:
 [T] Trunk (Updates Daily!)
-[2] 0.20  (Latest!)
-[9] 0.19  
+[2] 0.20  (Latest Stable Version)
 
-Old Versions:
-[8] 0.18   [7] 0.17   [6] 0.16   [5] 0.15   [4] 0.14   [3] 0.13
+[O] Older Versions
+[X] Experimental Versions
+
 
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print in 0.20 now!
+Q)uit or P)lay or S)print in TRUNK now!
 
 => 
