@@ -5,13 +5,14 @@ Crawl information:  http://crawl.develz.org/
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
 Logged in as: $USERNAME !
-Game selected: Dungeon Crawl Stone Soup experimental branches
+Game selected: Dungeon Crawl Stone Soup Experimental Branches
 
 WARNING: Experimental branches have limited save compatibility! Updates to the
 branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping!
-(Check learnDB in ##crawl on freenode (irc) for detailed info on each branch)
 
+D) Dynamic Monsters! (As monsters track you, they can become more scary)
+H) HellCrawl! (Unofficial Crawl Fork, created by hellmonk)
 
 A) Advanced Options (create save backup for experimental versions)
 

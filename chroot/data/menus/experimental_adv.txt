@@ -11,6 +11,8 @@ Game selected: Dungeon Crawl Stone Soup EXPERIMENTAL
 Select the experimental version you wish to backup
 (for bug reports and debugging)
 
+D) Dpegs Dynamic Monsters
+H) HellCrawl
 
 q) Return to previous menu
 

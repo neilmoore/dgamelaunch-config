@@ -13,8 +13,7 @@ Play Dungeon Crawl Stone Soup!
 Current Versions:
 [T] Trunk (Updates Daily!)
 [2] 0.20  (Latest Stable Version)
-
-[O] Older Versions 
+[O] Older Versions
 [X] Experimental Versions
 
 c) Change password  e) Change email address
