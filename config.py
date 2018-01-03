@@ -36,6 +36,32 @@ watch_socket_dirs = True
 # Game configs
 # %n in paths is replaced by the current username
 games = OrderedDict([
+    ("dcss-0.21", dict(
+        name = "DCSS 0.21",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
+        pre_options = [ "0.21" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.21/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.21/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://crawl.akrasiac.org/rawdata/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl21/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+    ("spr-0.21", dict(
+        name = "Sprint 0.21",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+        send_json_options = True,
+        pre_options = [ "0.21" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.21/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-0.21/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        morgue_url = "http://crawl.akrasiac.org/rawdata/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%-crawl21-sprint/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+        socket_path = "%%CHROOT_WEBDIR%%/sockets",
+        options = ["-sprint"])),
+
     ("dcss-0.20", dict(
         name = "DCSS 0.20",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
@@ -446,6 +472,8 @@ milestone_file = [
     "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.19/saves/milestones-sprint",
     "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.20/saves/milestones",
     "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.20/saves/milestones-sprint",
+    "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.21/saves/milestones",
+    "%%CHROOT_CRAWL_BASEDIR%%/crawl-0.21/saves/milestones-sprint",
     "%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones",
     "%%CHROOT_CRAWL_GAMEDIR%%/saves/milestones-sprint"
 ]
