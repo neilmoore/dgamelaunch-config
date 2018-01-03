@@ -11,7 +11,7 @@ W) Watch games in progress
 Play Dungeon Crawl Stone Soup!
 Current Versions:
 [T] Trunk (Updates Daily!)
-[2] 0.20  (Latest Stable Version)
+[R] 0.21  (Current Released Version)
 [O] Older Versions
 [X] Experimental Versions 
 
