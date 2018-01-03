@@ -43,7 +43,7 @@ watch_socket_dirs = True
 # %n in paths is replaced by the current username
 games = OrderedDict([
     ("dcss-git", dict(
-        name = "DCSS trunk (Updates Daily!)",
+        name = "DCSS trunk",
         crawl_binary = "/bin/crawl-git-launcher.sh",
         send_json_options = True,
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
@@ -79,7 +79,7 @@ games = OrderedDict([
         options = ["-tutorial"])),
  
     ("dcss-0.21", dict(
-        name = "DCSS 0.21 (Latest Version!)",
+        name = "DCSS 0.21 (Tournament Version!)",
         crawl_binary = "/bin/crawl-stable-launcher.sh",
         pre_options  = [ "0.21" ],
         rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-0.21/",
@@ -439,29 +439,6 @@ games = OrderedDict([
         socket_path = "%%CHROOT_WEBDIR%%/sockets",
         options = ["-tutorial"])),
 
-   ("dcss-dpegs_dynamic_monsters", dict(
-        name = "Dynamic Monsters (As monsters track you, they can become more scary)",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-  	separator = "<br>Experimentals:<br>",
-        pre_options  = [ "dpegs_dynamic_monsters" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-dpegs_dynamic_monsters/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
-
-   ("dcss-hellcrawl-cbro", dict(
-        name = "HellCrawl! (Features: less experience. Unfeatures: everything tavern hates)",
-        crawl_binary = "/bin/crawl-stable-launcher.sh",
-  	separator = "<br>",
-        pre_options  = [ "hellcrawl-cbro" ],
-        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
-        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
-        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-hellcrawl-cbro/",
-        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
-	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
 ])
 
