@@ -13,10 +13,10 @@ Current Versions:
 [T] Trunk (Updates Daily!)
 [R] 0.21  (Current Released Version)
 [O] Older Versions
-[X] Experimental Versions (disabled during tournaments) 
+[X] Experimental Versions 
 
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print in 0.21 now!
+Q)uit or P)lay or S)print in TRUNK now!
 
 => 
