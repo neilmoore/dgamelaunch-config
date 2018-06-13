@@ -13,6 +13,7 @@ Select the experimental version you wish to backup
 
 D) Dpegs Dynamic Monsters
 H) HellCrawl
+G) GoonCrawl
 
 q) Return to previous menu
 
