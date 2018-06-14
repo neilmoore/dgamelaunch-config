@@ -475,6 +475,18 @@ games = OrderedDict([
         ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
 	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
 
+   ("dcss-ui-overhaul", dict(
+        name = "UI-Overhaul! (Updated User Interface!)",
+        crawl_binary = "/bin/crawl-stable-launcher.sh",
+  	separator = "<br>",
+        pre_options  = [ "ui-overhaul" ],
+        rcfile_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        macro_path = "%%CHROOT_RCFILESDIR%%/crawl-git/",
+        morgue_path = "%%CHROOT_MORGUEDIR%%/%n/",
+        inprogress_path = "%%CHROOT_INPROGRESSDIR%%/crawl-ui-overhaul/",
+        ttyrec_path = "%%CHROOT_TTYRECDIR%%/%n/",
+	socket_path = "%%CHROOT_WEBDIR%%/sockets")),
+
 ])
 
 dgl_status_file = "%%CHROOT_WEBDIR%%/run/status"

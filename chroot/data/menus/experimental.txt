@@ -14,6 +14,7 @@ without warning: don't get too attached to your character. Thanks for helping!
 D) Dynamic Monsters! (As monsters track you, they can become more scary)
 H) HellCrawl! (Features: less experience. Unfeatures: everything tavern hates)
 G) GoonCrawl! (Crawl, designed by committee)
+U) UI Overhaul! (updated User Interface!)
 
 A) Advanced Options (create save backup for experimental versions)
 
