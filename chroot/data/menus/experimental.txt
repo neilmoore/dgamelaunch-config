@@ -11,6 +11,7 @@ WARNING: Experimental branches have limited save compatibility! Updates to the
 branches may cause the loss of existing games, and branches may be removed
 without warning: don't get too attached to your character. Thanks for helping!
 
+X) Crawl-Dev Test Branch
 D) Dynamic Monsters! (As monsters track you, they can become more scary)
 H) HellCrawl! (Features: less experience. Unfeatures: everything tavern hates)
 G) GoonCrawl! (Crawl, designed by committee)
