@@ -5,18 +5,16 @@ Crawl information:  http://crawl.develz.org/
 ** Games on this server are recorded for in-progress viewing and playback! **
 ------------------------------------------------------------------------------
 
-Logged in as: $USERNAME:[admin]
+Logged in as: $USERNAME
 W) Watch games in progress
 
 Play Dungeon Crawl Stone Soup!
-Current Versions:
-[T] Trunk (Updates Daily!)
-[R] 0.24  (Current Released Version)
-[O] Older Versions
-[X] Experimental Versions (disabled during tournaments)
+Oldest Versions:
+[3] 0.13  [4] 0.14  [5] 0.15  [6] 0.16 
+
 
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print in DCSS v0.24 now!
+Q)uit
 
 => 

@@ -11,12 +11,12 @@ W) Watch games in progress
 Play Dungeon Crawl Stone Soup!
 Current Versions:
 [T] Trunk (Updates Daily!)
-[R] 0.23  (Current Released Version)
+[R] 0.24  (Current Released Version)
 [O] Older Versions
 [X] Experimental Versions (disabled during tournaments)
 
 c) Change password  e) Change email address
 
-Q)uit or P)lay or S)print in DCSS v0.23 now!
+Q)uit or P)lay or S)print in DCSS v0.24 now!
 
 => 
